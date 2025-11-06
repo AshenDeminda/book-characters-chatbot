@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+venv/
+*.db
+*.sqlite3
+data/books/*
+data/embeddings/*
+chroma_db/
+.vscode/
+.idea/
+logs/
