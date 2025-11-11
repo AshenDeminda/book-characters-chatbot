@@ -1,12 +1,59 @@
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Environment
 .env
 venv/
+env/
+ENV/
+
+# Database
 *.db
 *.sqlite3
+
+# Data files
 data/books/*
 data/embeddings/*
+data/uploads/*
+!data/uploads/.gitkeep
 chroma_db/
+
+# Test output files
+characters_*.json
+test_*.json
+
+# IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
+
+# Logs
 logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebooks (if you add them later)
+.ipynb_checkpoints/
+*.ipynb
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+

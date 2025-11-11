@@ -18,3 +18,13 @@ Coming soon...
 ```
 
 ---
+
+
+# Start server
+python run.py
+
+# Test upload
+python test_upload.py "path\to\your\file.pdf"
+
+# Test character extraction
+python test_characters.py <document_id>
