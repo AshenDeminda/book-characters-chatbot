@@ -27,6 +27,9 @@ data/uploads/*
 !data/uploads/.gitkeep
 chroma_db/
 
+# Documentation (local only)
+docs/
+
 # Test output files
 characters_*.json
 test_*.json
