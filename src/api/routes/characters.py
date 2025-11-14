@@ -30,19 +30,23 @@ async def extract_characters(request: ExtractCharactersRequest):
     """
     Extract character names from uploaded document using AI
     """
-    # Load document text
+    # Load document text from chunks
     upload_dir = Path(settings.UPLOAD_DIR)
-    text_path = upload_dir / f"{request.document_id}_text.txt"
+    chunks_path = upload_dir / f"{request.document_id}_chunks.txt"
     
-    if not text_path.exists():
+    if not chunks_path.exists():
         raise HTTPException(
             status_code=404,
             detail=f"Document {request.document_id} not found. Please upload a document first."
         )
     
-    # Read text
-    with open(text_path, 'r', encoding='utf-8') as f:
-        full_text = f.read()
+    # Read and reconstruct text from chunks
+    with open(chunks_path, 'r', encoding='utf-8') as f:
+        chunks_content = f.read()
+    
+    # Extract text from chunks (remove chunk headers)
+    import re
+    full_text = re.sub(r'=== CHUNK \d+ ===\n', '', chunks_content)
     
     if not full_text or len(full_text) < 100:
         raise HTTPException(

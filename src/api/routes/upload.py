@@ -36,11 +36,6 @@ async def upload_storybook(file: UploadFile = File(...)):
         # Extract text
         result = text_extractor.extract_from_pdf(str(pdf_path))
         
-        # Save extracted text
-        text_path = upload_dir / f"{document_id}_text.txt"
-        with open(text_path, 'w', encoding='utf-8') as f:
-            f.write(result['full_text'])
-        
         # Create text chunks
         chunks = text_extractor.chunk_text(
             result['full_text'],
@@ -48,7 +43,7 @@ async def upload_storybook(file: UploadFile = File(...)):
             overlap=100
         )
         
-        # Save chunks
+        # Save only chunks (no need for full text file)
         chunks_path = upload_dir / f"{document_id}_chunks.txt"
         with open(chunks_path, 'w', encoding='utf-8') as f:
             for i, chunk in enumerate(chunks):
