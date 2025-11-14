@@ -12,12 +12,15 @@ character_service = CharacterService()
 class ExtractCharactersRequest(BaseModel):
     document_id: str
     max_characters: Optional[int] = 10
+    include_personality: Optional[bool] = False
 
 class Character(BaseModel):
     character_id: str
     name: str
+    aliases: List[str]
     description: str
     role: str
+    personality: Optional[dict] = None
 
 class ExtractCharactersResponse(BaseModel):
     status: str
@@ -60,6 +63,20 @@ async def extract_characters(request: ExtractCharactersRequest):
             text=full_text,
             max_characters=request.max_characters
         )
+        
+        # Generate personality summaries if requested
+        if request.include_personality:
+            for character in characters:
+                try:
+                    personality = character_service.generate_personality_summary(
+                        character_name=character['name'],
+                        text=full_text
+                    )
+                    character['personality'] = personality
+                except Exception as e:
+                    # If personality generation fails, continue without it
+                    character['personality'] = None
+                    print(f"Failed to generate personality for {character['name']}: {e}")
         
         return {
             "status": "success",

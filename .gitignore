@@ -30,6 +30,8 @@ chroma_db/
 # Test output files
 characters_*.json
 test_*.json
+entity_resolution_*.json
+production_extraction_*.json
 
 # IDE
 .vscode/
