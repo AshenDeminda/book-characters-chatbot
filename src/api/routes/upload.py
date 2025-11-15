@@ -4,10 +4,12 @@ import uuid
 import os
 
 from src.utils.text_extractor import TextExtractor
+from src.rag.rag_service import RAGService
 from src.config import settings
 
 router = APIRouter()
 text_extractor = TextExtractor()
+rag_service = RAGService()
 
 @router.post("/upload")
 async def upload_storybook(file: UploadFile = File(...)):
@@ -49,6 +51,16 @@ async def upload_storybook(file: UploadFile = File(...)):
             for i, chunk in enumerate(chunks):
                 f.write(f"=== CHUNK {i+1} ===\n{chunk}\n\n")
         
+        # Add chunks to vector store for RAG
+        rag_service.add_document_chunks(
+            document_id=document_id,
+            chunks=chunks,
+            metadata={
+                "filename": file.filename,
+                "page_count": result['page_count']
+            }
+        )
+        
         return {
             "status": "success",
             "document_id": document_id,
@@ -56,7 +68,7 @@ async def upload_storybook(file: UploadFile = File(...)):
             "page_count": result['page_count'],
             "text_length": result['total_length'],
             "chunks_count": len(chunks),
-            "message": "Storybook processed successfully"
+            "message": "Storybook processed and indexed for RAG"
         }
     
     except Exception as e:

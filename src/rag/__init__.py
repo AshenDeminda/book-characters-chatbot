@@ -1,1 +1,4 @@
-# package marker for src.rag
+# RAG Module
+from .rag_service import RAGService
+
+__all__ = ['RAGService']

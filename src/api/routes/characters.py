@@ -91,14 +91,65 @@ async def extract_characters(request: ExtractCharactersRequest):
             detail=f"Error extracting characters: {str(e)}"
         )
 
-@router.get("/characters/{document_id}")
-async def get_characters(document_id: str):
+@router.get("/characters/extract-characters/{document_id}")
+async def extract_characters_get(document_id: str, include_personality: bool = True):
     """
-    Get cached character list for a document
-    (In production, this would query a database)
+    Extract character names from uploaded document using AI (GET version for easy testing)
     """
-    return {
-        "message": "Character retrieval endpoint",
-        "document_id": document_id,
-        "note": "Implement database storage for production"
-    }
+    # Load document text from chunks
+    upload_dir = Path(settings.UPLOAD_DIR)
+    chunks_path = upload_dir / f"{document_id}_chunks.txt"
+    
+    if not chunks_path.exists():
+        raise HTTPException(
+            status_code=404,
+            detail=f"Document {document_id} not found. Please upload a document first."
+        )
+    
+    # Read and reconstruct text from chunks
+    with open(chunks_path, 'r', encoding='utf-8') as f:
+        chunks_content = f.read()
+    
+    # Extract text from chunks (remove chunk headers)
+    import re
+    full_text = re.sub(r'=== CHUNK \d+ ===\n', '', chunks_content)
+    
+    if not full_text or len(full_text) < 100:
+        raise HTTPException(
+            status_code=400,
+            detail="Document text is too short or empty"
+        )
+    
+    try:
+        # Extract characters using LLM
+        characters = character_service.extract_characters(
+            text=full_text,
+            max_characters=10
+        )
+        
+        # Generate personality summaries if requested
+        if include_personality:
+            for character in characters:
+                try:
+                    personality = character_service.generate_personality_summary(
+                        character_name=character['name'],
+                        text=full_text
+                    )
+                    character['personality'] = personality
+                except Exception as e:
+                    # If personality generation fails, continue without it
+                    character['personality'] = None
+                    print(f"Failed to generate personality for {character['name']}: {e}")
+        
+        return {
+            "status": "success",
+            "document_id": document_id,
+            "characters": characters,
+            "total_found": len(characters)
+        }
+    
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error extracting characters: {str(e)}"
+        )
