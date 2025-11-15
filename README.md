@@ -8,38 +8,48 @@ RAG application that lets users chat with book characters based on uploaded book
 - ✅ AI-powered character name extraction
 - ✅ Entity resolution (merges character aliases)
 - ✅ Character personality/behavior analysis
-- 🚧 Character-based chatbot (coming soon)
-- 🚧 RAG for context-aware conversations (coming soon)
+- ✅ Character caching for fast responses
+- ✅ RAG-powered character chat
+- ✅ FastAPI REST API with interactive docs
 
 ## Tech Stack
 - FastAPI
 - LangChain
-- PostgreSQL/SQLite
-- Vector Database (ChromaDB/FAISS)
+- Google Gemini AI
+- ChromaDB (Vector Store)
+- SQLite
 
 ## Setup
-Coming soon...
+
+1. **Create virtual environment:**
+```bash
+python -m venv venv
+venv\Scripts\activate
 ```
 
----
+2. **Install dependencies:**
+```bash
+pip install -r requirements.txt
+```
 
+3. **Configure environment:**
+Create `.env` file with:
+```
+GEMINI_API_KEY=your_key_here
+```
 
-# Start server
+4. **Start server:**
+```bash
 python run.py
+```
 
-# Test upload
-python test_upload.py "path\to\your\file.pdf"
+5. **Open API docs:**
+Navigate to `http://localhost:8000/docs`
 
-# Test character extraction (names only)
-python test_characters.py <document_id>
+## API Endpoints
 
-# Test character extraction with personality analysis
-python test_personality.py <document_id>
-
-# Test entity resolution (alias merging)
-python test_entity_resolution.py <document_id>
-
-
-
-
-venv\Scripts\activate
+- **POST /api/v1/upload** - Upload PDF book
+- **POST /api/v1/characters/extract-characters** - Extract characters
+- **GET /api/v1/characters/extract-characters/{document_id}** - Get cached characters
+- **POST /api/v1/chat** - Chat with character
+- **POST /api/v1/chat/greeting** - Get character greeting
