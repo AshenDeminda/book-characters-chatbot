@@ -3,6 +3,7 @@ import PyPDF2
 import re
 from typing import Dict, List
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -11,6 +12,23 @@ class TextExtractor:
 
     def __init__(self):
         self.min_text_length = 50  # Minimum page text length
+
+    def _validate_pdf(self, pdf_path: str) -> None:
+        """Validate PDF file before extraction"""
+        # Check file exists
+        if not os.path.exists(pdf_path):
+            raise Exception("PDF file not found")
+        
+        # Check file size (must be > 1KB)
+        file_size = os.path.getsize(pdf_path)
+        if file_size < 1024:
+            raise Exception("PDF file is too small (less than 1KB). File may be corrupted.")
+        
+        # Check file header (PDF files start with %PDF)
+        with open(pdf_path, 'rb') as f:
+            header = f.read(4)
+            if header != b'%PDF':
+                raise Exception("File is not a valid PDF (invalid header)")
 
     def extract_from_pdf(self, pdf_path: str) -> Dict[str, any]:
         """
@@ -23,65 +41,114 @@ class TextExtractor:
         Returns:
             Dictionary with extracted text and metadata
         """
+        # Validate PDF first
         try:
-            return self._extract_with_pdfplumber(pdf_path)
+            self._validate_pdf(pdf_path)
         except Exception as e:
-            logger.warning(f"pdfplumber failed: {e}, trying PyPDF2")
-            return self._extract_with_pypdf2(pdf_path)
+            logger.error(f"PDF validation failed: {e}")
+            raise
+        
+        # Try pdfplumber first
+        pdfplumber_error = None
+        try:
+            result = self._extract_with_pdfplumber(pdf_path)
+            logger.info(f"Successfully extracted {result['page_count']} pages using pdfplumber")
+            return result
+        except Exception as e:
+            pdfplumber_error = str(e)
+            logger.warning(f"pdfplumber extraction failed: {pdfplumber_error}")
+        
+        # Fallback to PyPDF2
+        logger.info("Attempting PyPDF2 fallback extraction...")
+        try:
+            result = self._extract_with_pypdf2(pdf_path)
+            logger.info(f"Successfully extracted {result['page_count']} pages using PyPDF2")
+            return result
+        except Exception as e2:
+            pypdf2_error = str(e2)
+            logger.error(f"PyPDF2 extraction also failed: {pypdf2_error}")
+            raise Exception(f"PDF extraction failed with both methods. pdfplumber error: {pdfplumber_error}. PyPDF2 error: {pypdf2_error}")
 
     def _extract_with_pdfplumber(self, pdf_path: str) -> Dict:
         """Extract using pdfplumber (better layout preservation)"""
         text_by_page = []
-
-        with pdfplumber.open(pdf_path) as pdf:
+        total_pages = 0
+        
+        try:
+            pdf = pdfplumber.open(pdf_path)
             total_pages = len(pdf.pages)
-
+            
             for page_num, page in enumerate(pdf.pages, 1):
-                text = page.extract_text()
-                if text and len(text.strip()) > self.min_text_length:
-                    cleaned_text = self._clean_text(text)
-                    text_by_page.append({
-                        "page": page_num,
-                        "text": cleaned_text
-                    })
+                try:
+                    text = page.extract_text()
+                    if text and len(text.strip()) > self.min_text_length:
+                        cleaned_text = self._clean_text(text)
+                        text_by_page.append({
+                            "page": page_num,
+                            "text": cleaned_text
+                        })
+                except Exception as page_error:
+                    logger.warning(f"Failed to extract page {page_num}: {page_error}")
+                    # Continue to next page even if one page fails
+                    continue
+            
+            pdf.close()
+            
+            full_text = "\n\n".join([p["text"] for p in text_by_page])
+            
+            if not full_text or len(full_text.strip()) < 100:
+                raise Exception("PDF appears to be empty or contains no extractable text")
 
-        full_text = "\n\n".join([p["text"] for p in text_by_page])
-
-        return {
-            "full_text": full_text,
-            "pages": text_by_page,
-            "page_count": total_pages,
-            "total_length": len(full_text),
-            "method": "pdfplumber"
-        }
+            return {
+                "full_text": full_text,
+                "pages": text_by_page,
+                "page_count": total_pages,
+                "total_length": len(full_text),
+                "method": "pdfplumber"
+            }
+        except Exception as e:
+            error_msg = str(e)
+            if "Compressed file" in error_msg or "end-of-stream" in error_msg:
+                raise Exception(f"PDF compression error: {error_msg}. This PDF may use unsupported compression or be corrupted.")
+            raise Exception(f"pdfplumber extraction failed: {error_msg}")
 
     def _extract_with_pypdf2(self, pdf_path: str) -> Dict:
         """Fallback extraction using PyPDF2"""
         text_by_page = []
 
-        with open(pdf_path, 'rb') as file:
-            reader = PyPDF2.PdfReader(file)
-            total_pages = len(reader.pages)
+        try:
+            with open(pdf_path, 'rb') as file:
+                reader = PyPDF2.PdfReader(file)
+                total_pages = len(reader.pages)
 
-            for page_num in range(total_pages):
-                page = reader.pages[page_num]
-                text = page.extract_text()
-                if text and len(text.strip()) > self.min_text_length:
-                    cleaned_text = self._clean_text(text)
-                    text_by_page.append({
-                        "page": page_num + 1,
-                        "text": cleaned_text
-                    })
+                for page_num in range(total_pages):
+                    try:
+                        page = reader.pages[page_num]
+                        text = page.extract_text()
+                        if text and len(text.strip()) > self.min_text_length:
+                            cleaned_text = self._clean_text(text)
+                            text_by_page.append({
+                                "page": page_num + 1,
+                                "text": cleaned_text
+                            })
+                    except Exception as page_error:
+                        logger.warning(f"Failed to extract page {page_num + 1}: {page_error}")
+                        continue
 
-        full_text = "\n\n".join([p["text"] for p in text_by_page])
+            full_text = "\n\n".join([p["text"] for p in text_by_page])
+            
+            if not full_text or len(full_text.strip()) < 100:
+                raise Exception("PDF appears to be empty or contains no extractable text")
 
-        return {
-            "full_text": full_text,
-            "pages": text_by_page,
-            "page_count": total_pages,
-            "total_length": len(full_text),
-            "method": "PyPDF2"
-        }
+            return {
+                "full_text": full_text,
+                "pages": text_by_page,
+                "page_count": total_pages,
+                "total_length": len(full_text),
+                "method": "PyPDF2"
+            }
+        except Exception as e:
+            raise Exception(f"PDF extraction failed: {str(e)}. The file may be corrupted, password-protected, or in an unsupported format.")
 
     def _clean_text(self, text: str) -> str:
         """Clean and normalize extracted text"""

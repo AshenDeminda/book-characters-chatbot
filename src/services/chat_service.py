@@ -12,6 +12,16 @@ from src.rag.rag_service import RAGService
 
 logger = logging.getLogger(__name__)
 
+# ===============================================
+# CHAT ACCURACY IMPROVEMENTS
+#
+# Focus: RAG-based character accuracy for ANY book
+# - Strict in-character responses using personality + story context
+# - Greetings match character's actual personality (not generic)
+# - Reduced hallucinations via structured prompts
+# - Better use of RAG excerpts
+# ===============================================
+
 class ChatService:
     """Manages character-based conversations with RAG context"""
     
@@ -40,7 +50,7 @@ class ChatService:
         conversation_history: Optional[List[Dict]] = None
     ) -> str:
         """
-        Build the prompt for character conversation
+        Build the prompt for character conversation with strict accuracy controls
         
         Args:
             character: Character information (name, personality, aliases)
@@ -53,63 +63,63 @@ class ChatService:
         """
         # Extract character info
         name = character.get('name', 'Unknown')
-        aliases = character.get('aliases', [])
         description = character.get('description', '')
+        role = character.get('role', 'character')
         personality = character.get('personality', {})
         
-        # Build personality section
-        personality_text = ""
+        # Build personality section with structure
+        personality_section = ""
         if personality:
             traits = personality.get('personality_traits', [])
             behavior = personality.get('behavior_summary', '')
             motivations = personality.get('motivations', '')
             
             if traits:
-                personality_text += f"Personality traits: {', '.join(traits)}\n"
+                personality_section += f"\nPersonality: {', '.join(traits)}"
             if behavior:
-                personality_text += f"Behavior: {behavior}\n"
+                personality_section += f"\nBehavior patterns: {behavior}"
             if motivations:
-                personality_text += f"Motivations: {motivations}\n"
+                personality_section += f"\nMotivations: {motivations}"
         
-        # Build context from RAG
-        context_text = ""
+        # Build context from RAG with clear boundaries
+        context_section = ""
         if relevant_context:
-            context_text = "\n\nRelevant story excerpts:\n"
-            for i, ctx in enumerate(relevant_context[:3], 1):  # Use top 3 chunks
-                context_text += f"\n[Excerpt {i}]:\n{ctx['text']}\n"
+            context_section = "\n\n=== STORY CONTEXT (Your source of truth) ===\n"
+            for i, ctx in enumerate(relevant_context[:3], 1):
+                # Truncate very long contexts
+                context_text = ctx['text'][:500] if len(ctx['text']) > 500 else ctx['text']
+                context_section += f"\n[Context {i}]:\n{context_text}\n"
+            context_section += "\n=== END STORY CONTEXT ===\n"
         
         # Build conversation history
-        history_text = ""
-        if conversation_history:
-            history_text = "\n\nRecent conversation:\n"
-            for turn in conversation_history[-5:]:  # Last 5 turns
-                role = turn.get('role', 'user')
+        history_section = ""
+        if conversation_history and len(conversation_history) > 0:
+            history_section = "\n\nRecent conversation:\n"
+            for turn in conversation_history[-4:]:  # Last 4 turns
+                role_text = turn.get('role', 'user')
                 content = turn.get('content', '')
-                history_text += f"{role.capitalize()}: {content}\n"
+                history_section += f"- {role_text.capitalize()}: {content}\n"
         
-        # Build final prompt
-        prompt = f"""You are {name}, a character from a story. You must respond AS THIS CHARACTER, staying completely in character.
+        # Build final prompt with strict instructions
+        prompt = f"""You are roleplaying as {name} from a story.
 
-Character Information:
-{description}
+CHARACTER PROFILE:
+Name: {name}
+Role: {role}
+Description: {description}{personality_section}
+{context_section}
+CRITICAL RULES:
+1. You ARE {name}. Respond using "I", "me", "my" (first person only)
+2. ONLY use information from the STORY CONTEXT above
+3. Match {name}'s personality, tone, and speaking style from the description
+4. If the user asks about something NOT in the story context, say you don't recall that specific detail
+5. DO NOT add information not present in the context
+6. Stay completely in character - never break the fourth wall
+7. Keep responses concise and natural (2-4 sentences typically)
+{history_section}
+User asks: {user_message}
 
-{personality_text}
-
-Known aliases: {', '.join(aliases) if aliases else name}
-{context_text}
-{history_text}
-
-IMPORTANT INSTRUCTIONS:
-1. Respond as {name} would, using their personality, speech patterns, and knowledge
-2. Stay consistent with the story context provided above
-3. Do not break character or mention you are an AI
-4. Use first person ("I", "my", "me")
-5. Reference events from the story naturally if relevant
-6. Match the character's tone and manner of speaking
-
-User's message: {user_message}
-
-{name}'s response:"""
+Respond as {name}:"""
         
         return prompt
     
@@ -179,7 +189,7 @@ User's message: {user_message}
     
     def get_character_greeting(self, character: Dict) -> str:
         """
-        Generate a character's initial greeting
+        Generate a character's initial greeting that matches their personality
         
         Args:
             character: Character information
@@ -189,25 +199,58 @@ User's message: {user_message}
         """
         name = character.get('name', 'Character')
         description = character.get('description', '')
+        role = character.get('role', 'character')
+        personality = character.get('personality', {})
+        
+        # Extract personality details
+        traits = personality.get('personality_traits', []) if personality else []
+        behavior = personality.get('behavior_summary', '') if personality else ''
         
         try:
-            prompt = f"""You are {name}, a character from a story.
+            # Build context-aware greeting prompt
+            personality_hint = ""
+            if traits:
+                personality_hint = f"\nYour personality: {', '.join(traits[:3])}"
+            if behavior:
+                personality_hint += f"\nHow you act: {behavior[:200]}"
+            
+            prompt = f"""You are {name}, a {role} from a story.
 
-Character info: {description}
+About you:
+{description}{personality_hint}
 
-Generate a brief, friendly greeting (1-2 sentences) to welcome someone who wants to talk to you. Stay in character.
+Generate a BRIEF greeting (1-2 sentences max) as {name} meeting someone for the first time.
 
-{name}'s greeting:"""
+RULES:
+- Stay TRUE to {name}'s personality and situation in the story
+- Use first person ("I", "me", "my")
+- Match {name}'s tone (formal/casual, friendly/reserved, etc.)
+- DO NOT be overly cheerful if the character isn't cheerful
+- DO NOT use modern slang unless the character would
+- Keep it natural and authentic to who {name} is
+
+{name} says:"""
             
             if settings.AI_PROVIDER == "gemini":
                 if not self.gemini_model:
-                    return f"Hello, I'm {name}. What would you like to know?"
+                    return f"I'm {name}."
                 
-                response = self.gemini_model.generate_content(prompt)
-                return response.text.strip()
+                response = self.gemini_model.generate_content(
+                    prompt,
+                    generation_config=genai.types.GenerationConfig(
+                        temperature=0.7,  # Some creativity but controlled
+                        max_output_tokens=100  # Keep greetings short
+                    )
+                )
+                greeting = response.text.strip()
+                
+                # Clean up any quotes or extra formatting
+                greeting = greeting.strip('"\'')
+                return greeting
             else:
-                return f"Hello, I'm {name}. What would you like to know?"
+                return f"I'm {name}."
                 
         except Exception as e:
             logger.error(f"Error generating greeting: {e}")
-            return f"Hello, I'm {name}. What would you like to know?"
+            # Fallback: Simple, character-appropriate greeting
+            return f"I'm {name}."
