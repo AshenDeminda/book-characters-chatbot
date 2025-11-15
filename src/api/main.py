@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 import logging
 
 from src.config import settings
-from src.api.routes import upload, characters
+from src.api.routes import upload, characters, chat
 from src.models.database import Base, engine
 
 # Configure logging
@@ -40,6 +40,7 @@ app.add_middleware(
 # Register routes
 app.include_router(upload.router, prefix="/api/v1", tags=["Upload"])
 app.include_router(characters.router, prefix="/api/v1", tags=["Characters"])
+app.include_router(chat.router, prefix="/api/v1", tags=["Chat"])
 
 # Global exception handler
 @app.exception_handler(Exception)

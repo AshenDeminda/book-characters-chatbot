@@ -39,8 +39,19 @@ class CharacterService:
             "eighty-six", "soldiers", "troops", "children",
             "boy", "girl", "stranger", "enemy", "friend",
             "handler", "officer", "general", "master", "mistress",
-            "lord", "lady", "sir", "madam", "miss", "mr", "mrs", "ms"
+            "lord", "lady", "sir", "madam", "miss", "mr", "mrs", "ms",
+            "weakest", "strongest"  # Descriptive adjectives, not names
         }
+        
+        # Patterns that indicate descriptive phrases (not names)
+        # These catch phrases like "World's Weakest Hero", "The Strongest Hunter"
+        self.descriptive_patterns = [
+            r'.*\s+(weakest|strongest|best|worst|greatest|lowest)\s+.*',  # "world's weakest hero"
+            r'.*the\s+(weakest|strongest|best|worst|greatest|lowest).*',   # "the strongest hunter"
+            r'.*of\s+the\s+.*',                           # "king of the hill"
+            r'.*who\s+.*',                                 # "one who"
+            r'.*that\s+.*',                               # "person that"
+        ]
         
         # Known alias patterns for common character variations
         self.alias_patterns = [
@@ -50,12 +61,26 @@ class CharacterService:
         ]
     
     def _is_non_character(self, name: str) -> bool:
-        """Check if name is in blacklist of non-character terms"""
+        """Check if name is in blacklist of non-character terms or is a descriptive phrase"""
         normalized = self._normalize_name(name)
         
         # Check exact match
         if normalized in self.non_character_terms:
             return True
+        
+        # Check if it's a descriptive phrase containing blacklisted adjectives
+        # (e.g., "world weakest hero" contains "weakest")
+        name_words = set(normalized.split())
+        if name_words.intersection(self.non_character_terms):
+            # If it's a multi-word phrase (3+ words) with descriptive adjectives, it's likely a description
+            # Single or two-word names are more likely to be actual names
+            if len(name_words) >= 3:  # Multi-word phrases with descriptive terms are likely descriptions
+                return True
+        
+        # Check if it matches descriptive phrase patterns
+        for pattern in self.descriptive_patterns:
+            if re.match(pattern, normalized, re.IGNORECASE):
+                return True
         
         # Check if it's purely a title/rank
         title_pattern = r'^(the\s+)?(lieutenant|captain|commander|colonel|general|officer|handler)\s*(one|two|three)?$'
@@ -65,6 +90,11 @@ class CharacterService:
         # Check if it's a group reference
         group_pattern = r'^(the\s+)?(soldiers|troops|children|enemies|friends|group|squad|unit)$'
         if re.match(group_pattern, normalized):
+            return True
+        
+        # Check if it's a descriptive phrase (contains "the" + adjective + noun pattern)
+        descriptive_pattern = r'^(the\s+)?(world|world\'s|kingdom|realm|land)\'?s?\s+(weakest|strongest|best|worst|greatest|lowest)\s+.*'
+        if re.match(descriptive_pattern, normalized, re.IGNORECASE):
             return True
         
         return False
@@ -243,7 +273,7 @@ class CharacterService:
         
         prompt = f"""You are an expert entity extraction system for novels.
 
-Your job is to identify ONLY real characters that actually exist as people in the story.
+Your job is to identify ONLY real character NAMES (proper nouns) that actually exist as people in the story.
 
 Given the following novel text:
 
@@ -251,28 +281,56 @@ Given the following novel text:
 
 Follow these STRICT rules:
 
-### RULES FOR IDENTIFYING REAL CHARACTERS
-1. Extract ONLY entities that represent actual people with agency:
-   - If they speak
-   - If they act
-   - If they are described as individuals
+### CRITICAL: WHAT IS A REAL CHARACTER NAME?
+A real character name MUST be:
+- A proper noun (capitalized name like "John", "Sung Jinwoo", "Alice")
+- Something the character is actually CALLED BY (their given name, family name, or established nickname/callsign)
+- A name that appears multiple times referring to the same person
+- Examples of VALID names: "Jinwoo", "Sung Jinwoo", "Shin", "Lena", "Undertaker" (if it's a callsign)
 
-2. IGNORE the following:
-   - Insults or mockery nicknames (e.g., "idiot," "princess," "fool," "Your Majesty" used sarcastically)
-   - Group names (e.g., "the Eighty-Six", "soldiers", "children")
-   - Titles alone (e.g., "the lieutenant," "the captain," "the queen")
-   - Epigraph authors unless they appear inside the story's events
-   - Generic references (e.g., "boy," "girl," "stranger")
+### STRICTLY IGNORE (DO NOT EXTRACT):
+1. Descriptive phrases or titles used as descriptions:
+   - "World's Weakest Hero" (this is a description, not a name)
+   - "The Strongest Hunter" (this is a title/description)
+   - "The Reaper" (unless it's actually used as a name/callsign)
+   - Any phrase that describes what someone IS rather than what they're CALLED
 
-3. When a character has name variations (nicknames, callsigns, shortened forms):
-   - LIST EACH VARIANT as a SEPARATE ENTRY (merging will be handled later)
-   - Example:
-     - "Shin"
-     - "Shinei Nouzen"
-     - "Undertaker"
+2. Insults, mockery, or derogatory nicknames:
+   - "idiot", "fool", "weakling", "loser"
+   - Sarcastic titles like "Your Majesty" when used mockingly
+
+3. Group names or collective terms:
+   - "the Eighty-Six", "soldiers", "hunters", "children", "the guild"
+
+4. Titles or ranks without a name:
+   - "the lieutenant", "the captain", "the queen" (unless it's their actual name)
+   - "Handler One" (unless it's used as a name)
+
+5. Generic references:
+   - "boy", "girl", "stranger", "man", "woman", "person"
+
+6. Descriptive sentences or phrases:
+   - "the one who", "someone who", "the person that"
+   - Any multi-word phrase that reads like a description rather than a name
+
+### WHEN A CHARACTER HAS MULTIPLE NAMES:
+If a character has name variations (nicknames, callsigns, full names):
+- LIST EACH VARIANT as a SEPARATE ENTRY (merging will be handled later)
+- Only include if they're actual names/callsigns, NOT descriptions
+- Example:
+  - "Shin" ✓ (actual name)
+  - "Shinei Nouzen" ✓ (full name)
+  - "Undertaker" ✓ (if it's a callsign used as a name)
+  - "World's Weakest" ✗ (this is a description, not a name)
+
+### VALIDATION CHECK:
+Before extracting a name, ask yourself:
+- Is this a proper noun/name that the character is called by?
+- Or is this a descriptive phrase about what the character is/does?
+- If it's a description → DO NOT EXTRACT IT
 
 4. For each extracted character, include:
-   - "name": the exact name or callsign as it appears in text
+   - "name": the exact name, callsign, or nickname as it appears in text (must be a proper name, not a description)
    - "description": one sentence describing who they are IN THE SCENE ONLY
    - "role": protagonist / antagonist / supporting
      (guess based only on the excerpt)
@@ -281,7 +339,7 @@ Follow these STRICT rules:
 Return ONLY a JSON array:
 [
   {{
-    "name": "Name or alias",
+    "name": "Actual character name (proper noun)",
     "description": "One-sentence description",
     "role": "protagonist/supporting/antagonist"
   }}
