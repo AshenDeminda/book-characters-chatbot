@@ -24,6 +24,7 @@ ENV/
 data/books/*
 data/embeddings/*
 data/uploads/*
+data/cache/*
 !data/uploads/.gitkeep
 chroma_db/
 
