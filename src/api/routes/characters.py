@@ -84,11 +84,11 @@ async def extract_characters(request: ExtractCharactersRequest):
                     logger.warning(f"Failed to generate personality for {character['name']}: {e}")
         
         # Save to cache
-        character_cache.save_characters(document_id, characters)
+        character_cache.save_characters(request.document_id, characters)
         
         return {
             "status": "success",
-            "document_id": document_id,
+            "document_id": request.document_id,
             "characters": characters,
             "total_found": len(characters),
             "from_cache": False

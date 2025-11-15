@@ -92,22 +92,28 @@ async def chat_with_character(request: ChatRequest):
                 if name_from_id.lower() in char['name'].lower() or char['name'].lower() in name_from_id.lower():
                     character = char
                     break
-            # Check aliases
-            if char.get('aliases'):
-                for alias in char['aliases']:
-                    if name_from_id.lower() in alias.lower() or alias.lower() in name_from_id.lower():
-                        character = char
+                # Check aliases
+                if char.get('aliases'):
+                    for alias in char['aliases']:
+                        if name_from_id.lower() in alias.lower() or alias.lower() in name_from_id.lower():
+                            character = char
+                            break
+                    if character:
                         break
-                if character:
-                    break
     
     if not character:
         # Provide helpful error message with available characters
-        available_ids = [char['character_id'] for char in characters[:5]]
-        raise HTTPException(
-            status_code=404,
-            detail=f"Character {request.character_id} not found in document. Available characters: {', '.join(available_ids)}"
-        )
+        if 'characters' in locals():
+            available_ids = [char['character_id'] for char in characters[:5]]
+            raise HTTPException(
+                status_code=404,
+                detail=f"Character {request.character_id} not found in document. Available characters: {', '.join(available_ids)}"
+            )
+        else:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Character {request.character_id} not found in document"
+            )
     
     # Convert conversation history to dict format
     history = [
@@ -191,20 +197,20 @@ async def get_character_greeting(request: GreetingRequest):
                             break
                     if character:
                         break
-                for alias in char['aliases']:
-                    if name_from_id.lower() in alias.lower() or alias.lower() in name_from_id.lower():
-                        character = char
-                        break
-                if character:
-                    break
     
     if not character:
         # Provide helpful error message with available characters
-        available_ids = [char['character_id'] for char in characters[:5]]
-        raise HTTPException(
-            status_code=404,
-            detail=f"Character {request.character_id} not found. Available characters: {', '.join(available_ids)}"
-        )
+        if 'characters' in locals():
+            available_ids = [char['character_id'] for char in characters[:5]]
+            raise HTTPException(
+                status_code=404,
+                detail=f"Character {request.character_id} not found. Available characters: {', '.join(available_ids)}"
+            )
+        else:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Character {request.character_id} not found"
+            )
     
     try:
         greeting = chat_service.get_character_greeting(character)

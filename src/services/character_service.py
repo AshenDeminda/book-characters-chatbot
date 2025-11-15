@@ -52,13 +52,6 @@ class CharacterService:
             r'.*who\s+.*',                                 # "one who"
             r'.*that\s+.*',                               # "person that"
         ]
-        
-        # Known alias patterns for common character variations
-        self.alias_patterns = [
-            # Format: (pattern_name, set of aliases that should merge)
-            ("shin_group", {"undertaker", "reaper", "shinei", "shin", "nouzen"}),
-            ("lena_group", {"handler one", "vladilena", "lena", "milizé", "milize"}),
-        ]
     
     def _is_non_character(self, name: str) -> bool:
         """Check if name is in blacklist of non-character terms or is a descriptive phrase"""
@@ -99,21 +92,48 @@ class CharacterService:
         
         return False
     
-    def _check_alias_patterns(self, name: str) -> str:
-        """Check if name matches known alias patterns, return pattern group"""
-        normalized = self._normalize_name(name)
-        
-        for pattern_name, aliases in self.alias_patterns:
-            # Check if any word from the name appears in the alias set
-            name_words = set(normalized.split())
-            if name_words.intersection(aliases):
-                return pattern_name
-        
-        return None
-    
     def _normalize_name(self, name: str) -> str:
-        """Normalize name for comparison (lowercase, strip whitespace)"""
-        return name.lower().strip()
+        """Normalize name for comparison (lowercase, strip whitespace, remove punctuation)"""
+        # Remove punctuation except hyphens and apostrophes
+        normalized = re.sub(r'[^\w\s\-\']', '', name.lower())
+        return ' '.join(normalized.split())  # Normalize whitespace
+    
+    def _calculate_similarity(self, str1: str, str2: str) -> float:
+        """Calculate similarity between two strings (0.0 to 1.0)"""
+        return SequenceMatcher(None, str1, str2).ratio()
+    
+    def _is_name_subset(self, short: str, long: str) -> bool:
+        """Check if short name is a subset of long name (e.g., 'Shin' in 'Shinei Nouzen')"""
+        short_parts = set(short.lower().split())
+        long_parts = set(long.lower().split())
+        
+        # Check if any part of short name appears in long name
+        for short_part in short_parts:
+            for long_part in long_parts:
+                # Direct substring match
+                if short_part in long_part or long_part in short_part:
+                    return True
+                # High similarity match
+                if self._calculate_similarity(short_part, long_part) > 0.85:
+                    return True
+        return False
+    
+    def _is_title_pattern(self, name: str) -> bool:
+        """Check if name is a title pattern (e.g., 'Handler One', 'The Undertaker')"""
+        normalized = name.lower()
+        
+        # Common title patterns
+        title_patterns = [
+            r'^(the\s+)?handler\s+(one|two|three|four|five|1|2|3|4|5)',
+            r'^(the\s+)?(captain|commander|lieutenant|colonel|general|officer)',
+            r'^(the\s+)?(undertaker|reaper|handler|observer|striker)',
+            r'^(sir|madam|lord|lady|master|mistress)\s+\w+',
+        ]
+        
+        for pattern in title_patterns:
+            if re.match(pattern, normalized):
+                return True
+        return False
     
     def _fuzzy_match(self, name1: str, name2: str, threshold: float = 0.85) -> bool:
         """Check if two names are similar using fuzzy matching"""
@@ -128,9 +148,27 @@ class CharacterService:
         if norm1 in norm2 or norm2 in norm1:
             return True
         
-        # Fuzzy matching for similar names
-        similarity = SequenceMatcher(None, norm1, norm2).ratio()
-        return similarity >= threshold
+        # Check name subset (e.g., "Shin" matches "Shinei Nouzen")
+        if self._is_name_subset(norm1, norm2) or self._is_name_subset(norm2, norm1):
+            return True
+        
+        # Fuzzy matching for similar names (typos, translations)
+        similarity = self._calculate_similarity(norm1, norm2)
+        if similarity >= threshold:
+            return True
+        
+        # Check word-by-word matching for multi-word names
+        words1 = set(norm1.split())
+        words2 = set(norm2.split())
+        
+        # If they share at least one significant word (>3 chars)
+        common_words = words1.intersection(words2)
+        if common_words:
+            # At least one common word longer than 3 chars
+            if any(len(word) > 3 for word in common_words):
+                return True
+        
+        return False
     
     def _extract_name_parts(self, name: str) -> Set[str]:
         """Extract individual name parts (first, last, middle names)"""
@@ -150,36 +188,40 @@ class CharacterService:
         name1 = char1.get('name', '')
         name2 = char2.get('name', '')
         
-        # Check if both belong to same alias pattern
-        pattern1 = self._check_alias_patterns(name1)
-        pattern2 = self._check_alias_patterns(name2)
+        # Skip if either name is empty
+        if not name1 or not name2:
+            return False
         
-        if pattern1 and pattern2 and pattern1 == pattern2:
-            return True
-        
-        # Exact or fuzzy match on full names
+        # Direct fuzzy matching (handles nicknames, subsets, similarities)
         if self._fuzzy_match(name1, name2):
             return True
         
-        # Check if descriptions mention each other
+        # Check if descriptions are very similar (same person described differently)
         desc1 = char1.get('description', '').lower()
         desc2 = char2.get('description', '').lower()
         
-        norm1 = self._normalize_name(name1)
-        norm2 = self._normalize_name(name2)
-        
-        if norm1 in desc2 or norm2 in desc1:
-            return True
+        if desc1 and desc2:
+            # If descriptions are highly similar, likely same character
+            desc_similarity = self._calculate_similarity(desc1, desc2)
+            if desc_similarity > 0.7:
+                return True
+            
+            # Check if one name appears in the other's description
+            norm1 = self._normalize_name(name1)
+            norm2 = self._normalize_name(name2)
+            
+            if norm1 in desc2 or norm2 in desc1:
+                return True
         
         # Check for common name parts (shared first or last name)
         parts1 = self._extract_name_parts(name1)
         parts2 = self._extract_name_parts(name2)
         
-        # If they share significant name parts
+        # If they share significant name parts (>3 chars)
         common_parts = parts1.intersection(parts2)
-        if common_parts and len(common_parts) >= 1:
-            # If any common part is longer than 3 chars, consider it a match
-            if any(len(part) > 3 for part in common_parts):
+        if common_parts:
+            significant_common = [p for p in common_parts if len(p) > 3]
+            if significant_common:
                 return True
         
         return False
@@ -230,25 +272,33 @@ class CharacterService:
                         if char2.get('role') == 'protagonist':
                             main_char['role'] = 'protagonist'
             
-            # Add aliases field
-            main_char['aliases'] = sorted(list(aliases))
+            # Smart canonical name selection
+            # Priority: Full names > First names > Callsigns > Nicknames
             
-            # Smart primary name selection
-            # 1. Prefer full names (contains space, not all uppercase)
-            # 2. Then prefer callsigns/nicknames
-            # 3. Avoid titles and single-word insults
+            # 1. Find full names (contains space, multiple words)
+            full_names = [name for name in aliases if ' ' in name and len(name.split()) >= 2]
             
-            primary_candidates = [
-                name for name in aliases 
-                if " " in name and not name.isupper() and len(name) > 3
-            ]
+            # 2. Find single-word names (first names)
+            single_names = [name for name in aliases if ' ' not in name and len(name) > 2]
             
-            if primary_candidates:
-                # Choose longest full name
-                main_char['name'] = max(primary_candidates, key=len)
+            # 3. Find callsigns/titles
+            titles = [name for name in aliases if self._is_title_pattern(name)]
+            
+            # Select canonical name
+            if full_names:
+                # Prefer longest full name (most complete)
+                main_char['name'] = max(full_names, key=len)
+            elif single_names:
+                # Prefer longest single name
+                main_char['name'] = max(single_names, key=len)
+            elif titles:
+                main_char['name'] = titles[0]
             else:
-                # No full name found, use longest alias (probably callsign)
-                main_char['name'] = max(aliases, key=len)
+                # Fallback to first alias
+                main_char['name'] = list(aliases)[0]
+            
+            # Add all aliases (sorted)
+            main_char['aliases'] = sorted(list(aliases))
             
             merged.append(main_char)
             used_indices.add(i)
@@ -268,84 +318,71 @@ class CharacterService:
         Returns:
             List of character dictionaries with aliases merged
         """
-        # Use first 12000 characters for better context
-        sample_text = text[:12000]
+        # Use first 15000 characters for better context
+        sample_text = text[:15000]
         
-        prompt = f"""You are an expert entity extraction system for novels.
+        prompt = f"""You are an expert at extracting character names from novels.
 
-Your job is to identify ONLY real character NAMES (proper nouns) that actually exist as people in the story.
+Extract ALL name variations for each character from the text below. A character may appear as:
+- Full name: "Sung Jinwoo", "Vladilena Milizé"
+- First name only: "Jinwoo", "Lena"
+- Last name only: "Sung"
+- Nicknames: "Lena", "Shin"
+- Callsigns/Titles: "Handler One", "The Undertaker"
 
-Given the following novel text:
-
+TEXT:
 {sample_text}
 
-Follow these STRICT rules:
+EXTRACTION RULES:
 
-### CRITICAL: WHAT IS A REAL CHARACTER NAME?
-A real character name MUST be:
-- A proper noun (capitalized name like "John", "Sung Jinwoo", "Alice")
-- Something the character is actually CALLED BY (their given name, family name, or established nickname/callsign)
-- A name that appears multiple times referring to the same person
-- Examples of VALID names: "Jinwoo", "Sung Jinwoo", "Shin", "Lena", "Undertaker" (if it's a callsign)
+1. WHAT TO EXTRACT (YES):
+   ✓ Actual character names (proper nouns): "Sung Jinwoo", "Joohee Lee", "Shinei Nouzen"
+   ✓ Nicknames used as names: "Shin", "Lena", "Jinwoo"
+   ✓ Callsigns/titles when used AS A NAME: "Undertaker", "Handler One"
+   ✓ Name variations: "Sung Jinwoo" AND "Jinwoo" AND "Sung" (list separately)
 
-### STRICTLY IGNORE (DO NOT EXTRACT):
-1. Descriptive phrases or titles used as descriptions:
-   - "World's Weakest Hero" (this is a description, not a name)
-   - "The Strongest Hunter" (this is a title/description)
-   - "The Reaper" (unless it's actually used as a name/callsign)
-   - Any phrase that describes what someone IS rather than what they're CALLED
+2. WHAT TO IGNORE (NO):
+   ✗ Descriptive phrases: "World's Weakest Hunter", "The Strongest"
+   ✗ Insults/mockery: "idiot", "fool", "weakling"
+   ✗ Generic titles: "the captain", "the queen" (without name)
+   ✗ Group references: "the soldiers", "hunters", "guild members"
+   ✗ Generic terms: "boy", "girl", "stranger", "person"
 
-2. Insults, mockery, or derogatory nicknames:
-   - "idiot", "fool", "weakling", "loser"
-   - Sarcastic titles like "Your Majesty" when used mockingly
+3. IMPORTANT: List each name variation SEPARATELY
+   - If a character is called "Sung Jinwoo", "Jinwoo", and "Sung" → create 3 entries
+   - If a character has callsign "Undertaker" and name "Shin" → create 2 entries
+   - The merging system will combine them later
 
-3. Group names or collective terms:
-   - "the Eighty-Six", "soldiers", "hunters", "children", "the guild"
+4. For each name, provide:
+   - "name": The exact name/nickname/callsign as it appears
+   - "description": WHO this person is (1 sentence, based on text)
+   - "role": "protagonist" / "supporting" / "antagonist" (based on text)
 
-4. Titles or ranks without a name:
-   - "the lieutenant", "the captain", "the queen" (unless it's their actual name)
-   - "Handler One" (unless it's used as a name)
-
-5. Generic references:
-   - "boy", "girl", "stranger", "man", "woman", "person"
-
-6. Descriptive sentences or phrases:
-   - "the one who", "someone who", "the person that"
-   - Any multi-word phrase that reads like a description rather than a name
-
-### WHEN A CHARACTER HAS MULTIPLE NAMES:
-If a character has name variations (nicknames, callsigns, full names):
-- LIST EACH VARIANT as a SEPARATE ENTRY (merging will be handled later)
-- Only include if they're actual names/callsigns, NOT descriptions
-- Example:
-  - "Shin" ✓ (actual name)
-  - "Shinei Nouzen" ✓ (full name)
-  - "Undertaker" ✓ (if it's a callsign used as a name)
-  - "World's Weakest" ✗ (this is a description, not a name)
-
-### VALIDATION CHECK:
-Before extracting a name, ask yourself:
-- Is this a proper noun/name that the character is called by?
-- Or is this a descriptive phrase about what the character is/does?
-- If it's a description → DO NOT EXTRACT IT
-
-4. For each extracted character, include:
-   - "name": the exact name, callsign, or nickname as it appears in text (must be a proper name, not a description)
-   - "description": one sentence describing who they are IN THE SCENE ONLY
-   - "role": protagonist / antagonist / supporting
-     (guess based only on the excerpt)
-
-### OUTPUT FORMAT
-Return ONLY a JSON array:
+OUTPUT FORMAT (JSON only):
 [
   {{
-    "name": "Actual character name (proper noun)",
-    "description": "One-sentence description",
-    "role": "protagonist/supporting/antagonist"
+    "name": "Sung Jinwoo",
+    "description": "An E-rank hunter who receives mysterious daily quests",
+    "role": "protagonist"
+  }},
+  {{
+    "name": "Jinwoo",
+    "description": "An E-rank hunter who receives mysterious daily quests",
+    "role": "protagonist"
+  }},
+  {{
+    "name": "Joohee Lee",
+    "description": "A healing spellcaster who worries about Jinwoo",
+    "role": "supporting"
+  }},
+  {{
+    "name": "Joohee",
+    "description": "A healing spellcaster who worries about Jinwoo",
+    "role": "supporting"
   }}
 ]
 
-Return ONLY the JSON array, no additional text."""
+Return ONLY the JSON array."""
 
         try:
             # Use Gemini (currently active)
