@@ -1,8 +1,10 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 import logging
+from pathlib import Path
 
 from src.config import settings
 from src.api.routes import upload, characters, chat
@@ -16,6 +18,19 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI):
     """Application lifecycle manager"""
     logger.info("Starting up...")
+    
+    # Create necessary directories
+    directories = [
+        Path("data/uploads"),
+        Path("data/cache"),
+        Path("data/documents"),
+        Path("data/character_profiles"),
+    ]
+    for directory in directories:
+        directory.mkdir(parents=True, exist_ok=True)
+    logger.info("Created data directories")
+    
+    # Initialize database
     Base.metadata.create_all(bind=engine)
     yield
     logger.info("Shutting down...")
@@ -42,6 +57,14 @@ app.include_router(upload.router, prefix="/api/v1", tags=["Upload"])
 app.include_router(characters.router, prefix="/api/v1", tags=["Characters"])
 app.include_router(chat.router, prefix="/api/v1", tags=["Chat"])
 
+# Mount static files
+static_dir = Path(__file__).parent.parent.parent / "static"
+if static_dir.exists():
+    app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+    logger.info(f"Mounted static files from {static_dir}")
+else:
+    logger.warning(f"Static directory not found: {static_dir}")
+
 # Global exception handler
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
@@ -56,10 +79,18 @@ async def global_exception_handler(request: Request, exc: Exception):
 
 @app.get("/")
 def root():
+    """Serve the main UI"""
+    static_dir = Path(__file__).parent.parent.parent / "static"
+    index_file = static_dir / "index.html"
+    
+    if index_file.exists():
+        return FileResponse(str(index_file))
+    
     return {
         "message": "Book Characters Chatbot API",
         "version": settings.VERSION,
-        "docs": "/docs"
+        "docs": "/docs",
+        "ui": "UI not found. Please create static/index.html"
     }
 
 @app.get("/health")

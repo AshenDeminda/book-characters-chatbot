@@ -10,32 +10,44 @@ __pycache__/
 dist/
 build/
 
-# Environment
+# Virtual Environment
 .env
 venv/
 env/
 ENV/
+.venv/
 
 # Database
 *.db
 *.sqlite3
+app.db
 
-# Data files
-data/books/*
-data/embeddings/*
-data/uploads/*
-data/cache/*
-!data/uploads/.gitkeep
+# ChromaDB Vector Store
 chroma_db/
 
-# Documentation (local only)
-docs/
+# Data directories (user uploads and generated data)
+data/uploads/*
+data/cache/*
+data/documents/*
+data/character_profiles/*
+data/test_results/*
+!data/uploads/.gitkeep
+!data/cache/.gitkeep
+!data/documents/.gitkeep
+!data/character_profiles/.gitkeep
 
-# Test output files
-characters_*.json
+# Books and PDFs
+books/
+*.pdf
+
+# Test files
+test_*.py
 test_*.json
+characters_*.json
 entity_resolution_*.json
 production_extraction_*.json
+debug_*.py
+clear_embeddings.py
 
 # IDE
 .vscode/
@@ -47,6 +59,13 @@ production_extraction_*.json
 # Logs
 logs/
 *.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Old/deprecated directories
+v2/
 
 # OS
 .DS_Store

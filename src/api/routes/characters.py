@@ -6,6 +6,7 @@ import logging
 
 from src.services.character_service import CharacterService
 from src.services.character_cache import CharacterCache
+from src.rag.rag_service import RAGService
 from src.config import settings
 
 logger = logging.getLogger(__name__)
@@ -13,11 +14,20 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 character_service = CharacterService()
 character_cache = CharacterCache()
+rag_service = RAGService()  # For Phase 1 deep profiling
 
 class ExtractCharactersRequest(BaseModel):
     document_id: str
     max_characters: Optional[int] = 10
     include_personality: Optional[bool] = False
+
+class CharacterListItem(BaseModel):
+    id: str
+    name: str
+    book_title: str
+    document_id: str
+    personality: Optional[str] = None
+    personality_summary: Optional[str] = None
 
 class Character(BaseModel):
     character_id: str
@@ -32,6 +42,52 @@ class ExtractCharactersResponse(BaseModel):
     document_id: str
     characters: List[Character]
     total_found: int
+
+@router.get("/characters", response_model=List[CharacterListItem])
+async def list_all_characters():
+    """
+    List all extracted characters from all documents
+    """
+    all_characters = []
+    upload_dir = Path(settings.UPLOAD_DIR)
+    
+    # Find all cached character files
+    cache_dir = Path("data/cache/characters")
+    if cache_dir.exists():
+        for cache_file in cache_dir.glob("*.json"):
+            document_id = cache_file.stem
+            
+            try:
+                # Load characters from cache
+                characters = character_cache.load_characters(document_id)
+                
+                # Get book title from filename (try to find original PDF)
+                pdf_path = upload_dir / f"{document_id}.pdf"
+                book_title = pdf_path.name if pdf_path.exists() else f"Document {document_id[:8]}"
+                
+                # Add each character to the list
+                for char in characters:
+                    personality_text = None
+                    if isinstance(char.get('personality'), dict):
+                        # Extract summary from personality dict
+                        personality_text = char['personality'].get('summary') or char['personality'].get('traits', '')
+                    elif isinstance(char.get('personality'), str):
+                        personality_text = char['personality']
+                    
+                    all_characters.append({
+                        "id": char.get('character_id', f"{document_id}_{char['name']}"),
+                        "name": char['name'],
+                        "book_title": book_title,
+                        "document_id": document_id,
+                        "personality": personality_text,
+                        "personality_summary": personality_text
+                    })
+                    
+            except Exception as e:
+                logger.warning(f"Error loading characters from {cache_file}: {e}")
+                continue
+    
+    return all_characters
 
 @router.post("/characters/extract-characters", response_model=ExtractCharactersResponse)
 async def extract_characters(request: ExtractCharactersRequest):
@@ -63,14 +119,26 @@ async def extract_characters(request: ExtractCharactersRequest):
         )
     
     try:
-        # Extract characters using LLM
-        characters = character_service.extract_characters(
-            text=full_text,
-            max_characters=request.max_characters
-        )
+        # PHASE 1: Deep character profiling with agentic analysis
+        # Use new method if OpenAI profiler is available
+        if hasattr(character_service, 'profiler') and character_service.profiler:
+            logger.info("Using Phase 1 deep profiling (OpenAI + RAG)")
+            characters = character_service.create_deep_character_profiles(
+                document_id=request.document_id,
+                text=full_text,
+                rag_service=rag_service,
+                max_characters=request.max_characters
+            )
+        else:
+            # Fallback: Use traditional extraction
+            logger.info("Using traditional character extraction (Gemini)")
+            characters = character_service.extract_characters(
+                text=full_text,
+                max_characters=request.max_characters
+            )
         
-        # Generate personality summaries if requested
-        if request.include_personality:
+        # Generate personality summaries if requested (legacy mode)
+        if request.include_personality and not any('profile' in char for char in characters):
             for character in characters:
                 try:
                     personality = character_service.generate_personality_summary(
@@ -149,14 +217,26 @@ async def extract_characters_get(document_id: str, include_personality: bool = T
         )
     
     try:
-        # Extract characters using LLM
-        characters = character_service.extract_characters(
-            text=full_text,
-            max_characters=10
-        )
+        # PHASE 1: Deep character profiling with agentic analysis
+        # Use new method if OpenAI profiler is available
+        if hasattr(character_service, 'profiler') and character_service.profiler:
+            logger.info("Using Phase 1 deep profiling (OpenAI + RAG)")
+            characters = character_service.create_deep_character_profiles(
+                document_id=document_id,
+                text=full_text,
+                rag_service=rag_service,
+                max_characters=10
+            )
+        else:
+            # Fallback: Use traditional extraction
+            logger.info("Using traditional character extraction (Gemini)")
+            characters = character_service.extract_characters(
+                text=full_text,
+                max_characters=10
+            )
         
-        # Generate personality summaries if requested
-        if include_personality:
+        # Generate personality summaries if requested (legacy mode)
+        if include_personality and not any('profile' in char for char in characters):
             for character in characters:
                 try:
                     personality = character_service.generate_personality_summary(
