@@ -2,17 +2,20 @@
 Chat API Endpoints
 Handles character conversations
 """
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from typing import List, Optional, Dict, AsyncIterator
 from pathlib import Path
 import json
 import asyncio
+from sqlalchemy.orm import Session
 
 from src.services.chat_service import ChatService
 from src.services.character_service import CharacterService
 from src.services.character_cache import CharacterCache
+from src.services.chat_session_service import ChatSessionService
+from src.models.database import get_db
 from src.config import settings
 
 router = APIRouter()
@@ -42,7 +45,7 @@ class GreetingRequest(BaseModel):
     character_id: str
 
 @router.post("/chat", response_model=ChatResponse)
-async def chat_with_character(request: ChatRequest):
+async def chat_with_character(request: ChatRequest, db: Session = Depends(get_db)):
     """
     Chat with a character from an uploaded book or default book
     Uses RAG to retrieve relevant story context (if available)
@@ -160,6 +163,22 @@ async def chat_with_character(request: ChatRequest):
             user_message=request.message,
             conversation_history=history
         )
+        
+        # Auto-save to session (only for default books)
+        if request.document_id.startswith("default_"):
+            try:
+                ChatSessionService.save_message(
+                    db=db,
+                    document_id=request.document_id,
+                    character_id=request.character_id,
+                    character_name=character['name'],
+                    user_message=request.message,
+                    assistant_response=result['response']
+                )
+            except Exception as save_error:
+                # Don't fail the request if saving fails, just log it
+                import logging
+                logging.error(f"Failed to save chat session: {save_error}")
         
         return result
         
@@ -456,3 +475,163 @@ async def chat_with_character_stream(request: ChatRequest):
             "X-Accel-Buffering": "no",  # Disable nginx buffering
         }
     )
+
+
+# ============ NEW ENDPOINTS FOR CHAT SESSION PERSISTENCE ============
+
+class SessionHistoryRequest(BaseModel):
+    document_id: str
+    character_id: str
+
+
+class ClearSessionRequest(BaseModel):
+    document_id: str
+    character_id: str
+
+
+@router.get("/chat/session/history")
+async def get_session_history(
+    document_id: str,
+    character_id: str,
+    db: Session = Depends(get_db)
+):
+    """
+    Load conversation history for a character (default books only for now)
+    Returns empty array if no history exists
+    """
+    # Only for default books for now
+    if not document_id.startswith("default_"):
+        return {
+            "status": "success",
+            "document_id": document_id,
+            "character_id": character_id,
+            "conversation_history": [],
+            "message": "Session persistence only available for default books"
+        }
+    
+    try:
+        history = ChatSessionService.get_conversation_history(
+            db, document_id, character_id
+        )
+        
+        return {
+            "status": "success",
+            "document_id": document_id,
+            "character_id": character_id,
+            "conversation_history": history,
+            "total_messages": len(history)
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error loading session history: {str(e)}"
+        )
+
+
+@router.post("/chat/session/save")
+async def save_chat_message(
+    document_id: str,
+    character_id: str,
+    character_name: str,
+    user_message: str,
+    assistant_response: str,
+    db: Session = Depends(get_db)
+):
+    """
+    Save a message exchange to conversation history (default books only for now)
+    """
+    # Only for default books for now
+    if not document_id.startswith("default_"):
+        return {
+            "status": "skipped",
+            "message": "Session persistence only available for default books"
+        }
+    
+    try:
+        session = ChatSessionService.save_message(
+            db=db,
+            document_id=document_id,
+            character_id=character_id,
+            character_name=character_name,
+            user_message=user_message,
+            assistant_response=assistant_response
+        )
+        
+        return {
+            "status": "success",
+            "message": "Chat message saved successfully",
+            "session_id": session.session_id,
+            "total_messages": len(session.get_messages())
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error saving chat message: {str(e)}"
+        )
+
+
+@router.delete("/chat/session/clear")
+async def clear_chat_session(
+    document_id: str,
+    character_id: str,
+    db: Session = Depends(get_db)
+):
+    """
+    Clear conversation history for a character
+    """
+    try:
+        deleted = ChatSessionService.clear_session(
+            db, document_id, character_id
+        )
+        
+        if deleted:
+            return {
+                "status": "success",
+                "message": "Chat session cleared successfully"
+            }
+        else:
+            return {
+                "status": "success",
+                "message": "No session found to clear"
+            }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error clearing session: {str(e)}"
+        )
+
+
+@router.get("/chat/session/list")
+async def list_sessions_for_document(
+    document_id: str,
+    db: Session = Depends(get_db)
+):
+    """
+    List all chat sessions for a document
+    """
+    try:
+        sessions = ChatSessionService.get_all_sessions_for_document(
+            db, document_id
+        )
+        
+        return {
+            "status": "success",
+            "document_id": document_id,
+            "sessions": [
+                {
+                    "session_id": s.session_id,
+                    "character_id": s.character_id,
+                    "character_name": s.character_name,
+                    "message_count": len(s.get_messages()),
+                    "created_at": s.created_at.isoformat() if s.created_at else None,
+                    "updated_at": s.updated_at.isoformat() if s.updated_at else None
+                }
+                for s in sessions
+            ],
+            "total_sessions": len(sessions)
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error listing sessions: {str(e)}"
+        )

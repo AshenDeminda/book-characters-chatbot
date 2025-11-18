@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, FileResponse
-from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 import logging
 from pathlib import Path
@@ -9,6 +8,7 @@ from pathlib import Path
 from src.config import settings
 from src.api.routes import upload, characters, chat, default_books
 from src.models.database import Base, engine
+from src.models.chat_session import ChatSession  # Import to register model
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -57,14 +57,6 @@ app.include_router(upload.router, prefix="/api/v1", tags=["Upload"])
 app.include_router(characters.router, prefix="/api/v1", tags=["Characters"])
 app.include_router(chat.router, prefix="/api/v1", tags=["Chat"])
 app.include_router(default_books.router, prefix="/api/v1", tags=["Default Books"])
-
-# Mount static files
-static_dir = Path(__file__).parent.parent.parent / "static"
-if static_dir.exists():
-    app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
-    logger.info(f"Mounted static files from {static_dir}")
-else:
-    logger.warning(f"Static directory not found: {static_dir}")
 
 # Global exception handler
 @app.exception_handler(Exception)
