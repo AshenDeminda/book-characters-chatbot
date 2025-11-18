@@ -1,0 +1,37 @@
+{
+  "books": [
+    {
+      "book_id": "harry_potter_1",
+      "document_id": "default_hp1_doc_001",
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "J.K. Rowling",
+      "cover_image": "/static/covers/harry_potter.jpg",
+      "description": "The magical journey of a young wizard at Hogwarts School of Witchcraft and Wizardry.",
+      "is_default": true,
+      "genre": "Fantasy",
+      "published_year": 1997
+    },
+    {
+      "book_id": "chronicles_narnia",
+      "document_id": "default_narnia_doc_002",
+      "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+      "author": "C.S. Lewis",
+      "cover_image": "/static/covers/chronicles_of_narnia.jpg",
+      "description": "A magical land beyond the wardrobe where a great lion battles an evil witch.",
+      "is_default": true,
+      "genre": "Fantasy",
+      "published_year": 1950
+    },
+    {
+      "book_id": "the_hobbit",
+      "document_id": "default_hobbit_doc_003",
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "cover_image": "/static/covers/the_hobbit.jpg",
+      "description": "An unexpected journey of a hobbit who discovers courage and friendship.",
+      "is_default": true,
+      "genre": "Fantasy",
+      "published_year": 1937
+    }
+  ]
+}

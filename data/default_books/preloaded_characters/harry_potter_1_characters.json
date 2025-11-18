@@ -1,0 +1,50 @@
+{
+  "document_id": "default_hp1_doc_001",
+  "book_title": "Harry Potter and the Philosopher's Stone",
+  "characters": [
+    {
+      "character_id": "char_harry_potter",
+      "name": "Harry Potter",
+      "aliases": ["Harry", "The Boy Who Lived", "Potter"],
+      "description": "The Boy Who Lived, brave and loyal Gryffindor student characterized by his courage, determination, and willingness to sacrifice for others.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["brave", "loyal", "determined", "selfless", "curious"],
+        "behavior_summary": "Courageous young wizard who values friendship and justice above all else.",
+        "motivations": "To protect his friends, defeat evil, and discover his identity",
+        "character_arc": "From orphaned boy to hero who embraces his destiny",
+        "defining_moments": ["Confronting Voldemort", "Saving Hermione from the troll", "Choosing Gryffindor"]
+      }
+    },
+    {
+      "character_id": "char_hermione_granger",
+      "name": "Hermione Granger",
+      "aliases": ["Hermione", "Granger", "'Mione"],
+      "description": "Brilliant and hardworking witch, known for her intelligence, loyalty, and fierce dedication to her studies and friends.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["intelligent", "logical", "brave", "loyal", "perfectionist"],
+        "behavior_summary": "Book-smart witch who uses logic and knowledge to solve problems.",
+        "motivations": "To prove herself and help her friends succeed",
+        "character_arc": "From rule-follower to brave rebel for what's right",
+        "defining_moments": ["Solving the potions puzzle", "Time-Turner adventures", "Standing up to teachers"]
+      }
+    },
+    {
+      "character_id": "char_ron_weasley",
+      "name": "Ron Weasley",
+      "aliases": ["Ron", "Weasley", "Ronald"],
+      "description": "Loyal and humorous friend from a large wizarding family, known for his bravery, chess skills, and unwavering friendship.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["loyal", "humorous", "brave", "insecure", "caring"],
+        "behavior_summary": "Comic relief who shows unexpected bravery when it matters most.",
+        "motivations": "To step out of his brothers' shadows and prove his worth",
+        "character_arc": "From overshadowed youngest brother to confident hero",
+        "defining_moments": ["Sacrificing himself in chess game", "Facing his fears", "Loyal friendship"]
+      }
+    }
+  ],
+  "total_found": 3,
+  "cached_at": "2025-11-18T00:00:00"
+}

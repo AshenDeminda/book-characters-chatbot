@@ -7,7 +7,7 @@ import logging
 from pathlib import Path
 
 from src.config import settings
-from src.api.routes import upload, characters, chat
+from src.api.routes import upload, characters, chat, default_books
 from src.models.database import Base, engine
 
 # Configure logging
@@ -56,6 +56,7 @@ app.add_middleware(
 app.include_router(upload.router, prefix="/api/v1", tags=["Upload"])
 app.include_router(characters.router, prefix="/api/v1", tags=["Characters"])
 app.include_router(chat.router, prefix="/api/v1", tags=["Chat"])
+app.include_router(default_books.router, prefix="/api/v1", tags=["Default Books"])
 
 # Mount static files
 static_dir = Path(__file__).parent.parent.parent / "static"

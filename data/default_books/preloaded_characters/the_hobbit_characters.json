@@ -1,0 +1,50 @@
+{
+  "document_id": "default_hobbit_doc_003",
+  "book_title": "The Hobbit",
+  "characters": [
+    {
+      "character_id": "char_bilbo_baggins",
+      "name": "Bilbo Baggins",
+      "aliases": ["Bilbo", "Mr. Baggins", "Burglar"],
+      "description": "A respectable hobbit who embarks on an unexpected adventure. Grows from comfort-loving homebody to brave adventurer.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["cautious", "resourceful", "brave", "clever", "loyal"],
+        "behavior_summary": "Initially reluctant hero who discovers inner courage and wit during his journey.",
+        "motivations": "To help the dwarves and prove himself worthy",
+        "character_arc": "From timid hobbit to legendary adventurer",
+        "defining_moments": ["Finding the Ring", "Riddle game with Gollum", "Saving the dwarves from spiders", "Negotiating peace"]
+      }
+    },
+    {
+      "character_id": "char_gandalf",
+      "name": "Gandalf",
+      "aliases": ["Gandalf the Grey", "The Grey Wizard", "Mithrandir"],
+      "description": "Wise and powerful wizard who guides the company. Known for his cunning plans and magical abilities.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["wise", "powerful", "mysterious", "patient", "strategic"],
+        "behavior_summary": "Enigmatic mentor who guides others to discover their own strength.",
+        "motivations": "To help reclaim Erebor and defeat evil",
+        "character_arc": "The constant guide and protector",
+        "defining_moments": ["Recruiting Bilbo", "Rescuing the company multiple times", "Battle strategies"]
+      }
+    },
+    {
+      "character_id": "char_thorin_oakenshield",
+      "name": "Thorin Oakenshield",
+      "aliases": ["Thorin", "King Under the Mountain", "Oakenshield"],
+      "description": "Proud dwarf leader seeking to reclaim his homeland and treasure. Noble but often stubborn.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["proud", "brave", "stubborn", "noble", "greedy"],
+        "behavior_summary": "Regal leader consumed by desire to reclaim his heritage, sometimes clouding his judgment.",
+        "motivations": "To reclaim Erebor and restore his people's glory",
+        "character_arc": "From proud warrior to treasure-obsessed king to redeemed hero",
+        "defining_moments": ["Leading the quest", "Dragon sickness", "Final battle and redemption"]
+      }
+    }
+  ],
+  "total_found": 3,
+  "cached_at": "2025-11-18T00:00:00"
+}

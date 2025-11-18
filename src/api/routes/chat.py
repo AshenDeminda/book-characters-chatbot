@@ -44,21 +44,50 @@ class GreetingRequest(BaseModel):
 @router.post("/chat", response_model=ChatResponse)
 async def chat_with_character(request: ChatRequest):
     """
-    Chat with a character from an uploaded book
-    Uses RAG to retrieve relevant story context
+    Chat with a character from an uploaded book or default book
+    Uses RAG to retrieve relevant story context (if available)
     """
-    # Verify document exists
-    upload_dir = Path(settings.UPLOAD_DIR)
-    chunks_path = upload_dir / f"{request.document_id}_chunks.txt"
+    # Check if this is a default book
+    is_default_book = request.document_id.startswith("default_")
     
-    if not chunks_path.exists():
-        raise HTTPException(
-            status_code=404,
-            detail=f"Document {request.document_id} not found"
-        )
-    
-    # Try to load character from cache first (FAST PATH)
-    character = character_cache.get_character_by_id(request.document_id, request.character_id)
+    if is_default_book:
+        # For default books, load character from preloaded data
+        from pathlib import Path as PathLib
+        default_chars_dir = PathLib("data/default_books/preloaded_characters")
+        
+        character = None
+        for char_file in default_chars_dir.glob("*_characters.json"):
+            try:
+                with open(char_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    if data.get("document_id") == request.document_id:
+                        for char in data.get("characters", []):
+                            if char["character_id"] == request.character_id:
+                                character = char
+                                break
+                        if character:
+                            break
+            except Exception:
+                continue
+        
+        if not character:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Character {request.character_id} not found in default book"
+            )
+    else:
+        # Verify document exists for uploaded books
+        upload_dir = Path(settings.UPLOAD_DIR)
+        chunks_path = upload_dir / f"{request.document_id}_chunks.txt"
+        
+        if not chunks_path.exists():
+            raise HTTPException(
+                status_code=404,
+                detail=f"Document {request.document_id} not found"
+            )
+        
+        # Try to load character from cache first (FAST PATH)
+        character = character_cache.get_character_by_id(request.document_id, request.character_id)
     
     if not character:
         # Cache miss - need to extract characters (SLOW PATH)
@@ -144,18 +173,51 @@ async def chat_with_character(request: ChatRequest):
 async def get_character_greeting(request: GreetingRequest):
     """
     Get a greeting message from a character
+    Supports both uploaded books and default books
     """
-    upload_dir = Path(settings.UPLOAD_DIR)
-    chunks_path = upload_dir / f"{request.document_id}_chunks.txt"
+    # Check if this is a default book (document_id starts with "default_")
+    is_default_book = request.document_id.startswith("default_")
     
-    if not chunks_path.exists():
-        raise HTTPException(
-            status_code=404,
-            detail=f"Document {request.document_id} not found"
-        )
-    
-    # Try to load character from cache first (FAST PATH)
-    character = character_cache.get_character_by_id(request.document_id, request.character_id)
+    if is_default_book:
+        # For default books, load character from preloaded data
+        from pathlib import Path as PathLib
+        default_chars_dir = PathLib("data/default_books/preloaded_characters")
+        
+        # Try to find the character file by searching all preloaded files
+        character = None
+        for char_file in default_chars_dir.glob("*_characters.json"):
+            try:
+                with open(char_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    if data.get("document_id") == request.document_id:
+                        # Found the right book, now find the character
+                        for char in data.get("characters", []):
+                            if char["character_id"] == request.character_id:
+                                character = char
+                                break
+                        if character:
+                            break
+            except Exception:
+                continue
+        
+        if not character:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Character {request.character_id} not found in default book {request.document_id}"
+            )
+    else:
+        # For uploaded books, check if chunks file exists
+        upload_dir = Path(settings.UPLOAD_DIR)
+        chunks_path = upload_dir / f"{request.document_id}_chunks.txt"
+        
+        if not chunks_path.exists():
+            raise HTTPException(
+                status_code=404,
+                detail=f"Document {request.document_id} not found"
+            )
+        
+        # Try to load character from cache first (FAST PATH)
+        character = character_cache.get_character_by_id(request.document_id, request.character_id)
     
     if not character:
         # Cache miss - need to extract characters (SLOW PATH)
@@ -243,75 +305,94 @@ async def chat_with_character_stream(request: ChatRequest):
     Returns:
         StreamingResponse: SSE stream with text chunks
     """
-    # Verify document exists
-    upload_dir = Path(settings.UPLOAD_DIR)
-    chunks_path = upload_dir / f"{request.document_id}_chunks.txt"
+    # Check if this is a default book
+    is_default_book = request.document_id.startswith("default_")
     
-    if not chunks_path.exists():
-        raise HTTPException(
-            status_code=404,
-            detail=f"Document {request.document_id} not found"
-        )
-    
-    # Try to load character from cache first (FAST PATH)
-    character = character_cache.get_character_by_id(request.document_id, request.character_id)
-    
-    if not character:
-        # Cache miss - need to extract characters (SLOW PATH)
-        # Read document chunks
-        with open(chunks_path, 'r', encoding='utf-8') as f:
-            chunks_content = f.read()
-        
-        # Reconstruct text
-        import re
-        full_text = re.sub(r'=== CHUNK \d+ ===\n', '', chunks_content)
-        
-        # Extract characters (use higher limit to find more characters)
-        characters = character_service.extract_characters(
-            text=full_text,
-            max_characters=30
-        )
-        
-        # Save to cache for future requests
-        character_cache.save_characters(request.document_id, characters)
-        
-        # Find the requested character by character_id first
-        for char in characters:
-            if char['character_id'] == request.character_id:
-                character = char
-                break
-        
-        # If not found by ID, try matching by name or aliases
-        if not character:
-            # Extract name from character_id (format: char_name_slug)
-            name_from_id = request.character_id.replace('char_', '').replace('_', ' ').strip()
-            for char in characters:
-                # Check if name matches (case-insensitive)
-                if name_from_id.lower() in char['name'].lower() or char['name'].lower() in name_from_id.lower():
-                    character = char
-                    break
-                # Check aliases
-                if char.get('aliases'):
-                    for alias in char['aliases']:
-                        if name_from_id.lower() in alias.lower() or alias.lower() in name_from_id.lower():
+    if is_default_book:
+        # Load character from preloaded JSON files
+        character = None
+        preloaded_dir = Path("data/default_books/preloaded_characters")
+        for char_file in preloaded_dir.glob("*_characters.json"):
+            with open(char_file, 'r', encoding='utf-8') as f:
+                characters_data = json.load(f)
+                if characters_data.get('document_id') == request.document_id:
+                    for char in characters_data['characters']:
+                        if char['character_id'] == request.character_id:
                             character = char
                             break
-                    if character:
+                if character:
+                    break
+        
+        if not character:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Character {request.character_id} not found in default book {request.document_id}"
+            )
+    else:
+        # Original logic for uploaded documents
+        # Verify document exists
+        upload_dir = Path(settings.UPLOAD_DIR)
+        chunks_path = upload_dir / f"{request.document_id}_chunks.txt"
+        
+        if not chunks_path.exists():
+            raise HTTPException(
+                status_code=404,
+                detail=f"Document {request.document_id} not found"
+            )
+        
+        # Try to load character from cache first (FAST PATH)
+        character = character_cache.get_character_by_id(request.document_id, request.character_id)
+        
+        if not character:
+            # Cache miss - need to extract characters (SLOW PATH)
+            # Read document chunks
+            with open(chunks_path, 'r', encoding='utf-8') as f:
+                chunks_content = f.read()
+            
+            # Reconstruct text
+            import re
+            full_text = re.sub(r'=== CHUNK \d+ ===\n', '', chunks_content)
+            
+            # Extract characters (use higher limit to find more characters)
+            characters = character_service.extract_characters(
+                text=full_text,
+                max_characters=30
+            )
+            
+            # Save to cache for future requests
+            character_cache.save_characters(request.document_id, characters)
+            
+            # Find the requested character by character_id first
+            for char in characters:
+                if char['character_id'] == request.character_id:
+                    character = char
+                    break
+            
+            # If not found by ID, try matching by name or aliases
+            if not character:
+                # Extract name from character_id (format: char_name_slug)
+                name_from_id = request.character_id.replace('char_', '').replace('_', ' ').strip()
+                for char in characters:
+                    # Check if name matches (case-insensitive)
+                    if name_from_id.lower() in char['name'].lower() or char['name'].lower() in name_from_id.lower():
+                        character = char
                         break
-    
-    if not character:
-        # Provide helpful error message with available characters
-        if 'characters' in locals():
-            available_ids = [char['character_id'] for char in characters[:5]]
-            raise HTTPException(
-                status_code=404,
-                detail=f"Character {request.character_id} not found in document. Available characters: {', '.join(available_ids)}"
-            )
-        else:
-            raise HTTPException(
-                status_code=404,
-                detail=f"Character {request.character_id} not found in document"
-            )
+                    # Check aliases
+                    if char.get('aliases'):
+                        for alias in char['aliases']:
+                            if name_from_id.lower() in alias.lower() or alias.lower() in name_from_id.lower():
+                                character = char
+                                break
+                        if character:
+                            break
+            
+            if not character:
+                # Provide helpful error message with available characters
+                available_ids = [char['character_id'] for char in characters[:5]]
+                raise HTTPException(
+                    status_code=404,
+                    detail=f"Character {request.character_id} not found in document. Available characters: {', '.join(available_ids)}"
+                )
     
     # Convert conversation history to dict format
     history = [

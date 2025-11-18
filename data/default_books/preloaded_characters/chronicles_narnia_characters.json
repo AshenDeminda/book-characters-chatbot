@@ -1,0 +1,50 @@
+{
+  "document_id": "default_narnia_doc_002",
+  "book_title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+  "characters": [
+    {
+      "character_id": "char_lucy_pevensie",
+      "name": "Lucy Pevensie",
+      "aliases": ["Lucy", "Lu"],
+      "description": "The youngest Pevensie child who first discovers Narnia. Kind-hearted, brave, and faithful.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["kind", "brave", "faithful", "innocent", "curious"],
+        "behavior_summary": "Pure-hearted girl who believes in the impossible and inspires others with her faith.",
+        "motivations": "To help Narnia and protect her siblings",
+        "character_arc": "From curious child to valiant queen",
+        "defining_moments": ["First entering Narnia", "Meeting Aslan", "Healing with her cordial"]
+      }
+    },
+    {
+      "character_id": "char_aslan",
+      "name": "Aslan",
+      "aliases": ["The Lion", "The Great Lion", "King of Beasts"],
+      "description": "The great lion and true king of Narnia. Wise, powerful, and sacrificial.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["wise", "powerful", "just", "merciful", "sacrificial"],
+        "behavior_summary": "Majestic and awe-inspiring leader who brings hope and redemption.",
+        "motivations": "To free Narnia from evil and restore justice",
+        "character_arc": "The unchanging symbol of good and sacrifice",
+        "defining_moments": ["Sacrificing himself at the Stone Table", "Resurrection", "Defeating the White Witch"]
+      }
+    },
+    {
+      "character_id": "char_white_witch",
+      "name": "The White Witch",
+      "aliases": ["Jadis", "The Witch", "Queen of Narnia"],
+      "description": "Evil ruler who has cursed Narnia with eternal winter. Cruel and manipulative.",
+      "role": "antagonist",
+      "personality": {
+        "personality_traits": ["cruel", "manipulative", "power-hungry", "cold", "deceitful"],
+        "behavior_summary": "Tyrannical ruler who maintains power through fear and deception.",
+        "motivations": "To rule Narnia forever and destroy Aslan's prophecy",
+        "character_arc": "From seemingly invincible tyrant to defeated enemy",
+        "defining_moments": ["Tempting Edmund", "Stone Table ceremony", "Final battle"]
+      }
+    }
+  ],
+  "total_found": 3,
+  "cached_at": "2025-11-18T00:00:00"
+}
