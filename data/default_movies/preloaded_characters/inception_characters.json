@@ -1,0 +1,51 @@
+{
+  "document_id": "default_movie_inception_003",
+  "movie_title": "Inception",
+  "characters": [
+    {
+      "character_id": "char_dom_cobb",
+      "name": "Dom Cobb",
+      "actor": "Leonardo DiCaprio",
+      "aliases": ["Cobb", "Dom", "Mr. Cobb"],
+      "description": "A skilled extractor who specializes in stealing secrets from people's subconscious during dreams, haunted by guilt over his wife's death.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["skilled", "haunted", "determined", "intelligent", "guilt-ridden"],
+        "behavior_summary": "Brilliant dream architect struggling with his own demons while trying to complete one last job to return home to his children.",
+        "motivations": "To return home to his children and find redemption",
+        "character_arc": "From guilt-ridden fugitive to potentially redeemed father",
+        "defining_moments": ["Accepting the inception job", "Confronting Mal in limbo", "Letting go of guilt", "Spinning the totem"]
+      }
+    },
+    {
+      "character_id": "char_arthur",
+      "name": "Arthur",
+      "actor": "Joseph Gordon-Levitt",
+      "aliases": ["Arthur"],
+      "description": "Cobb's longtime partner and point man, meticulous and professional in planning and executing dream heists.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["meticulous", "professional", "loyal", "skilled", "practical"],
+        "behavior_summary": "Handles research and logistics with precision, fiercely loyal to Cobb despite the risks.",
+        "motivations": "To successfully complete jobs and support his team",
+        "character_arc": "From skeptical professional to committed team player",
+        "defining_moments": ["Zero gravity fight scene", "Supporting Cobb's plan", "Protecting the team"]
+      }
+    },
+    {
+      "character_id": "char_ariadne",
+      "name": "Ariadne",
+      "actor": "Ellen Page",
+      "aliases": ["Ariadne"],
+      "description": "A gifted architecture student recruited to design dream worlds, who becomes concerned about Cobb's psychological state.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["talented", "curious", "compassionate", "brave", "insightful"],
+        "behavior_summary": "Young architect who quickly masters dream construction while helping Cobb confront his guilt.",
+        "motivations": "To learn and help Cobb face his demons",
+        "character_arc": "From student to crucial team member and Cobb's conscience",
+        "defining_moments": ["Learning to architect dreams", "Confronting Cobb about Mal", "Helping in limbo"]
+      }
+    }
+  ]
+}

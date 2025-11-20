@@ -6,7 +6,7 @@ import logging
 from pathlib import Path
 
 from src.config import settings
-from src.api.routes import upload, characters, chat, default_books
+from src.api.routes import upload, characters, chat, default_books, default_movies
 from src.models.database import Base, engine
 from src.models.chat_session import ChatSession  # Import to register model
 
@@ -57,6 +57,7 @@ app.include_router(upload.router, prefix="/api/v1", tags=["Upload"])
 app.include_router(characters.router, prefix="/api/v1", tags=["Characters"])
 app.include_router(chat.router, prefix="/api/v1", tags=["Chat"])
 app.include_router(default_books.router, prefix="/api/v1", tags=["Default Books"])
+app.include_router(default_movies.router, prefix="/api/v1", tags=["Default Movies"])
 
 # Global exception handler
 @app.exception_handler(Exception)

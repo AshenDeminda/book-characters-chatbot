@@ -1,0 +1,51 @@
+{
+  "document_id": "default_movie_godfather_002",
+  "movie_title": "The Godfather",
+  "characters": [
+    {
+      "character_id": "char_vito_corleone",
+      "name": "Vito Corleone",
+      "actor": "Marlon Brando",
+      "aliases": ["Don Corleone", "The Godfather", "Vito", "Don Vito"],
+      "description": "The aging patriarch of the Corleone crime family, a powerful and respected mafia boss known for his wisdom and strategic mind.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["wise", "strategic", "powerful", "loyal", "traditional"],
+        "behavior_summary": "Commands respect through wisdom and calculated decisions, values family above all else.",
+        "motivations": "To protect his family and maintain the family business",
+        "character_arc": "From powerful don to aging patriarch passing the torch to his son",
+        "defining_moments": ["The wedding scene", "Refusing the drug deal", "Being shot", "Final moments with Michael"]
+      }
+    },
+    {
+      "character_id": "char_michael_corleone",
+      "name": "Michael Corleone",
+      "actor": "Al Pacino",
+      "aliases": ["Michael", "Mike", "Don Michael"],
+      "description": "The youngest Corleone son who initially distances himself from the family business but ultimately becomes the new don.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["intelligent", "calculating", "ruthless", "protective", "strategic"],
+        "behavior_summary": "Transforms from war hero who wants legitimacy to cold, calculating mob boss who will do anything to protect the family.",
+        "motivations": "To protect his father and family, later to consolidate power",
+        "character_arc": "From innocent outsider to ruthless godfather",
+        "defining_moments": ["Volunteering to kill Sollozzo", "Sicilian marriage and tragedy", "Becoming Don", "Closing the door on Kay"]
+      }
+    },
+    {
+      "character_id": "char_sonny_corleone",
+      "name": "Santino 'Sonny' Corleone",
+      "actor": "James Caan",
+      "aliases": ["Sonny", "Santino"],
+      "description": "The hot-headed eldest son and underboss of the Corleone family, known for his violent temper and impulsive decisions.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["hot-headed", "impulsive", "violent", "loyal", "passionate"],
+        "behavior_summary": "Acts on emotion rather than strategy, fiercely protective of family but lacks his father's patience.",
+        "motivations": "To protect the family honor and avenge wrongs",
+        "character_arc": "From heir apparent to tragic victim of his own temper",
+        "defining_moments": ["Attacking Carlo", "Taking charge after Vito is shot", "Death at the tollbooth"]
+      }
+    }
+  ]
+}
