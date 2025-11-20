@@ -3,7 +3,7 @@
     {
       "book_id": "harry_potter_1",
       "document_id": "default_hp1_doc_001",
-      "title": "Harry Potter and the Philosopher's Stone",
+      "title": "Harry Potter",
       "author": "J.K. Rowling",
       "cover_image": null,
       "description": "The magical journey of a young wizard at Hogwarts School of Witchcraft and Wizardry.",
@@ -32,6 +32,94 @@
       "is_default": true,
       "genre": "Fantasy",
       "published_year": 1937
+    },
+    {
+      "book_id": "lord_of_the_rings",
+      "document_id": "new_lotr_doc_004",
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "author": "J.R.R. Tolkien",
+      "cover_image": null,
+      "description": "A young hobbit inherits a powerful and evil ring, leading to a quest to destroy it.",
+      "is_default": false,
+      "genre": "Fantasy",
+      "published_year": 1954
+    },
+    {
+      "book_id": "frankenstein",
+      "document_id": "new_frankenstein_doc_005",
+      "title": "Frankenstein",
+      "author": "Mary Shelley",
+      "cover_image": null,
+      "description": "A scientist creates a sentient being in an unorthodox experiment, leading to tragedy.",
+      "is_default": false,
+      "genre": "Gothic/Science Fiction",
+      "published_year": 1818
+    },
+    {
+      "book_id": "percy_jackson",
+      "document_id": "new_percy_jackson_doc_006",
+      "title": "Percy Jackson & The Olympians: The Lightning Thief",
+      "author": "Rick Riordan",
+      "cover_image": null,
+      "description": "A modern-day boy discovers he is the son of a Greek god and embarks on a quest.",
+      "is_default": false,
+      "genre": "Fantasy",
+      "published_year": 2005
+    },
+    {
+      "book_id": "dracula",
+      "document_id": "new_dracula_doc_007",
+      "title": "Dracula",
+      "author": "Bram Stoker",
+      "cover_image": null,
+      "description": "The terrifying story of Count Dracula and his attempt to move from Transylvania to England.",
+      "is_default": false,
+      "genre": "Gothic Horror",
+      "published_year": 1897
+    },
+    {
+      "book_id": "sherlock_holmes",
+      "document_id": "new_sherlock_doc_008",
+      "title": "A Study in Scarlet (Sherlock Holmes)",
+      "author": "Arthur Conan Doyle",
+      "cover_image": null,
+      "description": "The first appearance of Sherlock Holmes and Dr. Watson solving a puzzling murder.",
+      "is_default": false,
+      "genre": "Mystery",
+      "published_year": 1887
+    },
+    {
+      "book_id": "dune",
+      "document_id": "new_dune_doc_009",
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "cover_image": null,
+      "description": "A tale of political intrigue, ecology, and religion on a desert planet.",
+      "is_default": false,
+      "genre": "Science Fiction",
+      "published_year": 1965
+    },
+    {
+      "book_id": "wimpy_kid",
+      "document_id": "new_wimpy_kid_doc_010",
+      "title": "Diary of a Wimpy Kid",
+      "author": "Jeff Kinney",
+      "cover_image": null,
+      "description": "The illustrated journal of middle school student Greg Heffley.",
+      "is_default": false,
+      "genre": "Realistic Fiction/Humor",
+      "published_year": 2007
+    },
+    {
+      "book_id": "hunger_games",
+      "document_id": "new_hunger_games_doc_011",
+      "title": "The Hunger Games",
+      "author": "Suzanne Collins",
+      "cover_image": null,
+      "description": "In a dystopian future, teens are forced to fight to the death in a televised annual event.",
+      "is_default": false,
+      "genre": "Young Adult/Dystopian",
+      "published_year": 2008
     }
   ]
 }

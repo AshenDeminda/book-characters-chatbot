@@ -1,0 +1,99 @@
+{
+  "document_id": "default_dracula_doc_007",
+  "book_title": "Dracula",
+  "characters": [
+    {
+      "character_id": "char_jonathan_harker",
+      "name": "Jonathan Harker",
+      "aliases": ["Jonathan"],
+      "description": "A young, ambitious solicitor who travels to Transylvania to conclude a real estate deal with Count Dracula, starting the nightmare.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["diligent", "rational (initially)", "terrified", "brave", "protective", "observant"],
+        "behavior_summary": "Jonathan's behavior initially reflects Victorian **rationality** and meticulous diligence as a professional man. His behavior quickly devolves into one of **terror and psychological confinement** after his stay in Castle Dracula, where he demonstrates acute powers of observation under duress. Later, he is driven by protective love for Mina, transforming into a determined, active participant in the vampire hunt, utilizing his intellect and newfound courage.",
+        "motivations": "His core motivation is his professional **duty** to secure the real estate transaction and return safely to his fiancée, Mina. After escaping, his motivation shifts entirely to protecting Mina and seeking **vengeance** against Dracula for the psychological and physical harm inflicted. He is driven by his commitment to justice and his desire to restore sanity to his life.",
+        "character_arc": "Jonathan's arc is a classic journey from the **innocent observer to the hardened warrior**. He starts as a sheltered professional and is nearly destroyed by the psychic shock of Dracula's world. He matures into a strong, resolute figure, one of the most proactive members of the crew. His arc concludes when he helps corner and destroy Dracula, regaining his stability and starting a family with Mina."
+      }
+    },
+    {
+      "character_id": "char_mina_harker",
+      "name": "Mina Harker (née Murray)",
+      "aliases": ["Mina Murray", "Madam Mina"],
+      "description": "Jonathan's fiancée and a schoolmistress. She is intelligent, morally pure, and the cognitive center of the group that hunts the Count.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["intelligent", "caring", "pure", "rational", "dutiful", "resourceful", "strong-willed"],
+        "behavior_summary": "Mina embodies the Victorian ideal of the **pure, competent woman**, demonstrating exceptional intelligence, meticulous organizational skills, and profound empathy. She acts as the group's **cognitive anchor**, synthesizing all the disparate journal entries and documents to form the Count's strategy. Though victimized by the Count, her behavior remains resolute, fighting his psychic influence with powerful moral clarity and courage.",
+        "motivations": "Her core motivation is her **devotion to her husband and friends**, driving her to seek to understand and defeat the evil threatening them. After being infected, her motivation becomes urgent: to use her psychic link with the Count to track him down before she is fully turned. She is driven by a deep sense of moral duty to prevent the spread of the vampire's evil.",
+        "character_arc": "Mina's arc focuses on the **vulnerability and strength of the good soul**. She is the physical and psychic victim of the main conflict, yet her mind is the key to solving it. She transforms from a mere object of male protection into a crucial, indispensable member of the crew. Her triumph is not over a physical fight, but over the moral corruption of the vampire, ensuring her final purity and salvation."
+      }
+    },
+    {
+      "character_id": "char_van_helsing",
+      "name": "Abraham Van Helsing",
+      "aliases": ["Professor Van Helsing", "The Doctor"],
+      "description": "A Dutch polymath doctor, philosopher, and occult expert. He is the brilliant, unconventional leader of the group fighting Dracula.",
+      "role": "supporting/mentor",
+      "personality": {
+        "personality_traits": ["wise", "unconventional", "determined", "experienced", "pious", "cunning", "eccentric"],
+        "behavior_summary": "Van Helsing's behavior is often eccentric, driven by an unconventional blend of science and **supernatural knowledge**. He acts as the team's mentor and spiritual guide, possessing the necessary expertise to confront the vampire's ancient evil. He exhibits unwavering **determination** and patience, strategically directing the crew and performing the necessary religious rites and scientific procedures to defeat Dracula.",
+        "motivations": "His primary motivation is the defense of humanity against ancient evils, driven by his vast knowledge of the occult and his professional duty as a doctor. He is driven by a desire to defeat the greatest vampire and save Mina's soul, understanding that the fight is spiritual as well as physical. He acts as the moral and tactical compass, motivated by the pursuit of **truth and justice**.",
+        "character_arc": "Van Helsing serves as the **constant expert and catalyst**, possessing the knowledge needed for the central conflict. His arc is defined by his success in uniting a skeptical, rational group of men to accept and fight the supernatural. He remains the steady hand of the crew, his wisdom and faith proving to be the essential components that lead to the final destruction of the Count."
+      }
+    },
+    {
+      "character_id": "char_dr_seward",
+      "name": "Dr. John Seward",
+      "aliases": ["Dr. Seward"],
+      "description": "A young doctor, former student of Van Helsing, and director of a lunatic asylum. He documents the events through his audio journal.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["skeptical (initially)", "scientific", "dutiful", "devoted", "analytical", "loyal"],
+        "behavior_summary": "Dr. Seward's behavior is initially defined by intense **scientific skepticism** and **analytical** deduction, recording all events via phonograph. He acts as the intellectual foil to Van Helsing, needing concrete proof before accepting the supernatural truth. Driven by his love for Lucy and his friendship with the other men, he eventually becomes a loyal, steadfast member of the crew, using his medical knowledge to understand the vampire's effects.",
+        "motivations": "He is primarily motivated by his unrequited **love for Lucy** and his professional duty to understand the psychological phenomena occurring around him. After Lucy's death, his motivation shifts to seeking **vengeance** and using his scientific skills to aid the hunt. He is ultimately driven by loyalty to his friends and the desire to restore a scientific, rational order to the world.",
+        "character_arc": "Dr. Seward's arc is about the **expansion of rational thought** to encompass the supernatural. He moves from being a strictly scientific observer and asylum director to accepting the spiritual and occult truth of vampirism. His journey allows him to process the trauma of Lucy's death and use his medical expertise in the final chase, becoming a whole, committed member of the 'Band of Light.'"
+      }
+    },
+    {
+      "character_id": "char_arthur_holmwood",
+      "name": "Arthur Holmwood",
+      "aliases": ["Lord Godalming", "Arthur"],
+      "description": "An aristocratic Englishman and Lucy Westenra's fiancé. His personal grief over Lucy's death fuels his fierce determination to hunt Dracula.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["noble", "grief-stricken", "brave", "devoted", "steadfast", "honorable"],
+        "behavior_summary": "Arthur's behavior is initially characterized by profound **grief** and a sense of helplessness as he watches his fiancé, Lucy, slowly die. His actions are driven by noble, straightforward courage and devotion. As the vampire hunt begins, his grief transforms into a fierce **determination** to seek justice, allowing him to perform the necessary, heartbreaking act of staking his beloved Lucy after she becomes a vampire.",
+        "motivations": "His core motivation is his deep, pure **love for Lucy**. Following her transformation and death, his motivation is entirely consumed by **vengeance** and the need to honor her memory by destroying the creature responsible. He uses his wealth and social influence to aid the chase, driven by a simple, profound desire for justice.",
+        "character_arc": "Arthur's arc is a study in **grief and nobility in the face of horror**. He loses his love and his moral center is tested when he must confront her undead form. His journey sees him transform into a resolute avenger, his aristocratic honor channelled into the dangerous hunt. He ends the novel as Lord Godalming, a man whose personal tragedy has solidified his moral strength."
+      }
+    },
+    {
+      "character_id": "char_quincey_morris",
+      "name": "Quincey Morris",
+      "aliases": ["Quincey"],
+      "description": "An adventurous, wealthy American from Texas, one of Lucy Westenra's suitors. He is the brave, quick-thinking action hero of the group.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["brave", "adventurous", "loyal", "generous", "blunt", "sacrificial"],
+        "behavior_summary": "Quincey's behavior is characterized by straightforward American **generosity and bravery**, acting as the most pragmatic and action-oriented member of the group. He is quick to volunteer for the most dangerous tasks and provides crucial financial and logistical support. Though he is one of Lucy's rejected suitors, his devotion to the entire group is absolute, demonstrating his selfless, heroic nature.",
+        "motivations": "His core motivation is pure **loyalty** to his friends, regardless of his own romantic rejection. He is driven by the thrill of the hunt, which aligns with his adventurous spirit, and the moral clarity of fighting true evil. Ultimately, his motivation is to ensure the safety of his 'Band of Light' comrades, a goal that culminates in his final, heroic sacrifice.",
+        "character_arc": "Quincey's arc is the embodiment of the **self-sacrificing hero**. He starts as a generous, wealthy adventurer and is transformed into the final hero who lays down his life to ensure the group's victory. His death wound is the direct result of his efforts to prevent Dracula's escape, ensuring his legacy as a true hero of the group and marking a powerful, poignant moment of American chivalry."
+      }
+    },
+    {
+      "character_id": "char_count_dracula",
+      "name": "Count Dracula",
+      "aliases": ["Dracula", "Count de Ville", "Un-dead"],
+      "description": "The ancient Transylvanian vampire and a powerful aristocrat. He is a cunning predator who seeks to conquer London and spread the curse of vampirism.",
+      "role": "antagonist",
+      "personality": {
+        "personality_traits": ["cunning", "ancient", "tyrannical", "predatory", "magnetic", "immoral", "charismatic"],
+        "behavior_summary": "Dracula's behavior is characterized by ancient, cunning **predation** and a deeply magnetic, terrifying charisma. He acts with meticulous, long-term **strategic planning**, focusing on exploiting the societal vulnerabilities of Victorian London. He is a solitary figure who exerts control through mental domination and terror, driven by a boundless need for fresh blood and a relentless, predatory desire to conquer the new world.",
+        "motivations": "His sole motivation is survival and the **propagation of his species**, seeking to escape the crumbling world of the East for the teeming, fresh population of London. He is driven by a deep sense of ancestral **pride** and a belief in his own superiority as the King of the Un-dead, compelling him to dominate and corrupt all those who oppose him.",
+        "character_arc": "Dracula serves as the **constant, unchanging force of evil** against which the forces of good must organize. His arc is the gradual uncovering of his strategy, followed by a masterful retreat and final desperate flight back to his homeland. His defeat is not a transformation, but a definitive, violent **destruction** by Jonathan Harker and Quincey Morris, symbolically ending his ancient reign and restoring peace to the modern world."
+    }
+}
+  ],
+  "total_found": 7,
+  "cached_at": "2025-11-21T01:49:50"
+}

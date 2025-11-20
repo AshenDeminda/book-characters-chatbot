@@ -1,0 +1,99 @@
+{
+  "document_id": "default_percy_jackson_doc_006",
+  "book_title": "Percy Jackson & the Olympians (Series Overview)",
+  "characters": [
+    {
+      "character_id": "char_percy_jackson",
+      "name": "Percy Jackson",
+      "aliases": ["Percy", "Seaweed Brain", "Son of Poseidon", "Hero of Olympus"],
+      "description": "The son of Poseidon and the central protagonist. A powerful demigod, known for his sarcasm, loyalty, and exceptional powers over water.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["loyal", "sarcastic", "brave", "selfless", "impulsive", "protective", "humble"],
+        "behavior_summary": "Percy's behavior is defined by fierce **loyalty** and an impulsive desire to protect his friends and family, often overriding tactical thinking. He typically masks his insecurities and profound burden with **sarcasm and humor**. He demonstrates a deep sense of justice, consistently siding with the marginalized, and possesses the courage to challenge even the gods. His actions prove that his greatest strength is not his power over water, but his refusal to abandon a friend.",
+        "motivations": "His primary motivation is to **protect his friends and family** (especially his mother and Annabeth) and ensure their safety above all else, including himself. He is driven by a deep sense of responsibility to the demigod world and a desire to foil **Kronos's** return. Later, he is motivated to ensure the gods treat their children better, stemming from his own experiences with parental neglect.",
+        "character_arc": "Percy begins as an outcast, dyslexic kid unaware of his heritage. His arc is a journey of **acceptance of destiny and self-sacrifice**. He transforms from a confused preteen into the prophesied hero who refuses the gift of immortality, choosing instead to remain mortal and reform the gods' treatment of their children. He successfully leads the Olympians' armies against the Titans, earning the respect of both mortals and gods."
+      }
+    },
+    {
+      "character_id": "char_annabeth_chase",
+      "name": "Annabeth Chase",
+      "aliases": ["Annabeth", "Wise Girl", "Daughter of Athena"],
+      "description": "Daughter of Athena and a brilliant strategist. She is fiercely intelligent, driven, and Percy's most trusted companion on quests.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["intelligent", "strategic", "ambitious", "brave", "skeptical", "loyal", "perceptive"],
+        "behavior_summary": "Annabeth's behavior is dominated by her intellectual prowess; she approaches challenges with rigorous **strategic planning** and a thirst for knowledge. She is pragmatic and often skeptical, contrasting Percy's impulsivity by acting as the group's rational anchor. She demonstrates immense loyalty to her friends and harbors a deep ambition to one day prove herself as a great architect, demonstrating her dedication to her mother's wisdom.",
+        "motivations": "Her core motivation is to achieve her dream of becoming a great architect, specifically by **rebuilding monuments** and leaving a lasting legacy, proving her worth to her mother. She is driven by a need for intellectual challenge and a desire to protect her friends. Her greatest motivation is her mission to defeat the Titans, fueled by her tragic past and her desire to establish a stable future for demigods.",
+        "character_arc": "Annabeth starts as a lonely, ambitious camper desperate to prove herself to her divine parent. Her arc is defined by her journey to overcome her inherent prejudice against cyclopses and her own internal flaws (hubris). She matures into a compassionate, unparalleled strategist, reconciling with her mortal family and cementing her role as the necessary intellectual force behind the successful defeat of the Titans and Giants."
+      }
+    },
+    {
+      "character_id": "char_grover_underwood",
+      "name": "Grover Underwood",
+      "aliases": ["Grover", "G-Man", "Satyr"],
+      "description": "A kind-hearted satyr and Percy's best friend. He is loyal but anxious, evolving from a nervous seeker to a powerful Lord of the Wild.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["anxious (initially)", "loyal", "compassionate", "brave", "nature-loving", "determined"],
+        "behavior_summary": "Grover is initially characterized by extreme **nervousness and worry**, often acting out of fear, particularly when facing danger or demanding food. However, his underlying behavior is marked by profound loyalty and an unwavering dedication to nature and his friends. He is a skilled nature magic user and strategist, demonstrating unexpected courage when protecting others or advancing his mission to heal the wild.",
+        "motivations": "His core motivation is the urgent need to find the lost god **Pan**, the Lord of the Wild, and ultimately to secure protection for the wild places of the world against human pollution and destructive forces. He is driven by his deep loyalty to Percy, whom he is tasked to protect, and by the desire to earn his searcher's license and prove himself worthy to the Satyr elders.",
+        "character_arc": "Grover's arc is a spiritual quest for **maturity and purpose**. He moves from a nervous protector hiding his anxieties to a powerful figure who finds and communicates with Pan (and later accepts Pan's legacy). He overcomes his fears to become a leader and diplomat, eventually taking on the sacred mantle of the **Lord of the Wild**, symbolizing the triumph of environmental conservation and innocence."
+      }
+    },
+    {
+      "character_id": "char_chiron",
+      "name": "Chiron",
+      "aliases": ["Chiron", "Mr. Brunner", "Son of Kronos"],
+      "description": "A wise centaur, the immortal Activities Director at Camp Half-Blood. He is a legendary trainer of heroes and a mentor to Percy.",
+      "role": "mentor",
+      "personality": {
+        "personality_traits": ["wise", "patient", "mentor-like", "secretive", "loyal (to the gods)", "experienced"],
+        "behavior_summary": "Chiron's behavior is consistently patient, knowledgeable, and secretive, acting as the primary bridge between the mortal and godly worlds. He guides heroes with careful, oblique advice, ensuring they discover their own strength without intervention. His actions are always aimed at preserving the balance between Olympus and the mortal world, driven by centuries of experience in the fate of heroes and the consequences of war.",
+        "motivations": "His primary motivation is his ancient, sacred **duty to train heroes** and prepare them for the inevitable conflicts against the enemies of Olympus. He is driven by a profound loyalty to the gods and a moral obligation to protect the young demigods entrusted to his care. His goal is to ensure the prophecies are fulfilled successfully, thereby preserving the security of Western Civilization.",
+        "character_arc": "Chiron serves as a **constant, wise figure** whose deep past (as a child of Kronos) informs his devotion to the gods' cause. His arc centers on his trust in Percy, testing his faith in his methods when he is briefly exiled. He remains the steadfast anchor of Camp Half-Blood, using his wisdom to stabilize the demigod community during and after the Titan War, ensuring the legacy of heroes continues."
+      }
+    },
+    {
+      "character_id": "char_nico_di_angelo",
+      "name": "Nico di Angelo",
+      "aliases": ["Nico", "Son of Hades", "Ghost King"],
+      "description": "The son of Hades who possesses dark, powerful abilities. He is an outcast whose isolation leads him down a difficult, tormented path.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["lonely", "dark", "powerful", "vengeful (initially)", "protective", "secretive", "guilt-ridden"],
+        "behavior_summary": "Nico's behavior is initially bright and childish, quickly turning sullen and isolated following his sister's death and the discovery of his parentage. He acts out of deep **grief and a sense of betrayal**, becoming secretive and often hostile toward the Olympians and Percy. He uses his fearsome powers to distance himself, only softening when motivated by immense loyalty or a desire to protect those he genuinely cares for, such as Hazel.",
+        "motivations": "His early motivation is simple: to find and bring back his sister, Bianca, driven by immense grief. This changes to a quest for **self-acceptance** and overcoming his crippling loneliness, as well as a need to prevent a repeat of his family's traumatic past. He is later motivated by his desire to protect the one person he truly trusts, his half-sister Hazel, and to serve as an agent of change in the Underworld.",
+        "character_arc": "Nico's arc is one of **grief, isolation, and eventual acceptance**. He transitions from an enthusiastic child to a dark, solitary figure who is seduced by the Underworld. His journey involves confronting his deepest fears and guilt, ultimately reconciling with Percy and Hades. He becomes the **Ghost King**, a powerful figure who uses his dark powers for good, representing a triumph over the prejudices and traumas of the gods and demigods."
+      }
+    },
+    {
+      "character_id": "char_kronos",
+      "name": "Kronos",
+      "aliases": ["The Titan Lord", "The Crooked One", "King of the Titans"],
+      "description": "The Titan of Time and the ultimate antagonist. He seeks to overthrow the Olympian gods and reclaim his dominion over the world.",
+      "role": "antagonist",
+      "personality": {
+        "personality_traits": ["vengeful", "powerful", "manipulative", "ancient", "tyrannical", "arrogant"],
+        "behavior_summary": "Kronos's behavior is characterized by relentless **vengeance** and strategic, long-term **manipulation**. He cannot act directly at first, instead focusing on corrupting demigods (like Luke) and recruiting monsters to do his bidding. He exudes an ancient, malevolent power, believing that the Olympians are weak usurpers and that only his tyrannical rule can bring true order to the world.",
+        "motivations": "His sole motivation is **vengeance against his children (the gods)** for overthrowing and imprisoning him. He is driven by a boundless desire to restore his ancient rule, bringing back the Age of the Titans and destroying Western Civilization, which he views as the product of the Olympians' corruption.",
+        "character_arc": "Kronos's arc is the **driving conflict** of the entire series. He progresses from a disembodied consciousness to gradually possessing a mortal form (Luke's) as he gathers strength. His arc climaxes in the final battle for Manhattan, where his victory is thwarted not by the power of the gods, but by the ultimate sacrifice of the mortal vessel he inhabited, confirming that the greatest strength lies in free will and selfless love."
+      }
+    },
+    {
+      "character_id": "char_luke_castellan",
+      "name": "Luke Castellan",
+      "aliases": ["Luke", "Son of Hermes", "Kronos's Host"],
+      "description": "A charismatic but deeply resentful demigod who is betrayed by his father Hermes and becomes Kronos's chief lieutenant.",
+      "role": "antagonist",
+      "personality": {
+        "personality_traits": ["charismatic", "resentful", "betrayed", "cunning", "guilt-ridden", "idealistic (initially)"],
+        "behavior_summary": "Luke's behavior is driven by profound **anger and a sense of abandonment** by the Olympians, which Kronos expertly exploits. He acts with cunning and charisma, successfully recruiting many demigods to his cause. Despite his malice, his actions are not purely evil; they are rooted in the idealistic, but misguided, belief that the system is fundamentally broken and must be destroyed for a better world to be built.",
+        "motivations": "His primary motivation is **vengeance** against the Olympian gods, whom he blames for neglecting and abandoning their children (including himself and Thalia). He is initially motivated by a desire to tear down the corrupt system. This motive is tragically co-opted by Kronos, compelling Luke to offer his body as the host to achieve the ultimate destructive goal.",
+        "character_arc": "Luke's arc is a **modern tragedy of betrayal, corruption, and redemption**. He journeys from a bright, heroic camper to the ultimate enemy of the gods. His arc culminates in his final, conscious moment of **sacrifice**, where he uses the knife given to him by Annabeth to stab himself (and Kronos), saving Olympus and fulfilling the great prophecy, proving that his core goodness was never completely lost."
+      }
+    }
+  ],
+  "total_found": 7,
+  "cached_at": "2025-11-21T01:46:50"
+}

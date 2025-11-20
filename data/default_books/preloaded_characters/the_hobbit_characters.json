@@ -1,50 +1,99 @@
 {
   "document_id": "default_hobbit_doc_003",
-  "book_title": "The Hobbit",
+  "book_title": "The Hobbit, or There and Back Again",
   "characters": [
     {
       "character_id": "char_bilbo_baggins",
       "name": "Bilbo Baggins",
-      "aliases": ["Bilbo", "Mr. Baggins", "Burglar"],
-      "description": "A respectable hobbit who embarks on an unexpected adventure. Grows from comfort-loving homebody to brave adventurer.",
+      "aliases": ["Bilbo", "Mr. Baggins", "Burglar", "Barrel-rider"],
+      "description": "A respectable, comfort-loving hobbit who is recruited for an epic quest. He evolves from a timid homebody to a decisive hero.",
       "role": "protagonist",
       "personality": {
-        "personality_traits": ["cautious", "resourceful", "brave", "clever", "loyal"],
-        "behavior_summary": "Initially reluctant hero who discovers inner courage and wit during his journey.",
-        "motivations": "To help the dwarves and prove himself worthy",
-        "character_arc": "From timid hobbit to legendary adventurer",
-        "defining_moments": ["Finding the Ring", "Riddle game with Gollum", "Saving the dwarves from spiders", "Negotiating peace"]
+        "personality_traits": ["cautious", "resourceful", "brave", "clever", "loyal", "domestic", "kind"],
+        "behavior_summary": "Bilbo initially behaves with extreme reluctance and a deep attachment to the comforts of home, representing the ordinary world. However, his **Tookish** side emerges during crises, revealing great resourcefulness, quick wit, and unexpected courage. His actions, such as saving the Dwarves from the Mirkwood spiders and negotiating with the Men and Elves using the **Arkenstone**, show that he values peace and morality above gold, making him the true, moral hero of the tale.",
+        "motivations": "Initially, he is motivated by a desire to avoid disappointing Gandalf and a lingering curiosity about the great wide world. This quickly shifts to a commitment to the Dwarves' well-being and a growing sense of **self-discovery**. Ultimately, his strongest motivation is his **moral conviction**: he seeks to stop unnecessary violence and ensure fairness, valuing non-violent solutions over battle and greed.",
+        "character_arc": "Bilbo's arc is a classic journey of the **unlikely hero**. He transitions from a timid, predictable hobbit obsessed with his dinner schedule to a seasoned adventurer and wise negotiator. This transformation is fueled by the challenges he overcomes alone, proving his worth as the 'Burglar.' He returns home fundamentally changed, retaining his love for comfort but now possessing a deep internal courage and a legendary reputation that lasts a lifetime."
       }
     },
     {
       "character_id": "char_gandalf",
       "name": "Gandalf",
-      "aliases": ["Gandalf the Grey", "The Grey Wizard", "Mithrandir"],
-      "description": "Wise and powerful wizard who guides the company. Known for his cunning plans and magical abilities.",
+      "aliases": ["Gandalf the Grey", "The Grey Pilgrim", "Mithrandir"],
+      "description": "A powerful and wise Istari wizard who initiates the quest to Erebor. He acts as the guiding force and protector of the Company.",
       "role": "supporting",
       "personality": {
-        "personality_traits": ["wise", "powerful", "mysterious", "patient", "strategic"],
-        "behavior_summary": "Enigmatic mentor who guides others to discover their own strength.",
-        "motivations": "To help reclaim Erebor and defeat evil",
-        "character_arc": "The constant guide and protector",
-        "defining_moments": ["Recruiting Bilbo", "Rescuing the company multiple times", "Battle strategies"]
+        "personality_traits": ["wise", "powerful", "mysterious", "impatient (at times)", "strategic", "protective"],
+        "behavior_summary": "Gandalf behaves as a mysterious, highly powerful, yet often exasperated mentor. He rarely uses his full power, preferring instead to guide others toward discovering their own strength and making their own choices. His actions are part of a larger, long-term strategy to combat the rising power of evil in Middle-earth, demonstrated by his timely, often dramatic rescues and his insistence on involving the unexpected (like Bilbo) in grand plans. He embodies hope and decisive action.",
+        "motivations": "Gandalf is motivated by a fundamental commitment to protecting the free peoples of Middle-earth and countering the Dark Lord's influence. His immediate goal is to defeat **Smaug**, thereby preventing the dragon from falling under Sauron's sway and attacking the region. He also seeks to place a rightful king on the throne of Erebor, restoring peace and establishing a bulwark against the darkness rising in the East.",
+        "character_arc": "Gandalf serves as the **constant catalyst and guide**; his character fundamentally does not change, but his actions drive all change around him. His arc in *The Hobbit* is defined by his successful strategic manipulation of events—from recruiting Bilbo to leaving the Company at crucial moments to deal with the Necromancer (Sauron). He demonstrates the power of wisdom and strategy over brute force, successfully setting the stage for the crucial events of the next age."
       }
     },
     {
       "character_id": "char_thorin_oakenshield",
       "name": "Thorin Oakenshield",
       "aliases": ["Thorin", "King Under the Mountain", "Oakenshield"],
-      "description": "Proud dwarf leader seeking to reclaim his homeland and treasure. Noble but often stubborn.",
+      "description": "The proud, regal leader of the Dwarves and rightful heir to the Kingdom Under the Mountain. He is noble but prone to greed.",
       "role": "supporting",
       "personality": {
-        "personality_traits": ["proud", "brave", "stubborn", "noble", "greedy"],
-        "behavior_summary": "Regal leader consumed by desire to reclaim his heritage, sometimes clouding his judgment.",
-        "motivations": "To reclaim Erebor and restore his people's glory",
-        "character_arc": "From proud warrior to treasure-obsessed king to redeemed hero",
-        "defining_moments": ["Leading the quest", "Dragon sickness", "Final battle and redemption"]
+        "personality_traits": ["proud", "brave", "stubborn", "noble", "greedy", "commanding", "honorable (eventually)"],
+        "behavior_summary": "Thorin's behavior is initially defined by a majestic, unbending pride and a commanding presence, yet he is also capable of great warmth and loyalty. However, upon reclaiming Erebor, he quickly succumbs to the **'Dragon Sickness,'** becoming consumed by a paranoid greed for the treasure, particularly the Arkenstone. This avarice clouds his judgment, leading him to abandon honor and break his word, until a moment of clarity and redemption in the face of death.",
+        "motivations": "His lifelong motivation is the restoration of his people's honor and the reclaiming of his ancestral home, **Erebor**, and its immense wealth. He is driven by a deep sense of lineage and responsibility to his people. His later actions are motivated by the raw, corrupting desire to hoard the treasure, viewing the Arkenstone as the ultimate symbol of his kingly authority.",
+        "character_arc": "Thorin undergoes a powerful tragic arc, transforming from a noble, exiled warrior leading a righteous quest into a gold-obsessed, tyrannical figure corrupted by the **Dragon Sickness**. This fall is followed by a dramatic, terminal **redemption** during the Battle of Five Armies, where he casts aside his greed, reconciles with Bilbo, and dies an honorable King, reminding the reader of his true noble nature."
+      }
+    },
+    {
+      "character_id": "char_company_of_dwarves",
+      "name": "The Company of Dwarves",
+      "aliases": ["The Company", "Thorin and Company", "The Thirteen Dwarves"],
+      "description": "A group of twelve loyal Dwarves accompanying Thorin, including Fíli, Kíli, Balin, and Dwalin. Driven by hope and a desire for home.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["loyal", "hardy", "traditional", "greedy", "boisterous", "familial"],
+        "behavior_summary": "The Dwarves collectively behave with a mix of loyalty to Thorin, adherence to their ancient customs, and a persistent focus on gold and material wealth. They rely heavily on Gandalf and, later, Bilbo's unique skills. Despite their rough manners and occasional incompetence in the wild, their behavior in battle is marked by fierce courage and an unbreakable familial bond, especially when defending one another or their claim to Erebor.",
+        "motivations": "Their collective motivation is the desire to reclaim their immense ancestral wealth and, crucially, to re-establish their rightful home, **Erebor**. They seek to escape their long, wandering exile and restore the dignity of their royal line, driven by the hope of becoming rich and returning to their traditional way of life as master craftsmen.",
+        "character_arc": "The Company begins as a collection of exiled wanderers, defined by loss and hope. Their arc is a group journey where they gain profound respect for Bilbo and the non-Dwarvish world. They move from relying on external help to fighting fiercely for their future. Their success in reclaiming Erebor fulfills their collective purpose, though their final survival is earned through sacrifice in the Battle of Five Armies."
+      }
+    },
+    {
+      "character_id": "char_smaug",
+      "name": "Smaug",
+      "aliases": ["Smaug the Golden", "The Terrible", "Chiefest and Greatest of Calamities"],
+      "description": "The massive, cunning, and terrifying dragon who stole Erebor. He is obsessed with his treasure and possesses immense destructive power.",
+      "role": "antagonist",
+      "personality": {
+        "personality_traits": ["greedy", "arrogant", "cunning", "vain", "destructive", "ancient"],
+        "behavior_summary": "Smaug behaves with overwhelming **arrogance** and **vanity**, viewing himself as invincible and immensely intelligent. He enjoys psychological torture, engaging in mocking conversation with Bilbo before attacking. His actions are purely destructive, fueled by a territorial and possessive greed for the gold he hoards. His final act is a vengeful, cataclysmic assault on Lake-town when he realizes he has been challenged and robbed.",
+        "motivations": "Smaug is motivated by the desire to hoard and sleep on the immense wealth of Erebor, viewing the treasure as an extension of himself. He acts to maintain absolute **dominance** and eliminate any threat—real or perceived—to his undisputed possession of the mountain and its gold. His ultimate impulse is the primal instinct to destroy those who dare to challenge his authority or disrupt his centuries-long slumber.",
+        "character_arc": "Smaug functions as the **ultimate obstacle** and force of nature in the narrative. His arc is short and spectacular: he is awakened by the Dwarves' arrival, briefly engages with Bilbo's cleverness, and ends his reign in a terrifying show of power as he attempts to destroy Lake-town. His death, by the hand of Bard the Bowman, marks the necessary end of the old, monstrous world and triggers the political conflict of the Five Armies."
+      }
+    },
+    {
+      "character_id": "char_goblin_king",
+      "name": "The Great Goblin",
+      "aliases": ["The Goblin King", "Great Goblin"],
+      "description": "The immense, cruel, and powerful leader of the Goblins in the Misty Mountains. He seeks to capture and punish the Company.",
+      "role": "antagonist",
+      "personality": {
+        "personality_traits": ["cruel", "violent", "arrogant", "dim-witted (compared to Gandalf)", "tyrannical"],
+        "behavior_summary": "The Great Goblin behaves with overt cruelty and self-satisfied malice, tormenting the captured Dwarves and gloating over their misfortune. His behavior is driven by simple **vengeance** and greed, as he demands to know the source of Thorin's sword, Orcrist. He is quickly outmatched in wit and power by Gandalf, who executes him swiftly, underscoring the nature of Goblins as a brutal but intellectually inferior threat.",
+        "motivations": "His primary motivation is to capture and torment any intruders, specifically driven by the chance to gain a bounty from the Orcs, who were pursuing Thorin. He is also motivated by his hatred for the Dwarves and a desire to eliminate any threat to his authority in the Goblin tunnels of the Misty Mountains.",
+        "character_arc": "The Great Goblin serves as a **singular, major threat** in the early part of the journey. His arc is brief: capture the heroes, assert his tyranny, and be summarily defeated by the guiding power of Gandalf. His death frees the Company and contributes to the growing unrest among the Goblins, which later boils over into the great battle at the end of the book."
+      }
+    },
+    {
+      "character_id": "char_gollum",
+      "name": "Gollum",
+      "aliases": ["Gollum", "Smeagol", "My Precious"],
+      "description": "A wretched, corrupted creature living beneath the Misty Mountains. He possesses a magical Ring and engages Bilbo in a pivotal riddle game.",
+      "role": "antagonist",
+      "personality": {
+        "personality_traits": ["wretched", "possessive", "scheming", "pitiable", "split-personality", "cannibalistic"],
+        "behavior_summary": "Gollum exhibits a pathetic, tragic, and intensely paranoid behavior due to the corrupting influence of the One Ring, which he refers to as **'My Precious.'** He oscillates between pathetic pleading and vicious scheming, often debating with himself (his two personalities). His actions are driven by his possessive love for the Ring and his desire to eat fresh meat, making him a lethal threat to Bilbo when he realizes the Ring is gone.",
+        "motivations": "His entire existence is motivated by the desire to possess and stroke the One Ring. He is driven by a constant, gnawing hunger and the need to protect his 'Precious' from anyone else. His secondary motivation is self-preservation, which compels him to hide and live in the darkness, only venturing out to hunt when necessary.",
+        "character_arc": "Gollum's arc in *The Hobbit* is a tragic glimpse into the effects of the Ring's corruption. He is introduced as a lonely, pitiful, and dangerous foe who unintentionally plays a key role by losing the Ring to Bilbo. His failure in the riddle game allows Bilbo to escape, marking the beginning of the Ring's journey back into the world, thereby establishing a critical link to the events of *The Lord of the Rings*."
       }
     }
   ],
-  "total_found": 3,
-  "cached_at": "2025-11-18T00:00:00"
+  "total_found": 7,
+  "cached_at": "2025-11-21T01:34:00"
 }

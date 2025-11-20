@@ -1,0 +1,34 @@
+{
+  "document_id": "default_frankenstein_doc_005",
+  "book_title": "Frankenstein; or, The Modern Prometheus",
+  "characters": [
+    {
+      "character_id": "char_victor_frankenstein",
+      "name": "Victor Frankenstein",
+      "aliases": ["Victor", "The Modern Prometheus"],
+      "description": "The ambitious, ego-driven scientist who discovers the secret of animating life, then abandons his creation, leading to tragedy.",
+      "role": "protagonist/antagonist",
+      "personality": {
+        "personality_traits": ["ambitious", "egoistical", "secretive", "obsessive", "irresponsible", "passionate", "pitiable"],
+        "behavior_summary": "Victor's behavior is driven by relentless, secretive **ambition** and a powerful obsession with scientific glory, leading him to neglect all moral and social duties. After animating the Creature, he acts with profound **irresponsibility**, fleeing his creation and his consequences. His actions are characterized by intense passion followed by complete abdication of duty, resulting in a self-inflicted cycle of misery, guilt, and vengeance.",
+        "motivations": "His primary motivation is the desire for **scientific glory** and fame, seeking to unlock the deepest secrets of life and death, thereby placing himself above ordinary men. This initial ambition devolves into a desperate motivation for **vengeance** and self-pity after the Creature begins murdering his loved ones. Ultimately, he is driven by a tragic, selfish obsession that consumes his life and leads to his demise.",
+        "character_arc": "Victor's arc is a cautionary tale of **hubris and unchecked ambition**. He progresses from a brilliant, idealistic student to a guilt-ridden, obsessive wreck haunted by the consequences of his actions. His scientific victory turns into a moral failure, culminating in a bitter, futile chase across the world to destroy the Creature. He dies without achieving redemption, remaining tragically fixated on his duty rather than his moral error."
+      }
+    },
+    {
+      "character_id": "char_the_creature",
+      "name": "The Creature",
+      "aliases": ["The Monster", "Adam of your Labors", "The Daemon", "The Fiend"],
+      "description": "The artificially created being, possessing intelligence and sensitivity, whose rejection by humankind drives him from benevolence to vengeful evil.",
+      "role": "antagonist/victim",
+      "personality": {
+        "personality_traits": ["sensitive", "intelligent", "benevolent (initially)", "vengeful", "lonely", "eloquent", "desperate"],
+        "behavior_summary": "The Creature initially behaves with **innate benevolence** and a deep capacity for learning, motivated by a desire for companionship and acceptance. After repeated, cruel rejection by both his creator and society, his behavior hardens into **calculated vengeance**. His actions are driven by intellectual planning and emotional pain, seeking to inflict the same misery and isolation he has suffered upon his creator.",
+        "motivations": "His earliest motivation is the fundamental need for **acceptance, love, and companionship**. After realizing he is universally rejected, his motivation shifts entirely to the pursuit of **justice and vengeance** against Victor, whom he blames for his existence and isolation. He demands that Victor create a female companion, driven by the desperate need to escape his profound, agonizing loneliness.",
+        "character_arc": "The Creature's arc is a tragic descent from **innocence and benevolence into malice**. He begins as a newborn intellectual discovering the world, progresses to a lonely outcast, and finally becomes a sophisticated, vengeful murderer. His existence serves as a critique of humanity's inability to see past physical appearance. His arc culminates in a final act of profound grief and self-destruction after his creator's death, confirming his status as an eternal outsider."
+    }
+}
+  ],
+  "total_found": 2,
+  "cached_at": "2025-11-21T01:44:30"
+}

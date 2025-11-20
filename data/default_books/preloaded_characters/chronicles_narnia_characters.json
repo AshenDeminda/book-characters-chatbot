@@ -1,50 +1,112 @@
 {
   "document_id": "default_narnia_doc_002",
-  "book_title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+  "book_title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe (Series Overview)",
   "characters": [
     {
       "character_id": "char_lucy_pevensie",
       "name": "Lucy Pevensie",
-      "aliases": ["Lucy", "Lu"],
-      "description": "The youngest Pevensie child who first discovers Narnia. Kind-hearted, brave, and faithful.",
+      "aliases": ["Lucy", "Lu", "Queen Lucy the Valiant"],
+      "description": "The youngest and first to discover Narnia. She is the most faithful and compassionate of the siblings, known for her purity of heart.",
       "role": "protagonist",
       "personality": {
-        "personality_traits": ["kind", "brave", "faithful", "innocent", "curious"],
-        "behavior_summary": "Pure-hearted girl who believes in the impossible and inspires others with her faith.",
-        "motivations": "To help Narnia and protect her siblings",
-        "character_arc": "From curious child to valiant queen",
-        "defining_moments": ["First entering Narnia", "Meeting Aslan", "Healing with her cordial"]
+        "personality_traits": ["kind", "brave", "faithful", "innocent", "curious", "perceptive", "loyal"],
+        "behavior_summary": "Lucy's behavior is defined by an immediate and unwavering belief in the unseen and the magical, often perceiving truth before her siblings. Her curiosity leads her into Narnia, and her deep **empathy and kindness** drive her actions, such as befriending the Faun, Tumnus. She shows remarkable **courage** and perseverance, refusing to let her siblings' initial disbelief deter her faith. This pure-hearted nature makes her the spiritual compass for the Pevensies, always pointing toward Aslan and the good of Narnia.",
+        "motivations": "Her primary motivation is driven by her love for Narnia and its creatures, and an intrinsic desire to see **justice** and **truth** restored. She seeks to bring her siblings into her world, sharing the joy and wonder she has found. Furthermore, she is motivated by her deep **faith in Aslan**, which gives her the strength to face fear and danger, compelling her to assist in healing the wounded and actively participating in battles to free the land.",
+        "character_arc": "Lucy begins as a curious, imaginative child whose word is doubted. Her arc is one of **vindicated faith** and quiet **authority**. She matures into **Queen Lucy the Valiant**, ruling Narnia justly for many years. She remains the emotional core of the Pevensies, maintaining her childlike wonder and moral clarity across the Narnian timelines, representing the constancy of goodness and the importance of open-hearted belief in the face of skepticism."
+      }
+    },
+    {
+      "character_id": "char_edmund_pevensie",
+      "name": "Edmund Pevensie",
+      "aliases": ["Edmund", "Ed", "King Edmund the Just"],
+      "description": "The third Pevensie child, initially spiteful and easily tempted by the White Witch. He undergoes the most profound redemption arc.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["sullen", "spiteful (initially)", "loyal (later)", "brave", "sarcastic", "just"],
+        "behavior_summary": "Initially, Edmund behaves out of **spite** and **self-interest**, easily succumbing to the White Witch's manipulations fueled by his craving for Turkish Delight and power. This leads to his betrayal of his siblings. However, after experiencing the reality of the Witch's cruelty, his behavior shifts dramatically. He demonstrates a genuine **remorse** and actively seeks to atone for his mistakes, culminating in acts of quiet courage and a keen sense of justice that earns him the title **King Edmund the Just**.",
+        "motivations": "Edmund is first motivated by childish **greed** and a desire for sweet revenge on his siblings, especially Peter, for perceived slights. Following his betrayal, his motivation transforms into a profound need for **redemption** and forgiveness, driven by the realization of his error and the impact of Aslan's sacrifice. Ultimately, he is motivated by a deep-seated desire to live up to the standard of justice and bravery his brother and sisters embody.",
+        "character_arc": "Edmund's arc is the series' primary tale of **betrayal and redemption**. He journeys from a cynical, untrustworthy sibling to a penitent soul saved by Aslan's intervention, which includes the ultimate sacrifice. He grows into a wise and loyal king, becoming a crucial advisor and strategist to his siblings. His experience with the dark side makes him keenly sensitive to injustice, completing his transformation into the **Just King**."
+      }
+    },
+    {
+      "character_id": "char_susan_pevensie",
+      "name": "Susan Pevensie",
+      "aliases": ["Susan", "Queen Susan the Gentle"],
+      "description": "The second eldest Pevensie child. She is practical, cautious, and protective, known for her beauty and diplomatic skills.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["practical", "cautious", "protective", "gentle", "skeptical", "maternal"],
+        "behavior_summary": "Susan's behavior is initially marked by **skepticism** and a practical, **maternal protectiveness** over her younger siblings. She is the voice of caution, preferring logic and safety over impulsivity. She possesses a gentle nature and excellent diplomatic skills, which serve her well as a Queen. Though she struggles with fully retaining her faith in Narnia as she gets older, her actions in the early years are driven by a deep sense of responsibility and care for her family.",
+        "motivations": "Her core motivation is to maintain the **safety** and **well-being** of her siblings, often making her reluctant to embrace the dangers of Narnia. As a queen, she is motivated by the desire to rule justly and peacefully, focusing on diplomacy (earning the title **The Gentle**). Later in life, her motivation unfortunately shifts to embracing the comforts of the real world, leading to her eventual inability to believe in Narnia.",
+        "character_arc": "Susan’s arc involves a journey from a practical, fearful girl to a gentle queen, skilled with the bow. However, her full arc is marked by a **tragic loss of faith**. She is unable to maintain her belief in Narnia as she prioritizes the conventional adult world. This makes her arc a profound cautionary tale about the choice between the spiritual and the purely temporal world."
+      }
+    },
+    {
+      "character_id": "char_peter_pevensie",
+      "name": "Peter Pevensie",
+      "aliases": ["Peter", "King Peter the Magnificent", "High King of Narnia"],
+      "description": "The eldest Pevensie child. He is noble, courageous, and a natural leader who becomes the High King of Narnia and leads its armies.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["noble", "courageous", "protective", "responsible", "loyal", "strategic"],
+        "behavior_summary": "As the eldest, Peter shoulders the responsibility of caring for his siblings during wartime, displaying initial nervousness but quickly growing into a **natural leader**. His behavior is characterized by **chivalry** and a strong sense of **duty**. He is fiercely **protective** and consistently acts with integrity, earning the trust of the Narnians and Aslan. He leads with wisdom and military competence, making him a formidable force in battle and a fair ruler in times of peace.",
+        "motivations": "Peter is motivated by his obligation to protect his family and ensure their safety. Once in Narnia, his motivation extends to defending the land and its people from the White Witch and later, the Telmarines, driven by a noble sense of **duty** and the challenge of becoming the prophesied king. His respect for **Aslan** and his desire to live up to the High King title compels him to bravely face overwhelming odds.",
+        "character_arc": "Peter's arc is one of **stepping up to responsibility** and fulfilling a great prophecy. He moves from an anxious boy trying to manage his siblings to a skilled warrior who receives a sword and shield, symbolizing his coming of age. He is established as the **High King**, demonstrating growth in both strategic leadership and moral authority, achieving a position of great dignity and power, which he uses selflessly to bring lasting peace to Narnia."
+      }
+    },
+    {
+      "character_id": "char_prince_caspian",
+      "name": "Prince Caspian",
+      "aliases": ["Caspian", "King Caspian X", "Caspian the Seafarer"],
+      "description": "The young rightful King of Narnia, a Telmarine who raises an army to challenge his tyrannical uncle Miraz and restore Old Narnia.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["noble", "idealistic", "brave", "dutiful", "inexperienced (initially)", "restorative"],
+        "behavior_summary": "Caspian displays a noble and idealistic nature, deeply revering the legends of Old Narnia that his nurse taught him. His behavior is marked by a strong sense of **duty** and a willingness to fight for the marginalized Old Narnians, but also initial inexperience and doubt regarding his own leadership. He learns to trust the magical creatures and to rely on courage rather than solely on Telmarine military strategy. His growth involves embracing his destiny and ultimately showing mercy and justice as a true King.",
+        "motivations": "Caspian is primarily motivated by the desire to reclaim his rightful throne from his treacherous uncle, King Miraz. More profoundly, he seeks to **restore Old Narnia**, bringing the suppressed talking beasts and spirits out of hiding and ending the Telmarine oppression. He is driven by a deep longing to connect with Narnia’s ancient, magical past, which his nurse helped him believe in, leading him on quests far beyond his kingdom.",
+        "character_arc": "Caspian's arc is a classic **coming-of-age story** from a sheltered, hunted prince to a powerful and just king. He matures through war, exploration, and the burdens of rule. He progresses from relying on the Pevensies and Aslan to becoming an independent, wise monarch who commands a ship (The Dawn Treader) and actively seeks the boundaries of his world, fulfilling his role as one of Narnia's great rulers and ensuring the safety of his kingdom."
       }
     },
     {
       "character_id": "char_aslan",
       "name": "Aslan",
-      "aliases": ["The Lion", "The Great Lion", "King of Beasts"],
-      "description": "The great lion and true king of Narnia. Wise, powerful, and sacrificial.",
+      "aliases": ["The Lion", "The Great Lion", "King of Beasts", "Son of the Emperor-Beyond-the-Sea"],
+      "description": "The powerful, majestic, and wise Great Lion, the true King and creator of Narnia. He embodies goodness, justice, and sacrifice.",
       "role": "supporting",
       "personality": {
-        "personality_traits": ["wise", "powerful", "just", "merciful", "sacrificial"],
-        "behavior_summary": "Majestic and awe-inspiring leader who brings hope and redemption.",
-        "motivations": "To free Narnia from evil and restore justice",
-        "character_arc": "The unchanging symbol of good and sacrifice",
-        "defining_moments": ["Sacrificing himself at the Stone Table", "Resurrection", "Defeating the White Witch"]
+        "personality_traits": ["wise", "powerful", "just", "merciful", "sacrificial", "awe-inspiring", "benevolent"],
+        "behavior_summary": "Aslan's behavior is characterized by an awe-inspiring blend of **majesty and deep tenderness**. He is both 'safe and good.' He acts as the ultimate authority and source of **redemption**, only appearing when truly needed, empowering the children and Narnians to take action themselves. His actions are always guided by the profound cosmic laws of Deep Magic, leading to his necessary sacrifice to save Edmund, demonstrating an unwavering commitment to justice tempered by mercy.",
+        "motivations": "Aslan is motivated by his eternal, boundless **love** for Narnia, its inhabitants, and his desire to uphold the fundamental principles of **goodness and justice**. He works to free the land from the forces of evil, primarily the White Witch and her successors, and fulfills the will of the Emperor-Beyond-the-Sea. His presence in Narnia is always to initiate change, offer hope, and compel his followers to grow through their own trials and acts of bravery.",
+        "character_arc": "Aslan's arc is **transcendent and unchanging**; he is the constant, **uncreated** force of good in Narnia. His story in this book centers on the **sacrificial redemption** necessary to save Edmund under the terms of the Deep Magic. Though he dies and is resurrected, he is never permanently gone, representing a cyclical return of hope and life. He acts as the ultimate figure of grace, demonstrating that true power is found in humility and self-sacrifice."
       }
     },
     {
       "character_id": "char_white_witch",
       "name": "The White Witch",
-      "aliases": ["Jadis", "The Witch", "Queen of Narnia"],
-      "description": "Evil ruler who has cursed Narnia with eternal winter. Cruel and manipulative.",
+      "aliases": ["Jadis", "The Witch", "Queen of Narnia", "The Empress of the Lone Islands"],
+      "description": "The evil tyrannical ruler who cursed Narnia to 100 years of winter. She is a powerful, cold sorceress driven by ambition.",
       "role": "antagonist",
       "personality": {
-        "personality_traits": ["cruel", "manipulative", "power-hungry", "cold", "deceitful"],
-        "behavior_summary": "Tyrannical ruler who maintains power through fear and deception.",
-        "motivations": "To rule Narnia forever and destroy Aslan's prophecy",
-        "character_arc": "From seemingly invincible tyrant to defeated enemy",
-        "defining_moments": ["Tempting Edmund", "Stone Table ceremony", "Final battle"]
+        "personality_traits": ["cruel", "manipulative", "power-hungry", "cold", "deceitful", "tyrannical", "sadistic"],
+        "behavior_summary": "The White Witch maintains her tyrannical rule through sheer **terror, manipulation, and the threat of eternal stone**. She is highly skilled at identifying and exploiting the emotional weaknesses and insecurities of others, as seen with Edmund's betrayal. Her behavior is entirely **self-serving** and devoid of any empathy, as she views all creatures as means to an end. Her cruelty is a calculated tool to prevent any challenge to her absolute, ice-bound authority.",
+        "motivations": "Her singular motivation is to achieve and maintain absolute **totalitarian power** over Narnia and beyond, seeking to rule it forever, even if the land must remain in permanent winter. She is driven by a deep-seated fear of the prophecy regarding the Pevensie children and is obsessed with circumventing the ancient laws and powers that oppose her, primarily Aslan and the Deep Magic.",
+        "character_arc": "The White Witch is introduced as a seemingly **invincible, timeless tyrant** who has successfully enslaved Narnia for a century. Her arc involves the gradual unraveling of her power as the return of Aslan and the Pevensies fulfills the ancient prophecies. Her defining moment is her miscalculation regarding the Deeper Magic at the Stone Table, which leads directly to her defeat and destruction, confirming that her reign, while long, was ultimately finite."
+      }
+    },
+    {
+      "character_id": "char_telmarines",
+      "name": "The Telmarines",
+      "aliases": ["Telmarines", "New Narnians (self-titled)"],
+      "description": "The human race that conquered Narnia hundreds of years ago, suppressing magic and ruling through fear and skepticism of the old ways.",
+      "role": "antagonist",
+      "personality": {
+        "personality_traits": ["oppressive", "fearful", "skeptical", "militaristic", "cruel", "dominant"],
+        "behavior_summary": "The Telmarines generally behave with **suspicion and fear** towards the magic and native creatures of Narnia, which they actively tried to eradicate through cultural and military dominance. Their society is highly militaristic and centralized under a tyrannical monarchy (Miraz). They suppress the history of Old Narnia out of fear and a desire to maintain absolute control. Their collective behavior is characterized by **colonial oppression** and a deep-seated denial of anything magical.",
+        "motivations": "Their core motivation is to maintain absolute **political and military control** over Narnia, ensuring the supremacy of their human race. They are driven by a need to erase the past and eliminate any magical threats—real or perceived—to their power structure. The general populace is motivated by fear instilled by their leaders, while their leadership is motivated by pure lust for power and consolidation of their reign.",
+        "character_arc": "The Telmarines function as a **collective force of oppression**. Their arc begins with their successful conquest and a long period of unchallenged dominance under the winter of the White Witch's influence. It culminates in the challenge of **Prince Caspian** and the return of Aslan, forcing them to confront the magic they denied. Their collective arc ends with their choice to either integrate into Old Narnia or return to the human world, leading to the dissolution of their oppressive regime."
       }
     }
   ],
-  "total_found": 3,
-  "cached_at": "2025-11-18T00:00:00"
+  "total_found": 8,
+  "cached_at": "2025-11-21T01:31:05"
 }

@@ -1,0 +1,99 @@
+{
+  "document_id": "default_hunger_games_doc_011",
+  "book_title": "The Hunger Games (Series Overview)",
+  "characters": [
+    {
+      "character_id": "char_katniss_everdeen",
+      "name": "Katniss Everdeen",
+      "aliases": ["Katniss", "Catnip", "The Girl on Fire", "The Mockingjay"],
+      "description": "The strong, resourceful protagonist and tribute from District 12. She becomes the reluctant symbol of rebellion against the Capitol.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["resourceful", "protective", "fierce", "emotionally guarded", "loyal", "stubborn", "strategic"],
+        "behavior_summary": "Katniss's behavior is dominated by a fierce, primal instinct for **survival** and the protection of her family and loved ones. She acts with calculated strategy and cold logic in the arena, but her actions are often driven by genuine emotion, leading to unintended political consequences. She remains deeply **emotionally guarded** and struggles with vulnerability, using her survival skills to navigate political and military conflicts she never asked to join.",
+        "motivations": "Her initial and most powerful motivation is the absolute need to **protect Primrose** (her sister) and later, Peeta. She is driven by a deep resentment of the Capitol's cruelty and the pursuit of basic justice for the districts. Her actions as the Mockingjay are motivated by a relentless desire for a better world, one free of tyranny and oppression, making her a reluctant symbol of hope.",
+        "character_arc": "Katniss's arc is a tragic journey from a self-sufficient hunter to a **propaganda symbol and revolutionary weapon**. She survives the arena twice and reluctantly accepts her role as the Mockingjay. Her journey culminates in the defeat of President Snow and, crucially, her ultimate realization that the rebellion's new power structure is just as flawed, leading to her final, pivotal choice to execute President Coin."
+      }
+    },
+    {
+      "character_id": "char_peeta_mellark",
+      "name": "Peeta Mellark",
+      "aliases": ["Peeta", "The Boy with the Bread"],
+      "description": "The male tribute from District 12 and Katniss's co-victor. He is kind, artistic, and skilled in manipulation and public speaking.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["kind", "empathetic", "manipulative (in media)", "artistic", "loyal", "self-aware", "gentle"],
+        "behavior_summary": "Peeta's behavior is characterized by deep **empathy** and self-sacrificial love, often prioritizing Katniss's survival over his own. He acts as the team's public speaker and media manipulator, using his intelligence and artistic skill to craft a public narrative. Despite immense suffering, including torture and 'hijacking' by the Capitol, his core instinct remains to distinguish reality from fabrication and cling to his sense of self.",
+        "motivations": "His sole motivation is to ensure **Katniss's survival** and maintain her safety and love. He is driven by a desire to use his communication skills to fight the Capitol's media control. After his psychological hijacking, his motivation becomes a desperate, agonizing internal struggle to hold onto his true memories and his identity.",
+        "character_arc": "Peeta's arc is defined by **psychological resilience and the power of love over tyranny**. He transforms from a baker's boy with a secret crush to a war victim who must fight to regain his sanity. His journey highlights the Capitol's brutal psychological warfare, and his ultimate healing represents the slow, painful recovery needed for the new world."
+      }
+    },
+    {
+      "character_id": "char_gale_hawthorne",
+      "name": "Gale Hawthorne",
+      "aliases": ["Gale"],
+      "description": "Katniss's best friend and hunting partner. He is passionate, fierce, and driven by a deep, uncompromising desire for revenge.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["fierce", "passionate", "loyal", "dogged", "vengeful", "practical", "militaristic (later)"],
+        "behavior_summary": "Gale's behavior is characterized by a fierce, uncompromising **anger** towards the Capitol and a strong sense of duty to protect his community. He acts with practicality and ingenuity in the wilderness and later develops advanced **military tactics** for the rebellion. His passion often overrides caution, driving him toward extreme, destructive solutions in the pursuit of vengeance and freedom.",
+        "motivations": "His core motivation is **vengeance** against the Capitol for the injustice and suffering inflicted upon his family and district. He is driven by a desire to secure permanent freedom for the districts, even if it requires brutal, total war. His loyalty to Katniss is complicated by romantic love and his belief that his methods are the only path to ultimate victory.",
+        "character_arc": "Gale's arc is a study in the **corruption of revolution**. He moves from a loyal hunting partner to a brilliant, ruthless military strategist. His journey highlights the moral ambiguity of war, as his focus on efficiency leads him to create weapons of mass destruction (the trap bombs) that blur the line between the brutality of the Capitol and the methods of the rebellion."
+      }
+    },
+    {
+      "character_id": "char_haymitch_abernathy",
+      "name": "Haymitch Abernathy",
+      "aliases": ["Haymitch"],
+      "description": "The perpetually drunken former victor from District 12 and the sole mentor for Katniss and Peeta. He is cunning and deeply cynical.",
+      "role": "supporting/mentor",
+      "personality": {
+        "personality_traits": ["cynical", "cunning", "strategic", "sarcastic", "alcoholic", "deeply loyal (hidden)"],
+        "behavior_summary": "Haymitch's behavior is dominated by deep **cynicism** and alcoholism, a coping mechanism for the trauma of the Games and mentoring doomed children. He acts as a brilliant, if highly reluctant, mentor, dispensing cryptic, cynical advice that often proves strategically sound. His protective actions towards Katniss and Peeta are hidden beneath layers of apathy and sarcasm.",
+        "motivations": "His primary motivation is to simply **survive** his miserable existence by dulling his trauma with alcohol. Professionally, he is driven by a hidden, profound sense of **responsibility** to keep his tributes alive, seeing them as the only children worth saving. His ultimate motivation is finding a way to defeat the Capitol, which he works toward through subtle, long-term strategic support of the Mockingjay.",
+        "character_arc": "Haymitch's arc is one of **functional redemption**. He moves from a defeated, drunkard victor to a committed strategist who successfully guides the rebellion's symbols (Katniss and Peeta) to victory. His ultimate triumph is finding a purpose greater than his despair, culminating in him achieving sobriety after the war's end, living a quieter, healthier life."
+      }
+    },
+    {
+      "character_id": "char_effie_trinket",
+      "name": "Effie Trinket",
+      "aliases": ["Effie"],
+      "description": "The cheerful, Capitol-born escort for District 12 tributes. She is initially frivolous but grows to genuinely care for Katniss and Peeta.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["frivolous (initially)", "dutiful", "fashion-focused", "caring", "loyal", "optimistic"],
+        "behavior_summary": "Effie’s behavior is initially defined by extreme **frivolity** and an unwavering dedication to Capitol etiquette and duty, focusing on aesthetics and punctuality. She acts as a relentless optimist, masking the brutal reality of the Games. Over time, her actions demonstrate genuine **affection and loyalty** toward Katniss and Peeta, leading her to defy the Capitol and risk her life for them during the rebellion.",
+        "motivations": "Her primary motivation is professional ambition: securing a promotion to a better district by successfully managing District 12's tributes. This gradually transforms into a motivation of pure **love and loyalty** for Katniss and Peeta, whom she views as family. She is driven to see them survive and live happily, realizing the cruelty of the system she once served.",
+        "character_arc": "Effie's arc is a crucial story of **awakening and moral transformation**. She moves from a shallow, unquestioning servant of the Capitol to a disillusioned, dedicated member of the rebellion's support team. Her journey symbolizes the potential for change, as she trades her obsession with bright Capitol wigs for a true understanding of humanity and loyalty."
+      }
+    },
+    {
+      "character_id": "char_primrose_everdeen",
+      "name": "Primrose Everdeen",
+      "aliases": ["Prim"],
+      "description": "Katniss's gentle, kind younger sister. She is a dedicated healer whose initial drawing is the catalyst for the entire series.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["gentle", "kind", "dedicated", "compassionate", "innocent", "calm"],
+        "behavior_summary": "Prim's behavior is characterized by quiet, steadfast **kindness** and **compassion**, often tending to the sick and injured (both human and animal). She acts as the emotional light and guiding moral force in Katniss's life. Despite her gentleness, she shows remarkable courage and maturity in dedicating herself to becoming a trained field medic during the war.",
+        "motivations": "Her core motivation is to heal and **alleviate suffering**, driven by her gentle nature and natural aptitude for medicine. She is also motivated by a profound, reciprocal love for her sister, seeking to become self-sufficient so that Katniss does not have to worry about her safety.",
+        "character_arc": "Prim's arc is one of **moral growth and tragic fate**. She moves from a terrified, vulnerable child who needs saving to a brave, dedicated medic serving on the front lines. Her arc ends in a sudden, **tragic death** from Gale's trap bombs, an event that catalyzes Katniss's final decision to seek justice not just against Snow, but against all corrupt power structures."
+      }
+    },
+    {
+      "character_id": "char_president_snow",
+      "name": "President Coriolanus Snow",
+      "aliases": ["President Snow", "Snow"],
+      "description": "The tyrannical, sinister president of Panem and the primary antagonist. He maintains absolute control through fear and manufactured spectacle.",
+      "role": "antagonist",
+      "personality": {
+        "personality_traits": ["tyrannical", "sinister", "manipulative", "calculating", "narcissistic", "ruthless", "poisonous"],
+        "behavior_summary": "President Snow's behavior is defined by supreme **ruthlessness and strategic cruelty**, using terror and propaganda (the Games) to maintain his absolute totalitarian rule. He acts with meticulous **calculation**, always aiming to manipulate people and events to serve his power. He possesses a chilling, quiet demeanor, using threats and subtle poisoning to eliminate all political and personal threats.",
+        "motivations": "His sole motivation is the maintenance of his **absolute power** and the perpetuation of the totalitarian control of the Capitol over the districts. He is driven by a cynical understanding of human fear and self-interest, believing that terror is the only way to govern. He views Katniss as an existential threat that must be neutralized or controlled at all costs.",
+        "character_arc": "President Snow functions as the **ultimate symbol of entrenched tyranny**. His arc is defined by his relentless effort to suppress the rebellion and destroy the Mockingjay, which fails due to forces he cannot control (love, hope). His downfall is achieved not through an honorable battle, but through his humiliating capture and his final, desperate attempt to turn Katniss against Coin, culminating in his defeated, chaotic death."
+    }
+}
+  ],
+  "total_found": 7,
+  "cached_at": "2025-11-21T02:00:20"
+}

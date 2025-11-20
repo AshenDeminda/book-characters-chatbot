@@ -1,50 +1,112 @@
 {
   "document_id": "default_hp1_doc_001",
-  "book_title": "Harry Potter and the Philosopher's Stone",
+  "book_title": "Harry Potter and the Philosopher's Stone (Series Overview)",
   "characters": [
     {
       "character_id": "char_harry_potter",
       "name": "Harry Potter",
-      "aliases": ["Harry", "The Boy Who Lived", "Potter"],
-      "description": "The Boy Who Lived, brave and loyal Gryffindor student characterized by his courage, determination, and willingness to sacrifice for others.",
+      "aliases": ["Harry", "The Boy Who Lived", "Potter", "Undesirable No. 1", "The Chosen One"],
+      "description": "The determined protagonist and the only person to survive the Killing Curse. A brave Gryffindor, he is the key figure in defeating the Dark Lord.",
       "role": "protagonist",
       "personality": {
-        "personality_traits": ["brave", "loyal", "determined", "selfless", "curious"],
-        "behavior_summary": "Courageous young wizard who values friendship and justice above all else.",
-        "motivations": "To protect his friends, defeat evil, and discover his identity",
-        "character_arc": "From orphaned boy to hero who embraces his destiny",
-        "defining_moments": ["Confronting Voldemort", "Saving Hermione from the troll", "Choosing Gryffindor"]
+        "personality_traits": ["brave", "loyal", "determined", "selfless", "curious", "impulsive", "compassionate", "humble"],
+        "behavior_summary": "Harry's behavior is characterized by remarkable courage and a tendency toward impulsive action, often driven by a desperate need for justice and protection of his friends. Despite his fame, he remains humble and empathetic, often choosing the moral high ground over personal safety. He struggles with his destiny and trauma, but always rises to meet challenges, inheriting his mother's loving nature and his father's recklessness. His actions consistently demonstrate an innate ability to connect with others and lead by example, making him a reluctant but highly effective leader.",
+        "motivations": "Primarily, his motivation is to defeat **Lord Voldemort** and bring peace to the Wizarding World, a goal inextricably linked to avenging his parents. He is also motivated by a profound desire for a sense of **belonging** and **family**, which he finds in the Weasleys and his friends. Furthermore, he seeks the **truth** about his past and actively works to dismantle the corruption and darkness that plague his world, driven by a deep commitment to protecting the innocent.",
+        "character_arc": "Harry begins as an orphaned, abused boy unaware of his true identity. His arc is one of accepting his destiny, not just as 'The Boy Who Lived,' but as 'The Chosen One' who must make the ultimate sacrifice. He grows from a reactive student to a proactive leader and powerful wizard, eventually choosing to walk willingly to his death to save others. His journey culminates in him fulfilling the prophecy, achieving a profound understanding of love and sacrifice, and finally finding the stable, loving family life he always craved."
       }
     },
     {
       "character_id": "char_hermione_granger",
       "name": "Hermione Granger",
-      "aliases": ["Hermione", "Granger", "'Mione"],
-      "description": "Brilliant and hardworking witch, known for her intelligence, loyalty, and fierce dedication to her studies and friends.",
+      "aliases": ["Hermione", "Granger", "'Mione", "Minister for Magic"],
+      "description": "A brilliant, Muggle-born witch and the brains of the Golden Trio. She is known for her logic, intelligence, and unwavering loyalty to her friends.",
       "role": "supporting",
       "personality": {
-        "personality_traits": ["intelligent", "logical", "brave", "loyal", "perfectionist"],
-        "behavior_summary": "Book-smart witch who uses logic and knowledge to solve problems.",
-        "motivations": "To prove herself and help her friends succeed",
-        "character_arc": "From rule-follower to brave rebel for what's right",
-        "defining_moments": ["Solving the potions puzzle", "Time-Turner adventures", "Standing up to teachers"]
+        "personality_traits": ["intelligent", "logical", "brave", "loyal", "perfectionist", "righteous", "fierce", "organized"],
+        "behavior_summary": "Hermione initially behaves as a strict rule-follower, using her academic prowess to compensate for her early social insecurities. This evolves into a courageous willingness to break rules for the greater good, particularly in defense of **Harry** and her principles. Her behavior is always grounded in rigorous logic and research, making her the essential planner and strategist of the trio. She demonstrates fierce moral conviction, as shown by her activism for house-elf rights, and consistently provides the rational counterbalance to Harry's impulsivity and Ron's emotional outbursts.",
+        "motivations": "Her core motivation is to apply her immense knowledge to solve problems and ensure the survival and success of her friends. She is deeply motivated to prove the worth of Muggle-born witches and wizards against prejudice and seeks to establish **justice** and **equality** in the Wizarding World. Fundamentally, she is driven by a need for intellectual mastery and the powerful bonds of **loyalty** and **friendship** that give her life purpose and courage.",
+        "character_arc": "Hermione's arc is defined by her journey from an overzealous, insecure student desperate for approval to a self-assured, powerful witch and political force. She learns that emotional courage and loyalty are as vital as academic brilliance. Her greatest test is the loss of her parents' memories to protect them, a choice that highlights her profound maturity. She progresses to become an Auror and eventually the Minister for Magic, using her intellect and principles to reshape the wizarding government."
       }
     },
     {
       "character_id": "char_ron_weasley",
       "name": "Ron Weasley",
-      "aliases": ["Ron", "Weasley", "Ronald"],
-      "description": "Loyal and humorous friend from a large wizarding family, known for his bravery, chess skills, and unwavering friendship.",
+      "aliases": ["Ron", "Weasley", "Ronald", "Roonil Wazlib"],
+      "description": "Harry's loyal, humorous, and sometimes insecure best friend from a large wizarding family. He provides crucial emotional support and bravery.",
       "role": "supporting",
       "personality": {
-        "personality_traits": ["loyal", "humorous", "brave", "insecure", "caring"],
-        "behavior_summary": "Comic relief who shows unexpected bravery when it matters most.",
-        "motivations": "To step out of his brothers' shadows and prove his worth",
-        "character_arc": "From overshadowed youngest brother to confident hero",
-        "defining_moments": ["Sacrificing himself in chess game", "Facing his fears", "Loyal friendship"]
+        "personality_traits": ["loyal", "humorous", "brave", "insecure", "caring", "witty", "jealous (initially)", "protective"],
+        "behavior_summary": "Ron frequently uses humor and sarcasm as a defense mechanism to mask his deep-seated insecurities about money and living in his accomplished brothers' shadows. Though he struggles with jealousy and occasional emotional lapses, his true nature is revealed in moments of crisis, where his immense **loyalty** and unexpected **courage** shine through. His behavior is protective towards his loved ones, often sacrificing his own safety. He is the emotional heart of the trio, grounding Harry and Hermione with his practicality and simple, clear moral code.",
+        "motivations": "Ron is profoundly motivated by a need to gain **independence** and prove his **personal worth** separate from his family's legacy. He seeks to be recognized as an equal partner to Harry and Hermione, which drives his bravest acts. His commitment to the Weasley family's strong moral code and his love for his friends serve as an unshakeable foundation for all his actions during the war against Voldemort.",
+        "character_arc": "Ron starts as an overshadowed, somewhat immature younger brother grappling with feelings of inadequacy and envy. His arc is about finding **self-acceptance** and **confidence**. He progresses from a supportive friend to a decisive, courageous hero who destroys a Horcrux and commits to a life of fighting Dark Arts as an Auror. He ultimately learns that his unique strengths, especially his emotional intelligence and unwavering loyalty, are just as crucial as any inherited fame or magical talent."
+      }
+    },
+    {
+      "character_id": "char_albus_dumbledore",
+      "name": "Albus Dumbledore",
+      "aliases": ["Dumbledore", "Professor Dumbledore", "Supreme Mugwump", "Chief Warlock"],
+      "description": "The formidable and eccentric Headmaster of Hogwarts. Widely considered the greatest wizard of his age, he orchestrated Voldemort's eventual defeat.",
+      "role": "mentor/supporting",
+      "personality": {
+        "personality_traits": ["wise", "eccentric", "manipulative", "powerful", "secretive", "calm", "regretful", "visionary"],
+        "behavior_summary": "Dumbledore's public behavior is marked by a blend of genial eccentricity and profound wisdom, often dispensing cryptic advice. His true nature, however, is that of a brilliant but **morally flawed strategist**. Driven by deep **remorse** over his early life, he orchestrates events and manipulates people, including Harry, for the greater good. He is secretive, believing certain truths are too dangerous for others to know, and consistently places the long-term safety of the world above the immediate happiness or peace of individuals, even planning his own death to serve the cause.",
+        "motivations": "His primary motivation is **atonement** for his youth, particularly his involvement with Gellert Grindelwald and his earlier ambition for power over Muggles. He is driven to defeat Voldemort at any cost, using his intelligence to protect the innocent and ensure the **triumph of love** over hatred. He seeks to guide Harry to his final destiny, recognizing that only Harry possesses the key to salvation, and works relentlessly to maintain the secrets necessary to ensure this outcome.",
+        "character_arc": "Dumbledore's arc is one of self-imposed penance. He goes from a brilliant but power-hungry youth who sought to dominate Muggles to the ultimate symbol of good, forced to live with the knowledge of his past darkness. He spends his life fighting the very evil he once flirted with, culminating in his meticulously planned, sacrificial death to solidify Snape's cover and ensure Harry could receive the final, crucial pieces of information needed to defeat Voldemort."
+      }
+    },
+    {
+      "character_id": "char_severus_snape",
+      "name": "Severus Snape",
+      "aliases": ["Snape", "Professor Snape", "The Half-Blood Prince"],
+      "description": "The complex and bitter Potions Master. His true allegiance as a double agent is hidden until his death, driven by a powerful, singular love.",
+      "role": "supporting/anti-hero",
+      "personality": {
+        "personality_traits": ["bitter", "sarcastic", "genius", "courageous", "secretive", "loyal (to Lily)", "vindictive", "calculating"],
+        "behavior_summary": "Snape's behavior is a bitter facade of sarcasm, hostility, and thinly veiled contempt, specifically aimed at Harry and his friends, mirroring the Marauders' behavior towards him in his youth. His true nature is revealed as one of extraordinary, self-sacrificing **courage** and unwavering **loyalty** to a single vow. He endures constant danger as a double agent, maintaining his cover through sheer magical talent and emotional fortitude. Every action, even his cruelty towards Harry, is a calculated risk to protect his mission and uphold his promise to Dumbledore.",
+        "motivations": "Snape's sole, all-consuming motivation is his **unrequited love for Lily Evans Potter**, which drives his lifelong commitment to protect her son, Harry. This act is a form of atonement for his role in her death. He is also motivated by his vow to Albus Dumbledore and his hatred of Lord Voldemort, whom he despises for destroying the one person he ever truly cared about. This motivation is the ultimate secret that defines his life.",
+        "character_arc": "Snape's arc is perhaps the most tragic and complex. He goes from a bullied schoolboy who embraces the Dark Arts out of alienation to a Death Eater, and then transforms into Dumbledore's most trusted spy. His journey is one of immense self-loathing, redemption through secret service, and ultimate sacrifice. He never receives credit for his heroism, dying under the pretense of being a villain, his memory becoming a testament to the powerful, enduring nature of selfless love."
+      }
+    },
+    {
+      "character_id": "char_hagrid",
+      "name": "Rubeus Hagrid",
+      "aliases": ["Hagrid", "Professor Hagrid", "Keeper of Keys and Grounds", "Gamekeeper"],
+      "description": "The half-giant Keeper of Keys and Grounds at Hogwarts. He is a fiercely loyal, emotional mentor to Harry and professor of Care of Magical Creatures.",
+      "role": "mentor/supporting",
+      "personality": {
+        "personality_traits": ["kind", "loyal", "emotional", "naïve", "brave", "protective", "blunt", "clumsy"],
+        "behavior_summary": "Hagrid's massive physical presence is completely at odds with his profoundly gentle and sentimental nature. His behavior is characterized by overwhelming, protective **kindness** and unwavering **trust** in those he loves. He is often **naïve** about the danger of his beloved monstrous creatures, which occasionally causes chaos. However, he is the most consistent and stable emotional anchor for Harry, acting as a true father figure whose loyalty to Harry and Dumbledore never falters, even when facing mortal danger.",
+        "motivations": "His main motivation is to serve and protect the two people who showed him unwavering faith: **Albus Dumbledore** and **Harry Potter**. He is deeply motivated by a desire to gain **acceptance** and show the worth of half-giants and other marginalized creatures in the Wizarding World. This desire is often channeled into his passionate, though often dangerous, care for magical animals, which he sees as equally misunderstood.",
+        "character_arc": "Hagrid begins his life as an outcast, unjustly expelled from Hogwarts, hiding his half-giant heritage. His arc is one of **vindication** and **acceptance**. He is eventually cleared of his earlier charge and becomes a respected professor, fully integrated into the Hogwarts community. His final, most poignant act—carrying Harry's seemingly lifeless body out of the Forbidden Forest—symbolizes the beginning and the emotional backbone of Harry's entire journey, confirming his role as the ultimate, steadfast guardian."
+      }
+    },
+    {
+      "character_id": "char_sirius_black",
+      "name": "Sirius Black",
+      "aliases": ["Sirius", "Padfoot", "Snuffles", "Wormtail's victim"],
+      "description": "Harry Potter's unjustly imprisoned godfather. He is the last heir of the House of Black, a charismatic rebel, and a core member of the Order of the Phoenix.",
+      "role": "supporting/mentor",
+      "personality": {
+        "personality_traits": ["rebellious", "charming", "reckless", "loyal", "protective", "charismatic", "impetuous"],
+        "behavior_summary": "Sirius's behavior is often marked by an understandable **recklessness** and **impulsivity**, stemming from twelve years of unjust imprisonment and a desperate desire to make up for lost time with Harry. He is fiercely protective of his godson, often placing himself in danger and clashing with the authority figures in the Order of the Phoenix, particularly Dumbledore. He carries the **trauma** of his past, sometimes confusing Harry with his old friend, James, but his deep-seated loyalty to his friends remains his defining trait.",
+        "motivations": "His primary motivation is to serve as a proper **guardian** and **father figure** to Harry, an opportunity stolen from him by Peter Pettigrew. He is also driven by a desperate need for **freedom** and a desire to return to active service in the fight against Voldemort. He seeks to clear his name and live up to the memory of his best friends, committing himself wholeheartedly to the cause of the Order of the Phoenix.",
+        "character_arc": "Sirius's arc is a tragic story of **redemption interrupted**. He transforms from a fugitive consumed by bitterness and the trauma of Azkaban into a loving, if flawed, mentor figure for Harry. He struggles with the confinement necessary to keep him safe, feeling useless and trapped. His arc culminates in his death, which is directly linked to his reckless need to protect Harry, making him a martyr whose loss profoundly affects his godson."
+      }
+    },
+    {
+      "character_id": "char_lord_voldemort",
+      "name": "Lord Voldemort",
+      "aliases": ["Voldemort", "The Dark Lord", "He Who Must Not Be Named", "You-Know-Who", "Tom Riddle"],
+      "description": "The powerful, evil Dark Wizard and primary antagonist. Obsessed with immortality and pure-blood supremacy, he murders Harry's parents.",
+      "role": "antagonist",
+      "personality": {
+        "personality_traits": ["power-hungry", "narcissistic", "sadistic", "fearful (of death)", "brilliant", "manipulative", "cold", "arrogant"],
+        "behavior_summary": "Voldemort's behavior is entirely governed by his **pathological fear of death**, leading him to commit atrocious acts like the creation of **Horcruxes** to splinter his soul. He is a genius manipulator, capable of charming others, but utterly incapable of understanding or experiencing **love, friendship, or remorse**. His actions are calculated for maximum terror and control. He is supremely arrogant, consistently underestimating the power of abstract concepts like love and sacrifice, which ultimately leads to his catastrophic downfall.",
+        "motivations": "His singular motivation is to achieve **absolute immortality** and **ultimate magical power**. He is driven by a deep hatred for his own Muggle origins and a narcissistic need to prove his superiority through blood purity and dominance. He seeks to eradicate the existing political order and establish a totalitarian regime where he reigns supreme, fueled by a lifelong, cold-hearted pursuit of self-preservation.",
+        "character_arc": "Voldemort's arc is one of **self-destruction through the pursuit of power**. He starts as the brilliant, orphaned Tom Riddle, who uses his charm and intellect to embrace the Dark Arts. His journey is a steady descent into inhumanity as he corrupts his soul by creating Horcruxes. He transforms into a monstrous, snake-like figure whose very being is a testament to the destructive power of fear and hatred, leading to his final, humiliating, and utterly complete defeat at the hands of the boy he sought to destroy."
       }
     }
   ],
-  "total_found": 3,
-  "cached_at": "2025-11-18T00:00:00"
+  "total_found": 8,
+  "cached_at": "2025-11-21T01:27:24"
 }

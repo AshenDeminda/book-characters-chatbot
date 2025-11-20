@@ -1,0 +1,73 @@
+{
+  "document_id": "default_wimpy_kid_doc_010",
+  "book_title": "Diary of a Wimpy Kid",
+  "characters": [
+    {
+      "character_id": "char_greg_heffley",
+      "name": "Greg Heffley",
+      "aliases": ["Greg", "Wimpy Kid", "Ploopy (by Manny)"],
+      "description": "The middle child and main protagonist, Greg is a self-centered, lazy middle schooler driven by a desire for popularity and avoiding effort.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["self-centered", "lazy", "ambitious (for popularity)", "scheming", "cowardly", "creative", "unreliable"],
+        "behavior_summary": "Greg’s behavior is primarily defined by his efforts to climb the **middle school social ladder** and avoid responsibility at all costs. He is a prolific **schemer**, often manipulating his best friend, Rowley, and his family to achieve petty goals. While he frequently fails and is quick to blame others, his actions show a fundamental insecurity, seeking validation through popularity and material comfort rather than genuine goodness or hard work.",
+        "motivations": "His core motivation is an intense, constant desire for **social status and popularity** in school, believing this will solve all his problems. He is also driven by a strong impulse to avoid effort, homework, and any form of discomfort or embarrassment. He seeks control over his environment and protection from his older brother, all while yearning for recognition as a cool, successful kid.",
+        "character_arc": "Greg's arc is largely **static or cyclical**, often ending a book having learned a lesson only to immediately revert to his old, selfish habits in the next. His journey is a relatable depiction of middle school struggles, where he consistently tries and fails to change his fundamental nature, reinforcing his identity as the 'wimpy kid' who remains fundamentally self-absorbed and morally immature."
+      }
+    },
+    {
+      "character_id": "char_rowley_jefferson",
+      "name": "Rowley Jefferson",
+      "aliases": ["Rowley"],
+      "description": "Greg's loyal, good-natured, and somewhat naïve best friend. He is often the victim of Greg's schemes but achieves genuine happiness easily.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["loyal", "good-natured", "naïve", "childish", "simple", "unassuming", "forgiving"],
+        "behavior_summary": "Rowley’s behavior is characterized by cheerful **naïveté** and an almost limitless **tolerance** for Greg’s manipulation and selfishness. He acts far more childishly than his peers, which is often a source of embarrassment for Greg, yet this simplicity allows him to achieve genuine contentment easily. He remains fiercely loyal to Greg, frequently forgiving major betrayals and simply enjoying the smaller pleasures of life.",
+        "motivations": "Rowley is motivated by a simple desire for **fun, friendship, and childlike activities**. He finds genuine enjoyment in things Greg finds embarrassing. His primary motivation is maintaining his friendship with Greg, often going along with ridiculous schemes simply to be included and avoiding conflict due to his gentle nature.",
+        "character_arc": "Rowley's arc is one of **unintentional success and self-validation**. He starts as Greg’s sidekick and punching bag, but unintentionally achieves the popularity and success Greg craves (e.g., getting his own book deal). His lack of ambition and genuine kindness ultimately make him a happier, more functional character than Greg, proving that genuine self-worth is more valuable than popular status."
+      }
+    },
+    {
+      "character_id": "char_rodrick_heffley",
+      "name": "Rodrick Heffley",
+      "aliases": ["Rodrick", "Löded Diper Drummer"],
+      "description": "Greg's older brother. He is lazy, unintelligent, obsessed with his band, and delights in tormenting his younger brother, Greg.",
+      "role": "supporting/antagonist",
+      "personality": {
+        "personality_traits": ["lazy", "cruel", "obsessed (with music)", "unintelligent", "scheming", "slovenly"],
+        "behavior_summary": "Rodrick's behavior is defined by extreme **laziness**, a fierce commitment to his heavy metal band, Löded Diper, and a consuming desire to torment Greg, viewing it as his life's purpose. He acts with calculated cruelty towards his younger brother but is utterly incompetent in all other areas of life, frequently failing school and defying his parents, representing the fear of growing up to be a total failure.",
+        "motivations": "His core motivation is maintaining his freedom from responsibility, particularly school and chores. He is driven by his passion for **Löded Diper** and the desire for his band to succeed. Most importantly, he is motivated by a childish need to assert **dominance** and authority over Greg, often inventing humiliating rules and situations purely for his own amusement.",
+        "character_arc": "Rodrick's arc is generally **static**, defined by his inability to mature or commit to any serious endeavor. He remains the archetypal rebellious older brother whose central identity is tied to his band and his rivalry with Greg. His character serves as a humorous cautionary tale about the perils of arrested development and an exaggeration of sibling antagonism."
+      }
+    },
+    {
+      "character_id": "char_manny_heffley",
+      "name": "Manny Heffley",
+      "aliases": ["Manny", "Ploopy", "Little Demon"],
+      "description": "Greg's manipulative youngest brother. He is pampered by his parents and uses his toddler status to get away with bad behavior.",
+      "role": "supporting/antagonist",
+      "personality": {
+        "personality_traits": ["spoiled", "manipulative", "innocent (façade)", "destructive", "demanding", "clever (for a toddler)"],
+        "behavior_summary": "Manny’s behavior is a clever combination of seeming **toddler innocence** and deep-seated **manipulation**. He acts completely spoiled, using his parents' affections to escape punishment for destructive or cruel actions (often aimed at Greg). He rarely speaks, which is a tool of control, and his destructive behavior is often seen by Greg as a deliberate, demonic act of sabotage.",
+        "motivations": "Manny is motivated by simple, direct **selfishness** and the need for constant attention and indulgence from his parents, particularly Susan. He is driven by the desire to get his own way and a seemingly instinctual need to make Greg's life difficult, viewing himself as the undisputed favorite of the household.",
+        "character_arc": "Manny's arc is **defined by his unchallenged domestic dominance**. He remains the static, powerful youngest child whose influence on the family dynamics is disproportionately large. His arc serves primarily to highlight Greg's position in the middle, suffering under his older brother's malice and his younger brother's unchecked power."
+      }
+    },
+    {
+      "character_id": "char_frank_susan_heffley",
+      "name": "Frank & Susan Heffley",
+      "aliases": ["Frank (Dad)", "Susan (Mom)", "The Parents"],
+      "description": "Greg's parents. Susan is an idealistic, caring mother; Frank is an emotionally distant, traditional father who struggles to connect with Greg.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["Susan: idealistic, involved, caring, naïve", "Frank: traditional, distant, frustrated, practical"],
+        "behavior_summary": "Susan's behavior is defined by a passionate, often **naïve idealism** and a constant desire for the family to bond, frequently organizing mandatory activities. Frank's behavior is marked by **emotional distance** and a traditional, practical mindset, often frustrated by his sons' incompetence and Rodrick's laziness. Their actions often conflict, but they share a core desire to see their sons become responsible adults, though their methods frequently backfire.",
+        "motivations": "Susan is primarily motivated by the desire to raise a close, happy, and well-adjusted family, driven by idealistic views of motherhood. Frank is motivated by a desire to instill **toughness and traditional values** in his sons, often fearing Greg will turn out like Rodrick. They are both fundamentally driven by love and a desire to control their children's less desirable tendencies.",
+        "character_arc": "Frank and Susan serve as the **authority figures and flawed arbiters** of the Heffley household. Their arc is a constant, usually unsuccessful attempt to influence their children's behavior and create familial harmony. Their journey highlights the comedic struggle of modern parenting against the realities of raising self-centered, difficult middle schoolers."
+      }
+    }
+  ],
+  "total_found": 5,
+  "cached_at": "2025-11-21T01:57:05"
+}

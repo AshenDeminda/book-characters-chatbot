@@ -1,0 +1,73 @@
+{
+  "document_id": "default_sherlock_doc_008",
+  "book_title": "Sherlock Holmes",
+  "characters": [
+    {
+      "character_id": "char_sherlock_holmes",
+      "name": "Sherlock Holmes",
+      "aliases": ["Sherlock", "The Great Detective", "The Consulting Detective"],
+      "description": "A brilliant, eccentric consulting detective known for his unparalleled powers of observation, deduction, and forensic science.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["brilliant", "observant", "eccentric", "anti-social", "logical", "determined", "moody"],
+        "behavior_summary": "Holmes’s behavior is marked by extreme **detachment** and strict adherence to **pure logic and scientific method**. He appears erratic or moody when inactive, resorting to violin playing or cocaine use to stimulate his mind. When on a case, he exhibits relentless energy and profound focus, treating crime as a fascinating intellectual puzzle. He shows emotional concern only when a case involves great injustice or the safety of a friend.",
+        "motivations": "His core motivation is an insatiable **thirst for intellectual stimulation** and the challenge of solving impossible cases, viewing himself as the world's only consulting detective. He is driven by a strong, if often hidden, sense of **justice** and a moral desire to protect the innocent and expose the guilty. The pursuit of the ultimate intellectual challenge, represented by Moriarty, is a major lifelong driver.",
+        "character_arc": "Holmes’s arc is one of **intellectual dominance and gradual humanization**. He begins as a cold, calculating machine and, through his close relationship with **Dr. Watson**, gains a deeper understanding of human empathy and emotion. His character remains largely static in terms of skill but grows in moral depth, culminating in his necessary confrontation with his ultimate intellectual equal, Professor Moriarty."
+      }
+    },
+    {
+      "character_id": "char_john_watson",
+      "name": "Dr. John Watson",
+      "aliases": ["Watson", "John"],
+      "description": "Holmes’s loyal flatmate, chronicler, and moral anchor. He is a doctor and a former army surgeon who documents the detective's cases.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["loyal", "moral", "brave", "conventional", "protective", "good-natured", "observant (less than Holmes)"],
+        "behavior_summary": "Watson behaves as the **narrative voice and emotional core** of the stories, providing a conventional, human perspective on Holmes's eccentric genius. He is intensely **loyal** and protective of Holmes, often accompanying him into danger. His attempts at deduction are usually wrong, serving to highlight Holmes's brilliance, but he provides the crucial warmth and companionship that helps ground the detective's anti-social nature.",
+        "motivations": "Watson is motivated by his deep **admiration and affection for Holmes**, finding the adventure and intellectual challenge necessary to keep his mind active after his military service. He is driven by a journalistic desire to document Holmes’s great work and ensure his genius is recognized, while also serving as a moral compass for the detective.",
+        "character_arc": "Watson's arc is defined by his transition from a restless, wounded former soldier to a settled, respected doctor and the **literary immortalizer** of Sherlock Holmes. He moves between domesticity (marriage) and the irresistible pull of adventure with Holmes, his character serving as the constant, reliable presence that makes Holmes's complex life understandable and bearable."
+      }
+    },
+    {
+      "character_id": "char_mrs_hudson",
+      "name": "Mrs. Hudson",
+      "aliases": ["Mrs. Hudson", "Landlady"],
+      "description": "The long-suffering landlady of 221B Baker Street. She provides domestic stability and tolerates Holmes's highly unconventional habits.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["patient", "tolerant", "long-suffering", "domestic", "kind", "discreet"],
+        "behavior_summary": "Mrs. Hudson's behavior is characterized by remarkable **patience and tolerance** toward Holmes's volatile habits, such as his chemical experiments, late-night visitors, and occasional messes. She acts as a surrogate maternal figure, providing the vital domestic stability that allows Holmes and Watson to focus on their work, often demonstrating a discreet and efficient competence in running the household.",
+        "motivations": "Her primary motivation is simply to maintain her livelihood and the domestic order of 221B Baker Street. She is also motivated by a quiet **affection and admiration for Holmes**, enduring his eccentricities because she respects his genius and kindness, demonstrating a quiet loyalty to her unusual tenants.",
+        "character_arc": "Mrs. Hudson is largely a **static figure**, serving as the unwavering symbol of home and domestic stability. Her significance lies in the consistency of her presence, which provides a comforting anchor against the chaos of Holmes’s professional life, symbolizing the settled, respectable Victorian world the detective temporarily leaves and always returns to."
+      }
+    },
+    {
+      "character_id": "char_inspector_lestrade",
+      "name": "Inspector G. Lestrade",
+      "aliases": ["Lestrade"],
+      "description": "A Scotland Yard detective who frequently consults Holmes. He is dogged, professional, and slowly learns to respect the detective's methods.",
+      "role": "supporting",
+      "personality": {
+        "personality_traits": ["dogged", "professional", "conventional", "skeptical (initially)", "loyal (to his job)"],
+        "behavior_summary": "Lestrade's behavior is defined by his **dogged determination** and adherence to conventional police procedure. He initially behaves with **skepticism and professional jealousy** towards Holmes, often relying on traditional methods that prove inferior. Over time, he develops a grudging respect and relies on Holmes's genius, acting as the necessary link between the chaotic world of crime and the formal procedures of Scotland Yard.",
+        "motivations": "His core motivation is professional: to solve crimes, uphold the law, and advance his career within Scotland Yard. He is driven by a deep sense of duty. After recognizing Holmes's superior ability, he is also motivated by a desire to bring the most difficult cases to Holmes, understanding that working with the detective is the most effective way to achieve justice.",
+        "character_arc": "Lestrade's arc is one of **professional growth and grudging acceptance**. He progresses from a figure of police mediocrity, consistently baffled by Holmes's deductions, to a respected professional who understands his own limitations. His arc serves to highlight the revolutionary nature of Holmes's scientific methods against the backdrop of traditional police work."
+      }
+    },
+    {
+      "character_id": "char_professor_moriarty",
+      "name": "Professor James Moriarty",
+      "aliases": ["Professor Moriarty", "The Napoleon of Crime"],
+      "description": "A brilliant mathematics professor who is Holmes's intellectual equal and the ultimate criminal mastermind of the London underworld.",
+      "role": "antagonist",
+      "personality": {
+        "personality_traits": ["brilliant", "ruthless", "cunning", "strategic", "secretive", "narcissistic"],
+        "behavior_summary": "Moriarty's behavior is defined by extreme **secrecy and cold calculation**. He acts not by committing crimes himself, but by masterminding a vast, intricate network of criminals, never leaving a trace of his personal involvement. He views crime as a scientific exercise in organization and control, exhibiting a chilling, polite formality that underscores his ruthless intelligence and boundless capacity for evil.",
+        "motivations": "His primary motivation is the **pursuit of power and control** over the entire criminal underworld of London, driven by an intellectual vanity that seeks to prove his organizational genius. He is motivated by the thrill of the ultimate intellectual contest with Sherlock Holmes, whom he sees as the only worthy rival to his dominance.",
+        "character_arc": "Moriarty functions as the **ultimate intellectual foil** and destructive force, appearing late in the canon as the final, necessary challenge to Holmes's life. His arc is brief and climactic, culminating in the fatal struggle at the Reichenbach Falls. His death marks the end of a major phase of Holmes's career, symbolizing the triumph of justice, achieved through the detective's ultimate sacrifice."
+    }
+}
+  ],
+  "total_found": 5,
+  "cached_at": "2025-11-21T01:51:30"
+}
