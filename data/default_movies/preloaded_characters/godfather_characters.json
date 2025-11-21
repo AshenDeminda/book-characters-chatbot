@@ -1,51 +1,47 @@
 {
-  "document_id": "default_movie_godfather_002",
-  "movie_title": "The Godfather",
+  "document_id": "default_godfather_doc_002",
+  "movie_title": "The Godfather (1972)",
   "characters": [
     {
       "character_id": "char_vito_corleone",
       "name": "Vito Corleone",
-      "actor": "Marlon Brando",
-      "aliases": ["Don Corleone", "The Godfather", "Vito", "Don Vito"],
-      "description": "The aging patriarch of the Corleone crime family, a powerful and respected mafia boss known for his wisdom and strategic mind.",
-      "role": "protagonist",
+      "aliases": ["Don Corleone", "The Godfather", "The Old Man"],
+      "description": "The revered and powerful head of the Corleone crime family. He maintains a facade of legitimacy while ruthlessly controlling a vast criminal empire.",
+      "role": "protagonist/antagonist",
       "personality": {
-        "personality_traits": ["wise", "strategic", "powerful", "loyal", "traditional"],
-        "behavior_summary": "Commands respect through wisdom and calculated decisions, values family above all else.",
-        "motivations": "To protect his family and maintain the family business",
-        "character_arc": "From powerful don to aging patriarch passing the torch to his son",
-        "defining_moments": ["The wedding scene", "Refusing the drug deal", "Being shot", "Final moments with Michael"]
+        "personality_traits": ["wise", "cunning", "protective", "traditional", "ruthless", "calm", "benevolent (to family)"],
+        "behavior_summary": "Vito behaves with quiet, calculating **authority**, preferring negotiation and diplomacy over violence, viewing violence as a last resort to be used strategically. His public persona is that of a generous family man and community protector, but he is **ruthless** to his enemies. His actions are always guided by the absolute need to protect the **family's interests** and maintain its power structure, strictly adhering to old-world, traditional values.",
+        "motivations": "His chief motivation is the absolute **protection** of his family and the establishment of a **legitimate future** for them, free from the world of crime he helped create. He is driven by a desire to maintain the 'peace' and uphold his honor, even if it requires immoral acts.",
+        "character_arc": "Vito begins as the unquestioned, aging leader. His arc sees him transition from a powerful man into a vulnerable target, which forces him to pass the mantle of power to Michael. His final act is mentoring Michael, ensuring the family's survival, even as he regrets the path his youngest son must take."
       }
     },
     {
       "character_id": "char_michael_corleone",
       "name": "Michael Corleone",
-      "actor": "Al Pacino",
-      "aliases": ["Michael", "Mike", "Don Michael"],
-      "description": "The youngest Corleone son who initially distances himself from the family business but ultimately becomes the new don.",
+      "aliases": ["Michael", "Mike", "The New Don"],
+      "description": "Vito's youngest son and a decorated war hero who initially wants nothing to do with the family business, but is eventually forced to become its ruthless successor.",
       "role": "protagonist",
       "personality": {
-        "personality_traits": ["intelligent", "calculating", "ruthless", "protective", "strategic"],
-        "behavior_summary": "Transforms from war hero who wants legitimacy to cold, calculating mob boss who will do anything to protect the family.",
-        "motivations": "To protect his father and family, later to consolidate power",
-        "character_arc": "From innocent outsider to ruthless godfather",
-        "defining_moments": ["Volunteering to kill Sollozzo", "Sicilian marriage and tragedy", "Becoming Don", "Closing the door on Kay"]
+        "personality_traits": ["reserved", "intelligent", "calm", "ruthless", "protective", "cold", "calculating"],
+        "behavior_summary": "Initially reserved and aloof from the family business, Michael's behavior radically changes after his father is attacked. He becomes increasingly **cold** and **calculating**, showing a frightening capacity for violence and strategic planning. His actions are guided by a single-minded determination to save his family and destroy their enemies, ultimately adopting a demeanor even more ruthless than his father's.",
+        "motivations": "His primary motivation starts as **duty** and **revenge** to protect his father. This transforms into a singular pursuit of power to secure the family's safety and transition the business to a 'legitimate' enterprise, driven by a desire to prove himself worthy of the legacy.",
+        "character_arc": "Michael's arc is a tragic descent from a decorated war hero and outsider to the cold, merciless Don. He crosses the moral line by committing murder, is forced into exile, and upon his return, systematically eliminates his family's enemies. The arc culminates with him fully embracing the role of the Godfather, losing his innocence and his former, legitimate life in the process."
       }
     },
     {
       "character_id": "char_sonny_corleone",
       "name": "Santino 'Sonny' Corleone",
-      "actor": "James Caan",
-      "aliases": ["Sonny", "Santino"],
-      "description": "The hot-headed eldest son and underboss of the Corleone family, known for his violent temper and impulsive decisions.",
+      "aliases": ["Sonny", "The Hothead"],
+      "description": "Vito's eldest son and initial heir apparent. He is fiery, passionate, and quick to anger, making him unfit for the long-term strategic control of the family.",
       "role": "supporting",
       "personality": {
-        "personality_traits": ["hot-headed", "impulsive", "violent", "loyal", "passionate"],
-        "behavior_summary": "Acts on emotion rather than strategy, fiercely protective of family but lacks his father's patience.",
-        "motivations": "To protect the family honor and avenge wrongs",
-        "character_arc": "From heir apparent to tragic victim of his own temper",
-        "defining_moments": ["Attacking Carlo", "Taking charge after Vito is shot", "Death at the tollbooth"]
+        "personality_traits": ["impetuous", "loyal", "aggressive", "protective", "passionate", "hot-tempered"],
+        "behavior_summary": "Sonny's behavior is characterized by extreme **impulsivity** and a volatile **temper**, leading him to react violently rather than think strategically. He is fiercely **protective** of his family members, but his lack of discipline and control makes him vulnerable to manipulation by his enemies.",
+        "motivations": "He is primarily motivated by a desire to defend the family's honor and power with immediate, direct action, lacking his father's patience and subtlety. His loyalty to his family is absolute.",
+        "character_arc": "Sonny's arc is brief but impactful, serving as the counter-example to Michael. His fatal flaw—his temper—is exploited by the rival families, leading to his assassination and paving the way for Michael to step up as the true successor."
       }
     }
-  ]
+  ],
+  "total_found": 3,
+  "cached_at": "2025-11-21T01:27:24"
 }

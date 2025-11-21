@@ -1,0 +1,73 @@
+{
+  "document_id": "default_scooby_doo_doc_003",
+  "movie_title": "Scooby-Doo (2002)",
+  "characters": [
+    {
+      "character_id": "char_fred_jones",
+      "name": "Fred Jones",
+      "aliases": ["Fred", "Freddy"],
+      "description": "The confident and somewhat self-obsessed leader of Mystery Inc., who focuses on planning traps and publicity.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["confident", "narcissistic", "charismatic", "analytical", "loyal (eventually)"],
+        "behavior_summary": "Fred's behavior is initially defined by his own **ego**, often claiming credit for solving mysteries and focusing heavily on his traps and good looks. After the team splits, he struggles to adapt. However, his core **loyalty** and analytical skills surface when the team reunites, allowing him to help lead the investigation effectively.",
+        "motivations": "Primarily motivated by **fame** and the need to be seen as the most important member of the group. He is also motivated by a desire for a challenge, always keen to prove his latest trap design is the best.",
+        "character_arc": "Fred's arc is about learning **humility** and recognizing the value of his friends. He realizes that his leadership skills are genuine, but they work best when he stops seeking sole credit and truly collaborates with the whole team."
+      }
+    },
+    {
+      "character_id": "char_daphne_blake",
+      "name": "Daphne Blake",
+      "aliases": ["Daphne", "Danger-Prone Daphne"],
+      "description": "The stylish and formerly 'danger-prone' member of the group, who uses her resourcefulness and unexpected martial arts skills.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["stylish", "determined", "resourceful", "brave", "underestimated"],
+        "behavior_summary": "Daphne is determined to shake off her 'danger-prone' reputation. She actively trains in martial arts and behaves in a much more **proactive** way than her cartoon counterpart. Her actions are characterized by **resourcefulness** and a refusal to be sidelined, proving she is much more than just a fashion plate.",
+        "motivations": "She is motivated to prove her own **self-worth** and competence to the team. She seeks to be taken seriously as an active, effective member of the investigation, not just the one who gets kidnapped.",
+        "character_arc": "Daphne's arc is a transformation from the perceived weakest link to a skilled and essential member. She finds her own confidence and combat capabilities, demonstrating that she no longer needs to rely on the others for rescue."
+      }
+    },
+    {
+      "character_id": "char_velma_dinkley",
+      "name": "Velma Dinkley",
+      "aliases": ["Velma", "V"],
+      "description": "The brainy, logical, and skeptical member of Mystery Inc., who is the true intellectual force behind solving the puzzles.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["intelligent", "skeptical", "logical", "insecure", "cynical", "humble"],
+        "behavior_summary": "Velma is the most **skeptical** and **logical** member, always looking for the rational explanation behind 'supernatural' phenomena. She shows intense **insecurity** over not being credited for her discoveries. Her behavior is driven by her intellectual curiosity and a deep need to discover the **truth** behind the mystery.",
+        "motivations": "Her primary motivation is the pursuit of **knowledge** and the satisfaction of solving the puzzle, regardless of who receives the credit (though she yearns for respect). She is driven by logic and a need to debunk the false mystery.",
+        "character_arc": "Velma's arc is about finding her voice and demanding the respect her intelligence warrants. She moves from a quiet genius whose work is stolen by Fred to an empowered individual who asserts her value to the team and solves the biggest puzzle of all."
+      }
+    },
+    {
+      "character_id": "char_shaggy_rogers",
+      "name": "Norville 'Shaggy' Rogers",
+      "aliases": ["Shaggy"],
+      "description": "Scooby-Doo's best friend. He and Scooby are the primary sources of comic relief, driven by insatiable appetites and overwhelming fear.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["cowardly", "loyal", "hungry", "kind", "easygoing", "peaceful"],
+        "behavior_summary": "Shaggy's behavior is dominated by his **fear** and his constant desire for food, which he shares exclusively with Scooby. Despite his fear, his actions are consistently guided by his **unwavering loyalty** to Scooby and a peaceful desire to avoid conflict, though he finds courage when his friends are in real danger.",
+        "motivations": "His main motivations are **survival**, avoiding danger, and satisfying his and Scooby's endless hunger. His deepest motivation is maintaining his unbreakable friendship with Scooby-Doo.",
+        "character_arc": "Shaggy's arc is a simple but meaningful one of choosing **courage** over fear for the sake of his friend. He must temporarily overcome his fear and appetite to save Scooby and help the team, proving that loyalty trumps cowardice."
+      }
+    },
+    {
+      "character_id": "char_scooby_doo",
+      "name": "Scooby-Doo",
+      "aliases": ["Scooby"],
+      "description": "A Great Dane and the mascot of Mystery Inc. He and Shaggy are inseparable and share a love for food and a crippling fear of ghosts.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["cowardly", "loyal", "hungry", "silly", "protective (of Shaggy)"],
+        "behavior_summary": "Scooby's behavior is identical to Shaggy's: high levels of **fear** combined with an insatiable appetite. He is fiercely **loyal** to Shaggy. His actions are often driven by his fear, which paradoxically leads him directly into the center of the mystery, often tripping over clues.",
+        "motivations": "His core motivation is the maintenance of his friendship with Shaggy and the acquisition of 'Scooby Snacks'.",
+        "character_arc": "Scooby's arc parallels Shaggy's, focusing on the power of their friendship to overcome their shared fear, becoming an unlikely hero when it matters most."
+      }
+    }
+  ],
+  "total_found": 5,
+  "cached_at": "2025-11-21T01:27:24"
+}

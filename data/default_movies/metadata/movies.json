@@ -1,37 +1,59 @@
 {
   "movies": [
     {
-      "movie_id": "the_shawshank_redemption",
-      "document_id": "default_movie_shawshank_001",
-      "title": "The Shawshank Redemption",
-      "director": "Frank Darabont",
-      "year": 1994,
-      "cover_image": null,
-      "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+      "movie_id": "inception",
+      "document_id": "default_inception_doc_001",
+      "title": "Inception",
+      "director": "Christopher Nolan",
+      "poster_image": null,
+      "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
       "is_default": true,
-      "genre": "Drama"
+      "genre": "Science Fiction/Action",
+      "release_year": 2010
     },
     {
       "movie_id": "the_godfather",
-      "document_id": "default_movie_godfather_002",
+      "document_id": "default_godfather_doc_002",
       "title": "The Godfather",
       "director": "Francis Ford Coppola",
-      "year": 1972,
-      "cover_image": null,
+      "poster_image": null,
       "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
       "is_default": true,
-      "genre": "Crime"
+      "genre": "Crime/Drama",
+      "release_year": 1972
     },
     {
-      "movie_id": "inception",
-      "document_id": "default_movie_inception_003",
-      "title": "Inception",
-      "director": "Christopher Nolan",
-      "year": 2010,
-      "cover_image": null,
-      "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea.",
+      "movie_id": "scooby_doo_1",
+      "document_id": "default_scooby_doo_doc_003",
+      "title": "Scooby-Doo",
+      "director": "Raja Gosnell",
+      "poster_image": null,
+      "description": "Mystery Inc. is individually invited to a resort on Spooky Island to investigate a series of paranormal incidents.",
       "is_default": true,
-      "genre": "Sci-Fi"
+      "genre": "Mystery/Comedy",
+      "release_year": 2002
+    },
+    {
+      "movie_id": "charlie_and_the_chocolate_factory",
+      "document_id": "default_charlie_doc_004",
+      "title": "Charlie and the Chocolate Factory",
+      "director": "Tim Burton",
+      "poster_image": null,
+      "description": "A young boy wins a tour through the most magnificent chocolate factory in the world, led by the eccentric candy maker Willy Wonka.",
+      "is_default": true,
+      "genre": "Adventure/Fantasy",
+      "release_year": 2005
+    },
+    {
+      "movie_id": "pirates_caribbean_1",
+      "document_id": "default_pirates_doc_005",
+      "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "director": "Gore Verbinski",
+      "poster_image": null,
+      "description": "Blacksmith Will Turner teams up with eccentric pirate Captain Jack Sparrow to save his love, Elizabeth Swann, from a crew of undead pirates.",
+      "is_default": true,
+      "genre": "Fantasy/Action",
+      "release_year": 2003
     }
   ]
 }

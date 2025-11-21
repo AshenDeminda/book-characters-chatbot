@@ -50,40 +50,42 @@ async def chat_with_character(request: ChatRequest, db: Session = Depends(get_db
     Chat with a character from an uploaded book or default book
     Uses RAG to retrieve relevant story context (if available)
     """
-    # Check if this is a default book
-    is_default_book = request.document_id.startswith("default_")
+    # Check if this is a default book/movie
+    is_default = request.document_id.startswith("default_")
     
-    if is_default_book:
+    if is_default:
         # For default books/movies, load character from preloaded data
         from pathlib import Path as PathLib
         
-        # Determine if it's a movie or book based on document_id
-        is_movie = "movie" in request.document_id
-        if is_movie:
-            default_chars_dir = PathLib("data/default_movies/preloaded_characters")
-        else:
-            default_chars_dir = PathLib("data/default_books/preloaded_characters")
+        # Try both movies and books directories
+        default_dirs = [
+            PathLib("data/default_movies/preloaded_characters"),
+            PathLib("data/default_books/preloaded_characters")
+        ]
         
         character = None
-        if default_chars_dir.exists():
-            for char_file in default_chars_dir.glob("*_characters.json"):
-                try:
-                    with open(char_file, 'r', encoding='utf-8') as f:
-                        data = json.load(f)
-                        if data.get("document_id") == request.document_id:
-                            for char in data.get("characters", []):
-                                if char["character_id"] == request.character_id:
-                                    character = char
+        for default_chars_dir in default_dirs:
+            if default_chars_dir.exists():
+                for char_file in default_chars_dir.glob("*_characters.json"):
+                    try:
+                        with open(char_file, 'r', encoding='utf-8') as f:
+                            data = json.load(f)
+                            if data.get("document_id") == request.document_id:
+                                for char in data.get("characters", []):
+                                    if char["character_id"] == request.character_id:
+                                        character = char
+                                        break
+                                if character:
                                     break
-                            if character:
-                                break
-                except Exception:
-                    continue
+                    except Exception:
+                        continue
+            if character:
+                break
         
         if not character:
             raise HTTPException(
                 status_code=404,
-                detail=f"Character {request.character_id} not found in default book"
+                detail=f"Character {request.character_id} not found in default content"
             )
     else:
         # Verify document exists for uploaded books
@@ -202,41 +204,42 @@ async def get_character_greeting(request: GreetingRequest):
     Supports uploaded books, default books, and default movies
     """
     # Check if this is a default book/movie (document_id starts with "default_")
-    is_default_book = request.document_id.startswith("default_")
+    is_default = request.document_id.startswith("default_")
     
-    if is_default_book:
+    if is_default:
         # For default books/movies, load character from preloaded data
         from pathlib import Path as PathLib
         
-        # Determine if it's a movie or book
-        is_movie = "movie" in request.document_id
-        if is_movie:
-            default_chars_dir = PathLib("data/default_movies/preloaded_characters")
-        else:
-            default_chars_dir = PathLib("data/default_books/preloaded_characters")
+        # Try both movies and books directories
+        default_dirs = [
+            PathLib("data/default_movies/preloaded_characters"),
+            PathLib("data/default_books/preloaded_characters")
+        ]
         
-        # Try to find the character file by searching all preloaded files
         character = None
-        if default_chars_dir.exists():
-            for char_file in default_chars_dir.glob("*_characters.json"):
-                try:
-                    with open(char_file, 'r', encoding='utf-8') as f:
-                        data = json.load(f)
-                        if data.get("document_id") == request.document_id:
-                            # Found the right book/movie, now find the character
-                            for char in data.get("characters", []):
-                                if char["character_id"] == request.character_id:
-                                    character = char
+        for default_chars_dir in default_dirs:
+            if default_chars_dir.exists():
+                for char_file in default_chars_dir.glob("*_characters.json"):
+                    try:
+                        with open(char_file, 'r', encoding='utf-8') as f:
+                            data = json.load(f)
+                            if data.get("document_id") == request.document_id:
+                                # Found the right book/movie, now find the character
+                                for char in data.get("characters", []):
+                                    if char["character_id"] == request.character_id:
+                                        character = char
+                                        break
+                                if character:
                                     break
-                            if character:
-                                break
-                except Exception:
-                    continue
+                    except Exception:
+                        continue
+            if character:
+                break
         
         if not character:
             raise HTTPException(
                 status_code=404,
-                detail=f"Character {request.character_id} not found in default book {request.document_id}"
+                detail=f"Character {request.character_id} not found in default content"
             )
     else:
         # For uploaded books, check if chunks file exists
@@ -339,36 +342,38 @@ async def chat_with_character_stream(request: ChatRequest):
         StreamingResponse: SSE stream with text chunks
     """
     # Check if this is a default book/movie
-    is_default_book = request.document_id.startswith("default_")
+    is_default = request.document_id.startswith("default_")
     
-    if is_default_book:
-        # Load character from preloaded JSON files
+    if is_default:
+        # Load character from preloaded JSON files (try both movies and books)
         character = None
+        preloaded_dirs = [
+            Path("data/default_movies/preloaded_characters"),
+            Path("data/default_books/preloaded_characters")
+        ]
         
-        # Determine if it's a movie or book
-        is_movie = "movie" in request.document_id
-        if is_movie:
-            preloaded_dir = Path("data/default_movies/preloaded_characters")
-        else:
-            preloaded_dir = Path("data/default_books/preloaded_characters")
-        
-        if preloaded_dir.exists():
-            for char_file in preloaded_dir.glob("*_characters.json"):
-                with open(char_file, 'r', encoding='utf-8') as f:
-                    characters_data = json.load(f)
-                    if characters_data.get('document_id') == request.document_id:
-                        for char in characters_data['characters']:
-                            if char['character_id'] == request.character_id:
-                                character = char
+        for preloaded_dir in preloaded_dirs:
+            if preloaded_dir.exists():
+                for char_file in preloaded_dir.glob("*_characters.json"):
+                    try:
+                        with open(char_file, 'r', encoding='utf-8') as f:
+                            characters_data = json.load(f)
+                            if characters_data.get('document_id') == request.document_id:
+                                for char in characters_data['characters']:
+                                    if char['character_id'] == request.character_id:
+                                        character = char
+                                        break
+                            if character:
                                 break
-                    if character:
-                        break
+                    except Exception:
+                        continue
+            if character:
+                break
         
         if not character:
-            content_type = "movie" if is_movie else "book"
             raise HTTPException(
                 status_code=404,
-                detail=f"Character {request.character_id} not found in default {content_type} {request.document_id}"
+                detail=f"Character {request.character_id} not found in default content"
             )
     else:
         # Original logic for uploaded documents

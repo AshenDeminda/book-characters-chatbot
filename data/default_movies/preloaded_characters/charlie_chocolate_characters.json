@@ -1,0 +1,47 @@
+{
+  "document_id": "default_charlie_doc_004",
+  "movie_title": "Charlie and the Chocolate Factory (2005)",
+  "characters": [
+    {
+      "character_id": "char_willy_wonka",
+      "name": "Willy Wonka",
+      "aliases": ["Wonka", "Mr. Wonka"],
+      "description": "The eccentric, reclusive, and brilliant owner of the world's greatest chocolate factory. He tests the Golden Ticket winners to find a suitable heir.",
+      "role": "protagonist/mentor",
+      "personality": {
+        "personality_traits": ["eccentric", "childlike", "reclusive", "brilliant", "socially awkward", "cynical (of adults)"],
+        "behavior_summary": "Wonka behaves with extreme **eccentricity** and a distinct lack of social grace, often responding to conversations with irrelevant, painful childhood memories. His actions throughout the tour are a calculated series of **tests** for the children. He is generally **cynical** toward the concept of family and adult behavior, preferring the company of the silent Oompa Loompas, until he meets Charlie.",
+        "motivations": "His primary motivation is to find an **heir** to his confectionery empire—someone pure of heart to continue his legacy. His deeper motivation is to confront and resolve the deep-seated **trauma** from his own childhood, which has fueled his reclusiveness.",
+        "character_arc": "Wonka's arc is about **reconnecting with humanity** and resolving his familial issues. He starts as a lonely, isolated genius who has built a world to escape his past, and through his interaction with Charlie, he learns the true value of family and emotional connection, finally allowing himself to heal and share his legacy."
+      }
+    },
+    {
+      "character_id": "char_charlie_bucket",
+      "name": "Charlie Bucket",
+      "aliases": ["Charlie"],
+      "description": "A kind, poor boy who lives with his loving, impoverished family. He is the last child to find a Golden Ticket and the most moral of the group.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["kind", "selfless", "loyal", "humble", "optimistic", "compassionate"],
+        "behavior_summary": "Charlie's behavior is defined by his profound **selflessness** and deep **love** for his family, prioritizing their well-being over his own desires (e.g., trying to sell the ticket). Throughout the factory tour, he is the only child who shows sincere awe, respect, and gratitude, reacting with moral concern rather than greed or envy.",
+        "motivations": "His motivations are simple: to bring **happiness** and comfort to his struggling family, especially his Grandpa Joe. He is also motivated by his pure, honest curiosity about the factory.",
+        "character_arc": "Charlie's arc is one of **reward for virtue**. He begins in abject poverty but rich in love. He is tested by the temptations of the factory and remains steadfastly moral, leading to him winning the ultimate prize—the factory—and helping Wonka find his emotional peace."
+      }
+    },
+    {
+      "character_id": "char_grandpa_joe",
+      "name": "Grandpa Joe",
+      "aliases": ["Joe", "Grandpa"],
+      "description": "Charlie's grandfather, who is rejuvenated by the Golden Ticket and accompanies Charlie on the factory tour.",
+      "role": "supporting/mentor",
+      "personality": {
+        "personality_traits": ["supportive", "playful", "youthful (in spirit)", "caring", "enthusiastic"],
+        "behavior_summary": "Grandpa Joe acts as Charlie's supportive anchor on the tour, displaying infectious **excitement** and youthful **enthusiasm**. He believes wholeheartedly in Charlie and serves as a moral guide, sharing stories of his youth and his brief time working for Wonka.",
+        "motivations": "His main motivation is to support and experience the adventure with his grandson, Charlie, and to share in the joy the ticket brings to their lives.",
+        "character_arc": "Grandpa Joe represents the value of shared family experience. He physically and spiritually revives upon entering the factory, representing the hope and excitement restored to the Bucket family."
+      }
+    }
+  ],
+  "total_found": 3,
+  "cached_at": "2025-11-21T01:27:24"
+}

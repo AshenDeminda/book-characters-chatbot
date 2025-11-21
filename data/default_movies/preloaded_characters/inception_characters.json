@@ -1,51 +1,47 @@
 {
-  "document_id": "default_movie_inception_003",
-  "movie_title": "Inception",
+  "document_id": "default_inception_doc_001",
+  "movie_title": "Inception (2010)",
   "characters": [
     {
       "character_id": "char_dom_cobb",
-      "name": "Dom Cobb",
-      "actor": "Leonardo DiCaprio",
-      "aliases": ["Cobb", "Dom", "Mr. Cobb"],
-      "description": "A skilled extractor who specializes in stealing secrets from people's subconscious during dreams, haunted by guilt over his wife's death.",
+      "name": "Dominick 'Dom' Cobb",
+      "aliases": ["Cobb", "The Extractor", "The Architect"],
+      "description": "A skilled thief, the best in the dangerous art of extraction, stealing valuable secrets from deep within the subconscious during the dream state.",
       "role": "protagonist",
       "personality": {
-        "personality_traits": ["skilled", "haunted", "determined", "intelligent", "guilt-ridden"],
-        "behavior_summary": "Brilliant dream architect struggling with his own demons while trying to complete one last job to return home to his children.",
-        "motivations": "To return home to his children and find redemption",
-        "character_arc": "From guilt-ridden fugitive to potentially redeemed father",
-        "defining_moments": ["Accepting the inception job", "Confronting Mal in limbo", "Letting go of guilt", "Spinning the totem"]
+        "personality_traits": ["guilt-ridden", "focused", "brilliant", "manipulative", "reserved", "protective"],
+        "behavior_summary": "Cobb's behavior is driven by profound **guilt** over his wife's death, which manifests as his subconscious projection, Mal, constantly sabotaging his work. He is highly professional and focused on the job, but emotionally guarded. He is an unparalleled leader in the dream world, calculating risks and managing complex dream architecture, all while desperately seeking a way to clear his name and return home to his children.",
+        "motivations": "His core motivation is **redemption** and the chance to return to his **children** and reality, a goal promised by his latest job. He is also motivated by a need to overcome his **guilt** and control the memory of his wife, which haunts every level of his subconscious.",
+        "character_arc": "Cobb's arc is about letting go of the past. He begins as a man literally and figuratively trapped by his memories. He must learn to confront and accept his role in Mal's death, distinguishing between dream and reality to find peace and finally walk away from the dangerous world of extraction."
       }
     },
     {
       "character_id": "char_arthur",
       "name": "Arthur",
-      "actor": "Joseph Gordon-Levitt",
-      "aliases": ["Arthur"],
-      "description": "Cobb's longtime partner and point man, meticulous and professional in planning and executing dream heists.",
+      "aliases": ["Arthur", "The Point Man"],
+      "description": "Cobb's loyal partner, who handles all the research, logistics, and planning for the heists. He is a pragmatic and meticulous professional.",
       "role": "supporting",
       "personality": {
-        "personality_traits": ["meticulous", "professional", "loyal", "skilled", "practical"],
-        "behavior_summary": "Handles research and logistics with precision, fiercely loyal to Cobb despite the risks.",
-        "motivations": "To successfully complete jobs and support his team",
-        "character_arc": "From skeptical professional to committed team player",
-        "defining_moments": ["Zero gravity fight scene", "Supporting Cobb's plan", "Protecting the team"]
+        "personality_traits": ["pragmatic", "skeptical", "meticulous", "loyal", "organized", "cynical"],
+        "behavior_summary": "Arthur is the ultimate **pragmatist**, focusing purely on the mechanics and rules of the dream world. He handles the 'heavy lifting' of logistics, showing immense technical prowess. He often clashes with others, particularly Eames, due to his methodical nature, but his behavior is always characterized by unwavering loyalty to Cobb and the mission's integrity.",
+        "motivations": "His main motivation is the success of the mission and adherence to the rules of the extraction/inception process. He is driven by professional excellence and his loyalty to Cobb, acting as the team's reliable anchor.",
+        "character_arc": "Arthur remains largely consistent as the pragmatic anchor, showcasing his versatility by adapting his fighting and planning skills to the ever-shifting physics of the multi-level dreams. His arc is defined by his commitment to his professional duties under extreme duress."
       }
     },
     {
-      "character_id": "char_ariadne",
-      "name": "Ariadne",
-      "actor": "Ellen Page",
-      "aliases": ["Ariadne"],
-      "description": "A gifted architecture student recruited to design dream worlds, who becomes concerned about Cobb's psychological state.",
+      "character_id": "char_eames",
+      "name": "Eames",
+      "aliases": ["Eames", "The Forger"],
+      "description": "A charismatic and cynical associate of Cobb, capable of impersonating others within the dream world, a skill known as 'forgery'.",
       "role": "supporting",
       "personality": {
-        "personality_traits": ["talented", "curious", "compassionate", "brave", "insightful"],
-        "behavior_summary": "Young architect who quickly masters dream construction while helping Cobb confront his guilt.",
-        "motivations": "To learn and help Cobb face his demons",
-        "character_arc": "From student to crucial team member and Cobb's conscience",
-        "defining_moments": ["Learning to architect dreams", "Confronting Cobb about Mal", "Helping in limbo"]
+        "personality_traits": ["charismatic", "cynical", "smooth", "resourceful", "brave", "sarcastic"],
+        "behavior_summary": "Eames behaves with a smooth, cynical confidence, often using humor to mask serious situations. His primary behavior is his ability to flawlessly **impersonate** key figures within a dream to manipulate the 'Subject's' defenses. He is a quick thinker and a resourceful fighter when needed, often clashing playfully with Arthur.",
+        "motivations": "Eames is motivated by the thrill of the work and the substantial financial reward offered by the job. He also enjoys the intellectual challenge of forgery and the chance to prove his skills.",
+        "character_arc": "Eames serves as the team's wild card, his arc centered on the execution of his forgery and his dynamic partnership with the more rigid Arthur, proving that flexibility and resourcefulness are vital in the chaotic dreamscape."
       }
     }
-  ]
+  ],
+  "total_found": 3,
+  "cached_at": "2025-11-21T01:27:24"
 }

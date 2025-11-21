@@ -1,0 +1,60 @@
+{
+  "document_id": "default_pirates_doc_005",
+  "movie_title": "Pirates of the Caribbean: The Curse of the Black Pearl (2003)",
+  "characters": [
+    {
+      "character_id": "char_jack_sparrow",
+      "name": "Captain Jack Sparrow",
+      "aliases": ["Captain Sparrow", "Jack", "Cap'n"],
+      "description": "An eccentric, charismatic, and morally ambiguous pirate captain perpetually on the run, seeking to reclaim his ship, the Black Pearl.",
+      "role": "protagonist/anti-hero",
+      "personality": {
+        "personality_traits": ["eccentric", "cunning", "cowardly (sometimes)", "charming", "manipulative", "survivalist"],
+        "behavior_summary": "Jack's behavior is an elaborate façade of an effeminate, slightly drunken pirate. In reality, he is a brilliant **strategist** whose actions are purely self-serving and driven by **self-preservation**. He frequently uses misdirection and charm to manipulate others into doing his bidding, and while he appears reckless, his actions often follow a hidden, cunning logic.",
+        "motivations": "His main motivation is an all-consuming need for **personal freedom** and ownership of the **Black Pearl**. He is driven by a desire for legendary status and a life free from responsibility, but his actions are fundamentally about survival.",
+        "character_arc": "Jack's arc is largely circular, as he resists any fundamental change. He begins the movie trying to reclaim his ship and ends it having done so, while successfully cheating the hangman's noose. His arc reinforces his identity as the ultimate, uncatchable pirate."
+      }
+    },
+    {
+      "character_id": "char_will_turner",
+      "name": "William 'Will' Turner",
+      "aliases": ["Will", "Mr. Turner", "The Blacksmith"],
+      "description": "A talented, honorable young blacksmith who joins forces with Jack Sparrow to rescue the woman he loves, Elizabeth Swann.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["honorable", "determined", "earnest", "selfless", "protective", "naive"],
+        "behavior_summary": "Will behaves with strict **honor** and **integrity**, contrasting sharply with Jack's ambiguity. His actions are driven by his protective love for Elizabeth and a sense of duty. Though initially naive about the pirate world, he proves to be a talented swordsman and a determined adversary.",
+        "motivations": "His singular motivation is the **rescue** of Elizabeth Swann and his desire to prove his worth as a man worthy of her. He is later driven by the search for the truth about his father.",
+        "character_arc": "Will's arc is the transition from a respectable civilian/apprentice to a resourceful man of action who embraces his pirate heritage. He begins the film opposing the pirate life and ends it having fully entered that world to save the one he loves."
+      }
+    },
+    {
+      "character_id": "char_elizabeth_swann",
+      "name": "Elizabeth Swann",
+      "aliases": ["Elizabeth", "Miss Swann", "The Governor's Daughter"],
+      "description": "The spirited and beautiful daughter of Governor Swann, who harbors a fascination for pirates and is kidnapped by the cursed crew of the Black Pearl.",
+      "role": "protagonist",
+      "personality": {
+        "personality_traits": ["spirited", "brave", "determined", "adventurous", "resourceful", "stubborn"],
+        "behavior_summary": "Elizabeth's behavior is defined by her **spirited independence** and refusal to conform to the rigid expectations of a proper governor's daughter. She is brave, resourceful, and often takes charge of situations, manipulating those around her—pirate or soldier—to achieve her goals.",
+        "motivations": "She is motivated by a desire for **adventure** and personal **freedom**, but her immediate goal is **survival** and escaping her captors. She is also motivated by her deep, evolving love for Will Turner.",
+        "character_arc": "Elizabeth's arc is about embracing her true nature. She starts as a caged bird of high society and ends as a determined, active participant in the chaos of the high seas, having found true love and her own powerful voice."
+      }
+    },
+    {
+      "character_id": "char_hector_barbossa",
+      "name": "Captain Hector Barbossa",
+      "aliases": ["Barbossa", "Captain Barbossa"],
+      "description": "The ruthless first mate of the Black Pearl who mutinies against Jack Sparrow and leads the crew, cursed to be undead until the Aztec gold is repaid.",
+      "role": "antagonist",
+      "personality": {
+        "personality_traits": ["ruthless", "ambitious", "authoritative", "arrogant", "cynical", "clever"],
+        "behavior_summary": "Barbossa behaves with an unwavering, often cruel **authority** over his crew. He is driven by his intense desire to end the curse and enjoy the simple pleasures of life, which he cannot do as an undead man. His actions are marked by an **arrogance** that leads him to underestimate his enemies, particularly Jack Sparrow.",
+        "motivations": "His primary motivation is to **break the curse** placed upon him and his crew by replacing the final piece of Aztec gold, allowing him to feel, taste, and ultimately enjoy life again.",
+        "character_arc": "Barbossa is the thematic counterpart to Jack, representing the ultimate failure of greed. His arc culminates in him regaining his mortality only to immediately lose his life, a direct result of his curse-driven ambition."
+      }
+    }
+  ],
+  "total_found": 4,
+  "cached_at": "2025-11-21T01:27:24"
+}
