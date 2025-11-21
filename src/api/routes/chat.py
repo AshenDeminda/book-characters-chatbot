@@ -519,19 +519,10 @@ async def get_session_history(
     db: Session = Depends(get_db)
 ):
     """
-    Load conversation history for a character (default books only for now)
+    Load conversation history for a character
+    Works for all books (default and uploaded)
     Returns empty array if no history exists
     """
-    # Only for default books for now
-    if not document_id.startswith("default_"):
-        return {
-            "status": "success",
-            "document_id": document_id,
-            "character_id": character_id,
-            "conversation_history": [],
-            "message": "Session persistence only available for default books"
-        }
-    
     try:
         history = ChatSessionService.get_conversation_history(
             db, document_id, character_id
@@ -561,15 +552,9 @@ async def save_chat_message(
     db: Session = Depends(get_db)
 ):
     """
-    Save a message exchange to conversation history (default books only for now)
+    Save a message exchange to conversation history
+    Works for all books (default and uploaded)
     """
-    # Only for default books for now
-    if not document_id.startswith("default_"):
-        return {
-            "status": "skipped",
-            "message": "Session persistence only available for default books"
-        }
-    
     try:
         session = ChatSessionService.save_message(
             db=db,
