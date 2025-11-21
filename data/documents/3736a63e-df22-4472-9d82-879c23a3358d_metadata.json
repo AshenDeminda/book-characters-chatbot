@@ -1,0 +1,13 @@
+{
+  "document_id": "3736a63e-df22-4472-9d82-879c23a3358d",
+  "filename": "Black Beauty.pdf",
+  "file_size": 811050,
+  "status": "ready",
+  "progress": 100,
+  "message": "Document ready for character extraction and chat!",
+  "page_count": 161,
+  "chunk_count": 585,
+  "created_at": "2025-11-19T10:23:58.935426",
+  "updated_at": "2025-11-19T10:25:04.851507",
+  "error_message": null
+}
